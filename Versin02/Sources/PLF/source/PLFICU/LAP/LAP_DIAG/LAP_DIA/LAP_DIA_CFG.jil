@@ -1,0 +1,914 @@
+//******************************************************************************
+// Company:      JYD
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      BCM313
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    <Comments about the component (role, algorithm, structure, 
+//               limitations, defined tasks and events...)>
+// -----------------------------------------------------------------------------
+//******************************************************************************
+//2017年12月23日 09:46:53
+//zjb，3519
+////DID重命名，以便于让DID更加体现其物理意义
+//FuelCal-->FuelRValWrite
+//FuelDisplayVal-->FuelRValRead
+//2018年1月24日 15:37:34
+//zjb
+//添加Wifi等功能组件标定功能FuncCal
+//2018年5月22日 18:35:32，
+//zjb
+//新加标定屏幕DID，实现屏幕标定功能
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_LAP_DIAp_JIL
+#define I_LAP_DIAp_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+
+// if you are using JIL.EXE keep the first part of this #ifndef
+// if you are using SCC2.EXE keep the second part of this #ifndef
+
+
+DiaManager
+{
+    ACCESSIBILITY_UNDER_VEHICLE_PROTECTION = TRUE;
+    //Don't forget to set macro definition for boot jump checking
+    //conditions and specific command into LAP_DIAp.h!
+    BOOTLOADER_IS_SUPPORTED = TRUE;
+    P2PCanMessage = TX_CAN1_DiagP2P_0x18DAE7F9_Proxy_0x900;
+    LngBufferRequestP2P   = 255;//64;
+    LngBufferResponse     = 255;//64;
+    BroadCast_Request
+    {
+      ALLCanMessage = TX_CAN1_DiagP2A_0x18DBFFF9_Proxy_0x800;
+      LngBufferRequestALL   = 7;
+    };
+    //Timeout of transmission of a diag request, must be within the P2 timout value
+    //P2 = 50ms for VW
+    P2ResponseTimeoutInMs    = 50;
+// List of services supported by SCC2 - KWP:
+//  o  StartDiagnosticSession
+//  o  EcuReset
+//  o  ClearDiagnosticInformation
+//  o  ReadStatusOfDTC
+//  o  ReadDataByLocalIdentifier
+//  o  ReadDataByCommonIdentifier
+//  o  ReadMemoryByAddress
+//  o  SecurityAccess --> Should be used for PSA with bootloader only!
+//  o  InputOutputControlByLocalIdentifier
+//  o  StartRoutineByLocalIdentifier
+//  o  StopRoutineByLocalIdentifier
+//  o  RequestDownLoad
+//  o  RequestUpLoad
+//  o  WriteDataByLocalIdentifier
+//  o  WriteMemoryByAddress
+//  o  TesterPresent
+//  o  ControlDTCSetting
+
+// List of services supported by SCC2 - UDS:
+//  o  DiagnosticSessionControl
+//  o  EcuReset
+//  o  SecurityAccess
+//  o  TesterPresent
+//  o  ControlDTCSetting
+//  o  ReadDataByIdentifier
+//  o  ReadMemoryByAddress
+//  o  WriteDataByIdentifier
+//  o  WriteMemoryByAddress
+//  o  ClearDiagnosticInformation
+//  o  ReadDTCInformation
+//  o  InputOutputControlByIdentifier
+//  o  RoutineControl
+//  o  RequestDownLoad
+//  o  RequestUpLoad
+//  o  TransferData
+//  o  RequestTransferExit
+
+    DiaSession Default
+    {
+        Id = 0x01;
+        Description = "Default session";
+
+        Service = DiagnosticSessionControl;
+        Service = EcuReset;
+        Service = TesterPresent;
+        Service = ReadDataByIdentifier;
+        Service = ReadMemoryByAddress;
+        Service = ClearDiagnosticInformation;
+        Service = ReadDTCInformation;
+    };
+
+    //注意：因为要编程会话是要进入到Bootloader中运行的，所以，这里
+    //只要规定下，在进入Bootlaoder以前要支持的服务即可，其它的不做
+    //具体要求。因为要求了也无法实现。
+    DiaSession PRGS
+    {
+        Id = 0x02;
+        Description = "Programming session";
+        Service = DiagnosticSessionControl;
+        Service = EcuReset;
+        Service = SecurityAccess;
+        Service = TesterPresent;
+        Service = ReadDataByIdentifier;
+        Service = WriteDataByIdentifier;
+        Service = RoutineControl;
+        Service = RequestDownLoad;
+        //Service = RequestUpLoad;
+        Service = TransferData;
+        Service = RequestTransferExit;
+    };
+
+    DiaSession EXTDS
+    {
+        Id = 0x03;
+        Description = "Extended diagnostic session";
+        Service = DiagnosticSessionControl;
+        Service = EcuReset;
+        Service = SecurityAccess;
+        NewService
+        {
+            Name = "CommunicationControl";
+            Prefix = "Dia";
+            Id = 0x28;
+        };
+        Service = TesterPresent;
+        Service = ControlDTCSetting;
+        Service = ReadDataByIdentifier;
+        Service = ReadMemoryByAddress;
+        Service = WriteDataByIdentifier;
+        Service = WriteMemoryByAddress;
+        Service = ClearDiagnosticInformation;
+        Service = ReadDTCInformation;
+        Service = InputOutputControlByIdentifier;
+        Service = RoutineControl; //Boot will need this service
+    };
+
+    DiaSession JCI
+    {
+        Id = 0x60;
+        Description = "System supplier specific";
+        Service = ControlDTCSetting;
+        Service = ReadDTCInformation;
+        Service = DiagnosticSessionControl;
+        Service = EcuReset;
+        Service = SecurityAccess;
+        NewService
+        {
+            Name = "CommunicationControl";
+            Prefix = "Dia";
+            Id = 0x28;
+        };
+        Service = TesterPresent;
+        Service = ReadDataByIdentifier;
+        Service = WriteDataByIdentifier;
+        Service = ClearDiagnosticInformation;
+        Service = InputOutputControlByIdentifier;
+        Service = RoutineControl;
+    };
+    
+    //note:the WriteLength including DID itself lengths(2) 
+    //and ServiceID's length(1) and the DID content length
+    //so WriteLegth = 1+2+(DID content's length)
+
+    /**********************************************/
+    /*************client diagnostic****************/
+    /**********************************************/
+
+    DID ECUPartNumber  
+    {
+        Id = 0xF187;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength  = 8;
+    };
+
+    //have the same meaning with 5.3.9 Assembly plant number (F1 8A hex) in product diagnostics.
+    DID SystemSupplierID  
+    {
+        Id = 0xF18A;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 8;
+    };
+
+    //have the same meaning with Assembly manufacturing date (F1 8B hex) in product session.
+    DID ECUManufacturingDate 
+    {
+        Id = 0xF18B;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 9;
+    };
+    
+    DID ECUSerialNumber  
+    {
+        Id =  0xF18C;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 19;
+    };
+
+    DID VIN //5.8.5.1 VINDataIdentifier
+    {
+        Id = 0xF190;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 20;
+    };
+
+    //Note: in product session, the length is 8, however in customer session, the lenght is 7
+    //so ,the code have to tell the session ID when processing.
+    DID ECUHWVersion  
+    {
+        Id = 0xF193;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 11;
+    };
+
+    DID AppVer  
+    {
+        Id = 0xF189;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+    
+    DID AppSoftFingerPrint
+    {
+        Id = 0xF184;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 16;
+    };
+    
+    DID AppDataFingerPint
+    {
+        Id = 0xF185;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 16;
+    };
+
+    DID CalSWVer
+    {
+        Id = 0xF1A0;
+        Read = PRGS;
+        Read = Default;
+        Read = EXTDS;
+    };
+    
+    DID CalDataVer
+	{
+		Id = 0xF1A1;
+		Read = PRGS;
+		Read = Default;
+		Read = EXTDS;
+	};
+	
+     DID PrdtModel
+    {
+        Id = 0xF1A2;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 19;
+    };
+    
+    
+     DID LoderSWVer
+    {
+        Id = 0xF191;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+    
+    DID BCMChnCfgRamAddr
+    {
+        Id = 0xF192;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+    
+    /*******************************************/
+    /*************Plant diagnostic**************/
+    /*******************************************/
+    
+    /*********DIDs in 0XFE81-0XFE9C are used for product diagnostics*************/
+   
+    DID AllDigitalInput //All digital inputs
+    {
+        Id = 0xFD43;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+
+    DID MsgTmOutSleepDelay 
+    {
+        Id = 0xFD08;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 5;
+    };
+    
+    DID DID_OUTStartDiagDelayTime
+    {
+        Id = 0xFD09;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 43;
+    };
+    
+    DID DID_OUTCloseDiagDelayTime
+	{
+		Id = 0xFD0A;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 43;
+	};
+    
+    DID DID_OUTFaultConfirmTime
+	{
+		Id = 0xFD0B;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 43;
+	};
+
+    DID DID_OUTOverloadCurrent
+	{
+		Id = 0xFD0C;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 43;
+	};
+    
+    DID DID_OUTOpenCurrent
+	{
+		Id = 0xFD0D;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 43;
+	};
+    
+    //电池电压，只读
+    DID DID_BatVoltage
+    {
+        Id = 0xFD02;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+
+    // 电池电压2，只读
+    DID DID_Bat2Voltage
+    {
+        Id = 0xFD03;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+    };
+    
+    // 电池电压3，只读
+	DID DID_Bat3Voltage
+	{
+		Id = 0xFD04;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 输出状态
+	DID DID_PwrOUTState
+	{
+		Id = 0xFD10;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 输出诊断状态
+	DID DID_PwrOUTDiagState
+	{
+		Id = 0xFD11;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+
+    //EEP版本
+    DID DID_EEPVer
+    {
+        Id = 0xFD07;
+        Read = Default;
+        Read = EXTDS;
+        Read = PRGS;
+        Write = EXTDS;
+        Write = PRGS;
+        WriteLength = 5;
+    };
+
+    
+    // 数字开关状态
+	DID DID_DigitalSwSta
+	{
+		Id = 0xFD0F;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 数字开关状态
+	DID DID_AnalogInputVal
+	{
+		Id = 0xFD0E;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 系统运行时间
+	DID DID_SysRunTime
+	{
+		Id = 0xFD12;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 功率输出电流反馈
+	DID DID_PoutCurrentFeedBack
+	{
+		Id = 0xFD14;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	// 功率输出电压反馈
+	DID DID_PoutVoltageFeedback
+	{
+		Id = 0xFD15;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	DID AllDIInput 
+	{
+    Id = 0xFD1D;
+    Read = Default;
+    Read = EXTDS;
+    Read = PRGS;
+	};
+
+	DID AllButtonInput 
+	{
+    Id = 0xFD1E;
+    Read = Default;
+    Read = EXTDS;
+    Read = PRGS;
+	};
+
+	DID AllADCInput 
+	{
+	    Id = 0xFD51;
+	    Read = Default;
+	    Read = EXTDS;
+	    Read = PRGS;
+	};
+	
+	DID AllOhmInput 
+	{
+	    Id = 0xFD52;
+	    Read = Default;
+	    Read = EXTDS;
+	    Read = PRGS;
+	};
+
+	DID AllTemperInput 
+	{
+	    Id = 0xFD53;
+	    Read = Default;
+	    Read = EXTDS;
+	    Read = PRGS;
+	};
+
+	DID AllDO1output 
+	{
+		Id = 0xFD54;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO2output 
+	{
+		Id = 0xFD55;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO3output 
+	{
+		Id = 0xFD56;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO4output 
+	{
+		Id = 0xFD57;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO5output 
+	{
+		Id = 0xFD58;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO6output 
+	{
+		Id = 0xFD59;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+
+	DID AllDO7output 
+	{
+		Id = 0xFD5A;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};	
+
+	DID AllDO8output 
+	{
+		Id = 0xFD5B;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};	
+	
+	DID AllDO9output 
+	{
+		Id = 0xFD5C;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO10output 
+	{
+		Id = 0xFD5D;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO11output 
+	{
+		Id = 0xFD5E;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDO12output 
+	{
+		Id = 0xFD60;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDOF1output 
+	{
+		Id = 0xFD61;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;		
+	};
+	
+	DID AllDOF2output 
+	{
+		Id = 0xFD62;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllLED1output 
+	{
+		Id = 0xFD63;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllLED2output 
+	{
+		Id = 0xFD64;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllLED3output 
+	{
+		Id = 0xFD65;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllLED4output 
+	{
+		Id = 0xFD66;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllLED5output 
+	{
+		Id = 0xFD67;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	DID AllBATInput 
+	{
+		Id = 0xFD68;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+	};
+	
+	DID DID_TestEnable
+	{
+		Id = 0xFD69;
+		Read = Default;
+		Read = EXTDS;
+		Read = PRGS;
+		Write = EXTDS;
+		Write = PRGS;
+		WriteLength = 4;
+	};
+	
+	
+    // ================== [ SW RESERVED START ] ==========================
+    DID SWTestDataGroup
+    {    
+        Id = 0xFEFF;
+        Read = JCI;
+        Write = JCI;
+        WriteLength = 0; // dynamic length
+    };
+    // ================== [ SW RESERVED END ] ==========================
+    
+    /**********************************************/
+    /*************client diagnostic****************/
+    /**********************************************/
+    
+    DID TestMode_IOCtrl
+	{
+    	Id = 0xFE01;
+    	Read = Default;
+    	Read = EXTDS;
+    	IOControl = EXTDS;
+    	
+    	IOControlLength = 5;
+	};
+	
+	DID DID_Pout_IOCtrl
+    {
+        Id = 0xFE02;
+        IOControl = EXTDS;
+        //note the length includes the service ID(1 byte) and DID(2 byte) and controlOptionRecored(1+data)
+        //
+        //so the total number is :1+2+1+6=10
+        IOControlLength = 10;
+    };
+};  
+    
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component LAP_DIAp 
+{
+
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    GraphGroup GraphGroupName                // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//..
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+};
+
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_LAP_DIAp_JIL */
+
+

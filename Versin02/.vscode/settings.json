@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "dat_bsdc.h": "c",
+        "arch_cfg.h": "c",
+        "dat_bsdc_include.h": "c",
+        "dat_can_funcexport.h": "c",
+        "dat_cnm.h": "c",
+        "type_traits": "c",
+        "cloudcode.beta.forceOobLogin": true
+    }
+}

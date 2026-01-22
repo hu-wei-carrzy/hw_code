@@ -1,0 +1,3000 @@
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_RSA_MONO_BUS_SLAVE_JIL
+#define I_RSA_MONO_BUS_SLAVE_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component LAP_CAN_RSA_Mono_Bus_Slave
+{
+
+    CANBus Can0
+    { 
+      BaudRate = 250000;
+      Format = Intel;
+    };
+    
+
+    CANBus Can1
+    { 
+      BaudRate = 250000;
+      Format = Intel;
+    };
+    
+
+    CANBus Can2
+    { 
+      BaudRate = 250000;
+      Format = Intel;
+    };
+    
+
+
+    CANNode LogicCAN0
+    {
+        Bus = Can0;
+        Supervision = Unused;  
+    };
+
+
+    CANNode LogicCAN1
+    {
+        Bus = Can1;
+        Supervision = Unused;  
+    };
+
+
+    CANNode LogicCAN2
+    {
+        Bus = Can2;
+        Supervision = Unused;  
+    };
+
+
+    CANNode ECUSelfCan0
+    {
+        Bus = Can0;
+        Supervision = Unused;  
+    };
+
+
+    CANNode ECUSelfCan1
+    {
+        Bus = Can1;
+        Supervision = Unused;  
+    };
+
+
+    CANNode ECUSelfCan2
+    {
+        Bus = Can2;
+        Supervision = Unused;  
+    };
+
+
+
+
+/*******************************************
+//设置发送消息默认值
+//不要删除，这部分设置要参与编译的
+//不要在下面这个结构体中添加任何注释，会
+//影响编译结果
+ 
+TXMsgDefaultValues
+{
+    TX_CAN2_NotUsed2_0xFFFFAABB_Proxy_0x106 = 0XFF;
+    TX_CAN2_NotUsed1_0xFFFFAABB_Proxy_0x107 = 0XFF;
+
+};
+
+
+//设置诊断发送报文ID
+DiagTxMsgID =
+{
+    DiagMsgP2P = 0x18DAF9E7;    
+    DiagMsgP2A = 0x18DAF9E7;
+};
+
+*******************************************/
+    
+    
+    
+    
+    // *******************************************
+    // ---------- Diagnostic messge --------------
+    // ---------- P2P and broadcast --------------
+    // *******************************************
+
+    CANUSDTMessage TX_CAN1_DiagP2P_0x18DAE7F9_Proxy_0x900
+    {
+        //SysRs_11_CustomerDiagnosis_28
+        //The functional request CAN identifier shall be used for CAN network is 7DFh.     
+        //0x0CDB8888
+        MasterIdentifier = 0x900;
+        SlaveIdentifier = 0x901;
+        MaxLength = 255;//64;//This will be checked by CAN Diag Spec later
+        MasterNode = LogicCAN1;
+        SlaveNode = ECUSelfCan1;
+    };       
+    
+    CANUSDTMessage TX_CAN1_DiagP2A_0x18DBFFF9_Proxy_0x800
+    {
+        //0x0CDA6666
+        MasterIdentifier = 0x800;
+        SlaveIdentifier = 0x801;
+        MaxLength = 255;//64;//This will be checked by CAN Diag Spec later
+        MasterNode = LogicCAN1;
+        SlaveNode = ECUSelfCan1;
+    };
+
+
+    /////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////
+    //发送消息
+    CANUUDTMessage UUDT_TX_CAN1_IouTxCmd_0x100_Proxy_0x100
+    {
+        Message = TX_CAN1_IouTxCmd_0x100_Proxy_0x100;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x100;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_IouTxCmd_0x100_Proxy_0x100
+    {
+        Length  = 8;
+        Data = Sig_OpenSigSta;
+        Data = Sig_CloseSigSta;
+        Data = Sig_OutButtonSigSta;
+        Data = Sig_StudyState;
+        Data = Sig_DoorSta;
+        Data = Sig_PinchSta;
+        Data = Sig_StudySigSta;
+        Data = Sig_EmergencySta;
+        Data = Sig_SysBatSta;
+        Data = Sig_StudySta;
+        Data = Sig_TroubleCode;
+        Data = Sig_OpenCause;
+        Data = Sig_CloseCause;
+        Data = Sig_OpenEndSwithSta;
+        Data = Sig_CloseEndSwithSta;
+        Data = Sig_OnPowerSta;
+        Data = Sig_PinchSigSta;
+        Data = Sig_PosSta;
+        Data = Sig_GradeNo;
+    };
+
+    
+    Data Sig_OpenSigSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_CloseSigSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_OutButtonSigSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 5;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_StudyState
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_DoorSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_PinchSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_StudySigSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_EmergencySta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_SysBatSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_StudySta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_TroubleCode
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_OpenCause
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_CloseCause
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_OpenEndSwithSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_CloseEndSwithSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_OnPowerSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 5;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_PinchSigSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    
+    Data Sig_PosSta
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data Sig_GradeNo
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN1_FLDCM_1_0x38E_Proxy_0x101
+    {
+        Message = TX_CAN1_FLDCM_1_0x38E_Proxy_0x101;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x101;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_FLDCM_1_0x38E_Proxy_0x101
+    {
+        Length  = 8;
+        Data = FLDCM_1_CRC1;
+        Data = FLDCM_1_RollgCntr1;
+        Data = FLDCM_1_Resd1;
+        Data = Resversal0;
+        Data = Resversal1;
+        Data = Resversal2;
+        Data = FL_LatchMotionStatus;
+        Data = Resversal3;
+        Data = FL_ResetSwitch;
+        Data = FL_DoorCloseStatus;
+        Data = Resversal4;
+        Data = FL_MotorFaultStatus;
+        Data = FL_AntipinchEvent;
+        Data = FL_PSDModeControlFb;
+        Data = FL_Reminder;
+        Data = Resversal5;
+        Data = FL_ModeControlFb;
+        Data = Resversal6;
+        Data = FL_Inhibition;
+        Data = FL_ReleaseLatch;
+        Data = FL_Warning;
+    };
+
+    
+    Data FLDCM_1_CRC1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data FLDCM_1_RollgCntr1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data FLDCM_1_Resd1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Resversal0
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Resversal1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Resversal2
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 2;
+        BitSize      = 3;
+    };
+
+    
+    Data FL_LatchMotionStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 5;
+        BitSize      = 3;
+    };
+
+    
+    Data Resversal3
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 6;
+        BitSize      = 1;
+    };
+
+    
+    Data FL_ResetSwitch
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data FL_DoorCloseStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Resversal4
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 2;
+        BitSize      = 1;
+    };
+
+    
+    Data FL_MotorFaultStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 6;
+        BitSize      = 4;
+    };
+
+    
+    Data FL_AntipinchEvent
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data FL_PSDModeControlFb
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data FL_Reminder
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    
+    Data Resversal5
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 5;
+        BitSize      = 2;
+    };
+
+    
+    Data FL_ModeControlFb
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    
+    Data Resversal6
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data FL_Inhibition
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 5;
+        BitSize      = 4;
+    };
+
+    
+    Data FL_ReleaseLatch
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 6;
+        BitSize      = 1;
+    };
+
+    
+    Data FL_Warning
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN1_IouTxCmd1_0x18FF1711_Proxy_0x102
+    {
+        Message = TX_CAN1_IouTxCmd1_0x18FF1711_Proxy_0x102;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x102;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_IouTxCmd1_0x18FF1711_Proxy_0x102
+    {
+        Length  = 8;
+        Data = Sig_FrontAnglePosRealL;
+        Data = Sig_FrontAnglePosRealH;
+        Data = Sig_BackAnglePosRealL;
+        Data = Sig_BackAnglePosRealH;
+        Data = Sig_FrontGradeRunTimeL;
+        Data = Sig_FrontGradeRunTimeH;
+        Data = Sig_BackGradeRunTimeL;
+        Data = Sig_BackGradeRunTimeH;
+    };
+
+    
+    Data Sig_FrontAnglePosRealL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontAnglePosRealH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackAnglePosRealL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackAnglePosRealH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontGradeRunTimeL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontGradeRunTimeH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackGradeRunTimeL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackGradeRunTimeH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN1_IouTxCmd2_0x120_Proxy_0x103
+    {
+        Message = TX_CAN1_IouTxCmd2_0x120_Proxy_0x103;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x103;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_IouTxCmd2_0x120_Proxy_0x103
+    {
+        Length  = 8;
+        Data = Sig_NTCTemperL;
+        Data = Sig_NTCTemperH;
+        Data = Sig_TroubleContentL;
+        Data = Sig_TroubleContentH;
+        Data = Sig_FrontStudydistanceL;
+        Data = Sig_FrontStudydistanceH;
+        Data = Sig_BackStudydistanceL;
+        Data = Sig_BackStudydistanceH;
+    };
+
+    
+    Data Sig_NTCTemperL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_NTCTemperH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_TroubleContentL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_TroubleContentH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontStudydistanceL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontStudydistanceH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudydistanceL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudydistanceH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN1_IouTxCmd3_0x130_Proxy_0x104
+    {
+        Message = TX_CAN1_IouTxCmd3_0x130_Proxy_0x104;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x104;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_IouTxCmd3_0x130_Proxy_0x104
+    {
+        Length  = 8;
+        Data = Sig_FrontStudyOpenVolL;
+        Data = Sig_FrontStudyOpenVolH;
+        Data = Sig_FrontStudyCloseVolL;
+        Data = Sig_FrontStudyCloseVolH;
+        Data = Sig_BackStudyOpenVolL;
+        Data = Sig_BackStudyOpenVolH;
+        Data = Sig_BackStudyCloseVolL;
+        Data = Sig_BackStudyCloseVolH;
+    };
+
+    
+    Data Sig_FrontStudyOpenVolL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontStudyOpenVolH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontStudyCloseVolL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontStudyCloseVolH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudyOpenVolL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudyOpenVolH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudyCloseVolL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackStudyCloseVolH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN1_IouTxCmd4_0x140_Proxy_0x105
+    {
+        Message = TX_CAN1_IouTxCmd4_0x140_Proxy_0x105;
+        PeriodMs = 100;
+        PhaseMs = 0;
+        Identifier = 0x105;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan1;
+        RxNode = LogicCAN1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN1_IouTxCmd4_0x140_Proxy_0x105
+    {
+        Length  = 8;
+        Data = Sig_FrontPinchSafeValueL;
+        Data = Sig_FrontPinchSafeValueH;
+        Data = Sig_BackPinchSafeValueL;
+        Data = Sig_BackPinchSafeValueH;
+    };
+
+    
+    Data Sig_FrontPinchSafeValueL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_FrontPinchSafeValueH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackPinchSafeValueL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_BackPinchSafeValueH
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN2_NotUsed2_0xFFFFAABB_Proxy_0x106
+    {
+        Message = TX_CAN2_NotUsed2_0xFFFFAABB_Proxy_0x106;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x106;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan2;
+        RxNode = LogicCAN2;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN2_NotUsed2_0xFFFFAABB_Proxy_0x106
+    {
+        Length  = 8;
+        Data = Sig_ICU_OUT1;
+    };
+
+    
+    Data Sig_ICU_OUT1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_TX_CAN2_NotUsed1_0xFFFFAABB_Proxy_0x107
+    {
+        Message = TX_CAN2_NotUsed1_0xFFFFAABB_Proxy_0x107;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x107;
+        MinLength = 8;
+        TimeoutMs = 150;
+        TxNode = ECUSelfCan2;
+        RxNode = LogicCAN2;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message TX_CAN2_NotUsed1_0xFFFFAABB_Proxy_0x107
+    {
+        Length  = 8;
+        Data = Sig_ICU_OUT2;
+    };
+
+    
+    Data Sig_ICU_OUT2
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+
+    CANUUDTMessage UUDT_RX_CAN1_ICUCMD_0x150_Proxy_0x108
+    {
+        Message = RX_CAN1_ICUCMD_0x150_Proxy_0x108;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x108;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_ICUCMD_0x150_Proxy_0x108
+    {
+        Length  = 8;
+        Data = Sig_CMD;
+        Data = Sig_Duty;
+    };
+
+    
+    Data Sig_CMD
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_Duty
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_ICUCMD1_0x160_Proxy_0x109
+    {
+        Message = RX_CAN1_ICUCMD1_0x160_Proxy_0x109;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x109;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_ICUCMD1_0x160_Proxy_0x109
+    {
+        Length  = 8;
+        Data = Sig_CMD1;
+        Data = Sig_Duty1;
+    };
+
+    
+    Data Sig_CMD1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Sig_Duty1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_BCM_4_0x392_Proxy_0x10A
+    {
+        Message = RX_CAN1_BCM_4_0x392_Proxy_0x10A;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10A;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_BCM_4_0x392_Proxy_0x10A
+    {
+        Length  = 8;
+        Data = BCM_4_ArmingSts;
+        Data = Resveral0;
+        Data = BCM_4_KeySts;
+        Data = Resveral1;
+        Data = Resveral2;
+        Data = Resveral3;
+        Data = RVSMode;
+        Data = Resveral4;
+        Data = Resveral5;
+        Data = BCM_4_DriverDoorLockSts;
+        Data = DrvrSidePLGSwt;
+        Data = Resveral6;
+        Data = RKE_TrunkSts;
+    };
+
+    
+    Data BCM_4_ArmingSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Resveral0
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 4;
+        BitSize      = 3;
+    };
+
+    
+    Data BCM_4_KeySts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 6;
+        BitSize      = 2;
+    };
+
+    
+    Data Resveral1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data Resveral2
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data Resveral3
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 2;
+        BitSize      = 3;
+    };
+
+    
+    Data RVSMode
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 3;
+        BitSize      = 1;
+    };
+
+    
+    Data Resveral4
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data Resveral5
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data BCM_4_DriverDoorLockSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data DrvrSidePLGSwt
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Resveral6
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 5;
+        BitSize      = 4;
+    };
+
+    
+    Data RKE_TrunkSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLDCM_1_0x3AE_Proxy_0x10B
+    {
+        Message = RX_CAN1_RLDCM_1_0x3AE_Proxy_0x10B;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10B;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLDCM_1_0x3AE_Proxy_0x10B
+    {
+        Length  = 8;
+        Data = RLDCM_1_CRC1;
+        Data = RLDCM_1_RollgCntr1;
+        Data = RLDCM_1_Resd1;
+        Data = RL_LearnedStatus;
+        Data = RL_CurrentOpenPosition;
+        Data = RL_SetOpenAngleFb;
+        Data = Resveral7;
+        Data = RL_SystemMotionStatus;
+        Data = RL_LatchMotionStatus;
+        Data = Resveral8;
+        Data = RL_ResetSwitch;
+        Data = RL_DoorCloseStatus;
+        Data = Resveral9;
+        Data = RL_MotorFaultStatus;
+        Data = RL_AntipinchEvent;
+        Data = RL_PSDModeControlFb;
+        Data = RL_Reminder;
+        Data = RL_RadarDetectRequirement;
+        Data = RL_ADASDetectRequirement;
+        Data = Resveral10;
+        Data = RL_ClutchStatus;
+        Data = RL_Inhibition;
+        Data = RL_ReleaseLatch;
+        Data = RL_Warning;
+    };
+
+    
+    Data RLDCM_1_CRC1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDCM_1_RollgCntr1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_1_Resd1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data RL_LearnedStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 0;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_CurrentOpenPosition
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 7;
+    };
+
+    
+    Data RL_SetOpenAngleFb
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data Resveral7
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_SystemMotionStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 2;
+        BitSize      = 3;
+    };
+
+    
+    Data RL_LatchMotionStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 5;
+        BitSize      = 3;
+    };
+
+    
+    Data Resveral8
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 6;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_ResetSwitch
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_DoorCloseStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data Resveral9
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 2;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_MotorFaultStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 6;
+        BitSize      = 4;
+    };
+
+    
+    Data RL_AntipinchEvent
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_PSDModeControlFb
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data RL_Reminder
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    
+    Data RL_RadarDetectRequirement
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 4;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_ADASDetectRequirement
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 5;
+        BitSize      = 1;
+    };
+
+    
+    Data Resveral10
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 0;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_ClutchStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 1;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_Inhibition
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 5;
+        BitSize      = 4;
+    };
+
+    
+    Data RL_ReleaseLatch
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 6;
+        BitSize      = 1;
+    };
+
+    
+    Data RL_Warning
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RCM_1_0x2D1_Proxy_0x10C
+    {
+        Message = RX_CAN1_RCM_1_0x2D1_Proxy_0x10C;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10C;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RCM_1_0x2D1_Proxy_0x10C
+    {
+        Length  = 8;
+        Data = RCM_1_LRadarVoltageStatus;
+        Data = RCM_1_VoltageStatus;
+    };
+
+    
+    Data RCM_1_LRadarVoltageStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 5;
+        BitSize      = 2;
+    };
+
+    
+    Data RCM_1_VoltageStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_FRZCU_1_0x2AB_Proxy_0x10D
+    {
+        Message = RX_CAN1_FRZCU_1_0x2AB_Proxy_0x10D;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10D;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_FRZCU_1_0x2AB_Proxy_0x10D
+    {
+        Length  = 8;
+        Data = FRWinPosn;
+        Data = RRWinPosn;
+    };
+
+    
+    Data FRWinPosn
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RRWinPosn
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_FLZCU_9_0x49D_Proxy_0x10E
+    {
+        Message = RX_CAN1_FLZCU_9_0x49D_Proxy_0x10E;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10E;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_FLZCU_9_0x49D_Proxy_0x10E
+    {
+        Length  = 8;
+        Data = FLZCU_9_PowerMode;
+        Data = FLZCU_9_ArmingSts;
+    };
+
+    
+    Data FLZCU_9_PowerMode
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 2;
+        BitSize      = 2;
+    };
+
+    
+    Data FLZCU_9_ArmingSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 2;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_FLZCU_5_0x35B_Proxy_0x10F
+    {
+        Message = RX_CAN1_FLZCU_5_0x35B_Proxy_0x10F;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x10F;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_FLZCU_5_0x35B_Proxy_0x10F
+    {
+        Length  = 8;
+        Data = HandleSwitchStsRL;
+    };
+
+    
+    Data HandleSwitchStsRL
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 6;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_FLZCU_1_0x23B_Proxy_0x110
+    {
+        Message = RX_CAN1_FLZCU_1_0x23B_Proxy_0x110;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x110;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_FLZCU_1_0x23B_Proxy_0x110
+    {
+        Length  = 8;
+        Data = FLWinPosn;
+        Data = FL_CentralLockSwitch;
+    };
+
+    
+    Data FLWinPosn
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 7;
+    };
+
+    
+    Data FL_CentralLockSwitch
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 3;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_TMS_1_0x494_Proxy_0x111
+    {
+        Message = RX_CAN1_TMS_1_0x494_Proxy_0x111;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x111;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_TMS_1_0x494_Proxy_0x111
+    {
+        Length  = 8;
+        Data = ExternalTemperature_C;
+        Data = ExternalTemperatureFailSts;
+        Data = BlowSpeedLevelDisplaySts;
+        Data = CirculationModeDisplaySts;
+    };
+
+    
+    Data ExternalTemperature_C
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data ExternalTemperatureFailSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 1;
+        BitSize      = 1;
+    };
+
+    
+    Data BlowSpeedLevelDisplaySts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 4;
+        BitSize      = 4;
+    };
+
+    
+    Data CirculationModeDisplaySts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 5;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RCM_3_0x2DB_Proxy_0x112
+    {
+        Message = RX_CAN1_RCM_3_0x2DB_Proxy_0x112;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x112;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RCM_3_0x2DB_Proxy_0x112
+    {
+        Length  = 8;
+        Data = RCM_3_RLRadarAngle;
+        Data = RCM_3_RLRadar1Distance;
+        Data = RCM_3_RLRadar2Distance;
+        Data = RCM_3_RLRadar3Distance;
+        Data = RCM_3_RLRadarDetection;
+        Data = RCM_3_RLRadarStatus;
+        Data = RCM_3_RLDoorTemperatureStatus;
+    };
+
+    
+    Data RCM_3_RLRadarAngle
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RCM_3_RLRadar1Distance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RCM_3_RLRadar2Distance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RCM_3_RLRadar3Distance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RCM_3_RLRadarDetection
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data RCM_3_RLRadarStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 4;
+        BitSize      = 3;
+    };
+
+    
+    Data RCM_3_RLDoorTemperatureStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 5;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLDCM_2_0x2C8_Proxy_0x113
+    {
+        Message = RX_CAN1_RLDCM_2_0x2C8_Proxy_0x113;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x113;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLDCM_2_0x2C8_Proxy_0x113
+    {
+        Length  = 8;
+        Data = RLDCM_2_CRC1;
+        Data = RLDCM_2_RollgCntr1;
+        Data = RLDCM_2_Resd1;
+        Data = RLDCM_2_DRMDetectRequirement;
+        Data = RLDCM_2_RCMDetectRequirement;
+        Data = RLDCM_2_SystemMotionStatus;
+        Data = RLDCM_2_CurrentOpenPosition;
+        Data = RLDCM_2_SetOpenAngleFb;
+        Data = RLDCM_2_DCMAngularSpeed;
+        Data = RLDoorCurrentoperation;
+        Data = RLDoorFunctionInhibit;
+    };
+
+    
+    Data RLDCM_2_CRC1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDCM_2_RollgCntr1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_2_Resd1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_2_DRMDetectRequirement
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 2;
+        BitSize      = 3;
+    };
+
+    
+    Data RLDCM_2_RCMDetectRequirement
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 3;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDCM_2_SystemMotionStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_2_CurrentOpenPosition
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDCM_2_SetOpenAngleFb
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDCM_2_DCMAngularSpeed
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDoorCurrentoperation
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data RLDoorFunctionInhibit
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 2;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLDCM_3_0x437_Proxy_0x114
+    {
+        Message = RX_CAN1_RLDCM_3_0x437_Proxy_0x114;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x114;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLDCM_3_0x437_Proxy_0x114
+    {
+        Length  = 8;
+        Data = RLDCM_3_CRC1;
+        Data = RLDCM_3_RollgCntr1;
+        Data = RLDCM_3_Resd1;
+        Data = RLDCM_3_RL_ParkDoorControlNotic;
+        Data = RLDoorMotionDirection;
+    };
+
+    
+    Data RLDCM_3_CRC1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDCM_3_RollgCntr1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 3;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_3_Resd1
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data RLDCM_3_RL_ParkDoorControlNotic
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 3;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDoorMotionDirection
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 5;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLDRM_1_0x2E8_Proxy_0x115
+    {
+        Message = RX_CAN1_RLDRM_1_0x2E8_Proxy_0x115;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x115;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLDRM_1_0x2E8_Proxy_0x115
+    {
+        Length  = 8;
+        Data = RLDRM_1_DRMAngle;
+        Data = RLDRM_1_AbstacleToDRMXdistance;
+        Data = RLDRM_1_AbstacleToDRMYDistance;
+        Data = RLDRM_1_AbstacleToDRMZdistance;
+        Data = RLDRM_1_VAbstacleToDRMSpeed;
+        Data = RLDRM_1_StsDRMToDCM;
+        Data = RLDRM_1_DRMFaultBusoff;
+        Data = RLDRM_1_DRMFaultOvervoltage;
+        Data = RLDRM_1_DRMFaultUndervoltage;
+        Data = RLDRM_1_DRMFaultOvertemp;
+        Data = RLDRM_1_ReqDRMToDCM;
+    };
+
+    
+    Data RLDRM_1_DRMAngle
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RLDRM_1_AbstacleToDRMXdistance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDRM_1_AbstacleToDRMYDistance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDRM_1_AbstacleToDRMZdistance
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data RLDRM_1_VAbstacleToDRMSpeed
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 6;
+        BitPosition  = 6;
+        BitSize      = 7;
+    };
+
+    
+    Data RLDRM_1_StsDRMToDCM
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 2;
+        BitSize      = 3;
+    };
+
+    
+    Data RLDRM_1_DRMFaultBusoff
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 3;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDRM_1_DRMFaultOvervoltage
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 4;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDRM_1_DRMFaultUndervoltage
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 5;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDRM_1_DRMFaultOvertemp
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 6;
+        BitSize      = 1;
+    };
+
+    
+    Data RLDRM_1_ReqDRMToDCM
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 7;
+        BitPosition  = 7;
+        BitSize      = 1;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RRDCM_1_0x3BE_Proxy_0x116
+    {
+        Message = RX_CAN1_RRDCM_1_0x3BE_Proxy_0x116;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x116;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RRDCM_1_0x3BE_Proxy_0x116
+    {
+        Length  = 8;
+        Data = RR_DoorCloseStatus;
+    };
+
+    
+    Data RR_DoorCloseStatus
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLCR_1_0x447_Proxy_0x117
+    {
+        Message = RX_CAN1_RLCR_1_0x447_Proxy_0x117;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x117;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLCR_1_0x447_Proxy_0x117
+    {
+        Length  = 8;
+        Data = RLCR_1_SysSt;
+        Data = RLCR_1_BlkSts;
+        Data = RLCR_1_DOWWarn;
+        Data = RLCR_1_DowLock;
+    };
+
+    
+    Data RLCR_1_SysSt
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    
+    Data RLCR_1_BlkSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 2;
+        BitSize      = 1;
+    };
+
+    
+    Data RLCR_1_DOWWarn
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    
+    Data RLCR_1_DowLock
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 1;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_RLCR_2_0x450_Proxy_0x118
+    {
+        Message = RX_CAN1_RLCR_2_0x450_Proxy_0x118;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x118;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_RLCR_2_0x450_Proxy_0x118
+    {
+        Length  = 8;
+        Data = RLCR_2_DOWONOFFSts;
+    };
+
+    
+    Data RLCR_2_DOWONOFFSts
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 2;
+    };
+
+    CANUUDTMessage UUDT_RX_CAN1_ICC_COM_8_0x510_Proxy_0x119
+    {
+        Message = RX_CAN1_ICC_COM_8_0x510_Proxy_0x119;
+        PeriodMs = 30;
+        PhaseMs = 0;
+        Identifier = 0x119;
+        MinLength = 8;
+        TimeoutMs = 2000;
+        TxNode = LogicCAN1;
+        RxNode = ECUSelfCan1;
+        bToolAutoTransmission = FALSE;    
+    };
+
+    Message RX_CAN1_ICC_COM_8_0x510_Proxy_0x119
+    {
+        Length  = 8;
+        Data = CurrentTimeYear;
+        Data = CurrentTimeMonth;
+        Data = CurrentTimeDay;
+        Data = CurrentTimeHour;
+        Data = CurrentTimeMinute;
+        Data = CurrentTimeSecond;
+    };
+
+    
+    Data CurrentTimeYear
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 8;
+    };
+
+    
+    Data CurrentTimeMonth
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 1;
+        BitPosition  = 7;
+        BitSize      = 4;
+    };
+
+    
+    Data CurrentTimeDay
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 2;
+        BitPosition  = 7;
+        BitSize      = 5;
+    };
+
+    
+    Data CurrentTimeHour
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 3;
+        BitPosition  = 7;
+        BitSize      = 5;
+    };
+
+    
+    Data CurrentTimeMinute
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 4;
+        BitPosition  = 7;
+        BitSize      = 6;
+    };
+
+    
+    Data CurrentTimeSecond
+    {
+        Type         = U8;
+        DefaultRead  = Delayed;
+        DefaultWrite = Delayed;
+        ResetValue   = 0;
+        DefaultValue = 0;
+        BytePosition = 5;
+        BitPosition  = 7;
+        BitSize      = 6;
+    };
+
+
+};
+
+#endif    
+
+

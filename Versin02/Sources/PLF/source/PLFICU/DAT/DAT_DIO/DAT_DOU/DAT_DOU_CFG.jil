@@ -1,0 +1,142 @@
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_DOUp_JIL
+#define I_DAT_DOUp_JIL (1)
+
+/*
+---------------------------------------------------------------------------
+The DirectOutputManager object in in charge of the direct output refreshing
+---------------------------------------------------------------------------
+DirectOutputManager
+{
+    RefreshPeriodMs = 200; // <- Refreshing period (for Delayed writing)
+    BufferLength = 2;      // <- Size of LDB buffer 
+
+    // You can choose if you need a last update before sleeping
+    UpdatebeforeSleep = TRUE;
+};
+------------------------------------------------------------------------ */
+
+DirectOutputManager
+{
+    RefreshPeriodMs = 10;
+    BufferLength = 2;
+
+    UpdatebeforeSleep = TRUE;
+};
+
+
+
+    Component DAT_DOUp
+{
+    /* 
+    -----------------------------------------------------------------------
+    Direct Output
+    -----------------------------------------------------------------------
+    Data DataName
+    {
+       Type         = U1; 
+       ResetValue   = 0; 
+       BytePosition = 0;
+       BitPosition  = 0;
+       Specialization = DirectOutput;
+    };
+    -------------------------------------------------------------------- */
+    
+        Data TT_EngnRed
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 7;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_TrunLeft
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 6;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_TurnRight
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 5;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_ABS
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 4;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_ASR
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 3;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_GPIO1_Reserved
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 2;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_GPIO2_Reserved
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 1;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_MCU_IN6 //MCU_IN6
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 0;
+           BitPosition  = 0;
+           Specialization = DirectOutput;
+        };
+
+        Data TT_MCU_IN7 //MCU_IN7
+        {
+           Type         = U1;
+           DefaultWrite = Delayed;
+           ResetValue   = 0;
+           BytePosition = 1;
+           BitPosition  = 7;
+           Specialization = DirectOutput;
+        };
+        
+};
+
+
+#endif
+
+

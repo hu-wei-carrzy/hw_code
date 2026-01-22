@@ -1,0 +1,141 @@
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_CNM_JIL 
+#define I_DAT_CNM_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component DAT_Cnm 
+{
+    
+
+/*--------------------------------------------------------------------------
+  Declaration of Task 
+
+  Task TaskName
+  {
+    Id          = "IdName";              --> this field is optional
+    Fct         = "FonctionName";        --> this field is optional
+    GraphGroup  =  GraphGroupReference;  --> this field is optional
+    Resource    =  ResourceReference;   --> this field is optional
+    Npg         =  NpgReference;         --> this field is optional
+    Priority    =  Priority;             --> this field is optional
+
+  };
+  --------------------------------------------------------------------------*/
+    Task DATCnmTick 
+    {
+        Fct = "DATCnmTick";
+        Id = "cTOSTaskID_CanTraitements";
+        Priority = 80;
+    };// Le niveau de priorit?est ?paramétrer par l'intégrateur du projet dans le fichier supervis.jil
+// qui inclut tous les fichiers .jil du projet, cependant pour le module DAT_CAN il doit respecter
+// l'ordre suivant:
+//Affectation des priorit?pour les tâches CAN :
+//	Priorit?la plus forte:  -1-		TOSHorlogeSysteme
+//							 -.- 	
+//							 -i-		DATCnmTick	
+//							 -.- 	
+//							 -i+j-		DATCdlTacheEmissionCAN	
+//							 -.- 	
+//							 -i+j+k-	DATCdlTacheReceptionCAN	
+//							 -.- 	
+//							 -X- Taches LAP	
+// Rq: La tâche Tick doit avoir si possible la priorit?la plus élevée
+//	   parmi toutes les tâches du logiciel après l'alarme horloge système
+
+
+
+  
+/*--------------------------------------------------------------------------
+  Declaration of Control produced
+
+  Prod Control { Name = "ControlName";} 
+
+  --------------------------------------------------------------------------*/
+    ProdControl {Name="LAPCanNotify";};
+    ProdControl {Name="CanBusOff";};
+    
+    //for singal can
+    Signal CanBusOff; //zjb add:for only once CAN
+    
+    //for multi can
+    Signal Can0BusOff; 
+    Signal Can1BusOff;
+    Signal Can2BusOff;
+    Signal Can3BusOff;
+    Signal Can4BusOff;
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+    OnControl = CallBack
+    {
+        Ctrl = "DATInitialize";
+        Fct = "DATCnmInit";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "IsAnybodyMaintainActiveSleepState";
+        Fct = "DATCnmIsMaintainActiveSleepState";
+    };
+
+	OnControl = CallBack
+    {
+        Ctrl = "DATBatProtectEn";
+        Fct = "DATCnmBatProtectEn";
+    };
+	OnControl = CallBack
+    {
+        Ctrl = "DATBatProtectDis";
+        Fct = "DATCnmBatProtectDis";
+    };
+	
+	
+
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_DAT_CNM_JIL */ /*cLIBStkScc2_Used*/

@@ -1,0 +1,1601 @@
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_ANA_CFG_JIL
+#define I_DAT_ANA_CFG_JIL (1)
+
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    AnalogInputManager
+//    {
+//        Sampling period in ms
+//        SamplingPeriodMs      = 10;
+//
+//        Bit size of Analog Digital Converter
+//        ConverterBitSize      = 12;
+//
+//        Maximum allowed size for internal calculation
+//        CalculationBitSize    = 32;
+//
+//        Force the use of Fast Algorithm
+//        This Algorithm doesn't use multiply and divide operators.
+//        This choice will limit the possible value of time constant
+//        ForceFastAlogorithm   = TRUE;
+//
+//        Number of data
+//        NbrOfChannels = 3;
+//
+//        Default Time constant in ms
+//        This value will be used for analog inputs
+//        without time constant specification.
+//        DefaultTimeConstantMs      = 80;
+//
+//        Default allowed shift in per cent
+//        This value will be used for analog inputs
+//        without allowed shift specification.
+//        DefaultAllowedShiftPerCent = 10;
+//    };
+//------------------------------------------------------------------------------
+
+
+
+AnalogInputManager
+{
+    SamplingPeriodMs      = 5;
+    ConverterBitSize      = 10 ;
+    CalculationBitSize    = 32;
+    //ForceFastAlogorithm   = TRUE;
+    NbrOfChannels = 40;
+    DefaultTimeConstantMs      = 10;
+    DefaultAllowedShiftPerCent = 10;
+ };
+
+
+
+Component DAT_ANA_CFG
+{
+
+    //--------------------------------------------------------------------------
+    //    Data DataName
+    //    {
+    //        Type = U16;
+    //        BytePosition = 0;
+    //        Specialization = AnalogInput
+    //        {
+    //            First order filter time constant in ms
+    //            The 95% rising time is equal to 3xTimeConstant
+    //            TimeConstantMs = 80;
+    //
+    //            Time constant allowed shift in per cent
+    //            According to general customization, all value of time constant
+    //            are not possible.
+    //            If the effective time constant is out of allowed range, the
+    //            generator will display a warning.
+    //            AllowedShiftPerCent = 10;
+    //        };
+    //    };
+    //--------------------------------------------------------------------------
+//////////////////////////////////////
+//ANAInputGroup0:in this group, the following are data
+    
+        Data ADVAL_PCB_TEMP_AIN
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 0;
+        };
+
+        Data AD_BAT_P_ADC
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 2;
+        };
+
+        Data ADISVAL_IS1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 4;
+        };
+
+        Data ADISVAL_IS5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 6;
+        };
+
+        Data ADISVAL_IS9
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 8;
+        };
+
+        Data ADVAL_RIN_AD7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 10;
+        };
+
+        Data ADVAL_RIN_AD6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 12;
+        };
+
+        Data ADISVAL_3408_FAULT
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 14;
+        };
+
+        Data ADISVAL_0_5V_AD1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 16;
+        };
+
+        Data AD_5V_SENSOR_ADC
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 18;
+        };
+
+        Data ADVAL_VCC_ADC
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 20;
+        };
+
+        Data AD_8VADC
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 22;
+        };
+
+        Data ADVAL_RIN_AD4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 24;
+        };
+
+        Data ADVAL_RIN_AD5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 26;
+        };
+
+        Data ADISVAL_0_5V_AD2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 28;
+        };
+
+        Data ADISVAL_0_5V_AD3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 30;
+        };
+
+        Data ADISVAL_IS2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 32;
+        };
+
+        Data ADISVAL_IS6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 34;
+        };
+
+        Data ADISVAL_IS10
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 36;
+        };
+
+        Data ADISVAL_IS3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 38;
+        };
+
+        Data ADISVAL_IS7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 40;
+        };
+
+        Data ADISVAL_IS11
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 42;
+        };
+
+        Data ADISVAL_IS4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 44;
+        };
+
+        Data ADISVAL_IS8
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 46;
+        };
+
+        Data ADISVAL_IS12
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 48;
+        };
+
+        Data AD0_CH0_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 50;
+        };
+
+        Data AD0_CH1_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 52;
+        };
+
+        Data AD0_CH2_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 54;
+        };
+
+        Data AD0_CH3_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 56;
+        };
+
+        Data AD0_CH4_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 58;
+        };
+
+        Data AD0_CH5_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 60;
+        };
+
+        Data AD0_CH6_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 62;
+        };
+
+        Data AD0_CH7_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 64;
+        };
+
+        Data AD0_CH8_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 66;
+        };
+
+        Data AD0_CH9_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 68;
+        };
+
+        Data AD0_CH10_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 70;
+        };
+
+        Data AD0_CH11_Reserve_1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 72;
+        };
+
+        Data AD_CH12_REVERSE1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 74;
+        };
+
+        Data AD_CH13_REVERSE1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 76;
+        };
+
+        Data AD_CH14_REVERSE1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 78;
+        };
+
+        Data AD_CH15_REVERSE1
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 80;
+        };
+
+        Data AD0_CH4_Reserve_1_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 82;
+        };
+
+        Data AD0_CH5_Reserve_1_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 84;
+        };
+
+        Data AD0_CH6_Reserve_1_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 86;
+        };
+
+        Data AD0_CH4_Reserve_1_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 88;
+        };
+
+        Data AD0_CH5_Reserve_1_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 90;
+        };
+
+        Data AD0_CH6_Reserve_1_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 92;
+        };
+
+        Data AD0_CH4_Reserve_1_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 94;
+        };
+
+        Data AD0_CH5_Reserve_1_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 96;
+        };
+
+        Data AD0_CH6_Reserve_1_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 98;
+        };
+
+        Data AD0_CH0_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 100;
+        };
+
+        Data AD0_CH1_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 102;
+        };
+
+        Data AD0_CH2_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 104;
+        };
+
+        Data AD0_CH3_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 106;
+        };
+
+        Data AD0_CH4_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 108;
+        };
+
+        Data AD0_CH5_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 110;
+        };
+
+        Data AD0_CH6_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 112;
+        };
+
+        Data AD0_CH7_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 114;
+        };
+
+        Data AD0_CH8_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 116;
+        };
+
+        Data AD0_CH9_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 118;
+        };
+
+        Data AD0_CH10_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 120;
+        };
+
+        Data AD0_CH11_Reserve_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 122;
+        };
+
+        Data AD_CH12_REVERSE2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 124;
+        };
+
+        Data AD_CH13_REVERSE2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 126;
+        };
+
+        Data AD_CH14_REVERSE2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 128;
+        };
+
+        Data AD_CH15_REVERSE2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 130;
+        };
+
+        Data AD0_CH4_Reserve_2_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 132;
+        };
+
+        Data AD0_CH5_Reserve_2_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 134;
+        };
+
+        Data AD0_CH6_Reserve_2_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 136;
+        };
+
+        Data AD0_CH4_Reserve_2_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 138;
+        };
+
+        Data AD0_CH5_Reserve_2_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 140;
+        };
+
+        Data AD0_CH6_Reserve_2_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 142;
+        };
+
+        Data AD0_CH4_Reserve_2_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 144;
+        };
+
+        Data AD0_CH5_Reserve_2_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 146;
+        };
+
+        Data AD0_CH6_Reserve_2_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 148;
+        };
+
+        Data AD0_CH0_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 150;
+        };
+
+        Data AD0_CH1_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 152;
+        };
+
+        Data AD0_CH2_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 154;
+        };
+
+        Data AD0_CH3_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 156;
+        };
+
+        Data AD0_CH4_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 158;
+        };
+
+        Data AD0_CH5_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 160;
+        };
+
+        Data AD0_CH6_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 162;
+        };
+
+        Data AD0_CH7_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 164;
+        };
+
+        Data AD0_CH8_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 166;
+        };
+
+        Data AD0_CH9_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 168;
+        };
+
+        Data AD0_CH10_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 170;
+        };
+
+        Data AD0_CH11_Reserve_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 172;
+        };
+
+        Data AD_CH12_REVERSE3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 174;
+        };
+
+        Data AD_CH13_REVERSE3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 176;
+        };
+
+        Data AD_CH14_REVERSE3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 178;
+        };
+
+        Data AD_CH15_REVERSE3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 180;
+        };
+
+        Data AD0_CH4_Reserve_3_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 182;
+        };
+
+        Data AD0_CH5_Reserve_3_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 184;
+        };
+
+        Data AD0_CH6_Reserve_3_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 186;
+        };
+
+        Data AD0_CH4_Reserve_3_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 188;
+        };
+
+        Data AD0_CH5_Reserve_3_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 190;
+        };
+
+        Data AD0_CH6_Reserve_3_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 192;
+        };
+
+        Data AD0_CH4_Reserve_3_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 194;
+        };
+
+        Data AD0_CH5_Reserve_3_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 196;
+        };
+
+        Data AD0_CH6_Reserve_3_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 198;
+        };
+
+        Data AD0_CH0_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 200;
+        };
+
+        Data AD0_CH1_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 202;
+        };
+
+        Data AD0_CH2_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 204;
+        };
+
+        Data AD0_CH3_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 206;
+        };
+
+        Data AD0_CH4_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 208;
+        };
+
+        Data AD0_CH5_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 210;
+        };
+
+        Data AD0_CH6_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 212;
+        };
+
+        Data AD0_CH7_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 214;
+        };
+
+        Data AD0_CH8_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 216;
+        };
+
+        Data AD0_CH9_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 218;
+        };
+
+        Data AD0_CH10_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 220;
+        };
+
+        Data AD0_CH11_Reserve_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 222;
+        };
+
+        Data AD_CH12_REVERSE4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 224;
+        };
+
+        Data AD_CH13_REVERSE4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 226;
+        };
+
+        Data AD_CH14_REVERSE4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 228;
+        };
+
+        Data AD_CH15_REVERSE4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 230;
+        };
+
+        Data AD0_CH4_Reserve_4_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 232;
+        };
+
+        Data AD0_CH5_Reserve_4_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 234;
+        };
+
+        Data AD0_CH6_Reserve_4_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 236;
+        };
+
+        Data AD0_CH4_Reserve_4_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 238;
+        };
+
+        Data AD0_CH5_Reserve_4_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 240;
+        };
+
+        Data AD0_CH6_Reserve_4_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 242;
+        };
+
+        Data AD0_CH4_Reserve_4_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 244;
+        };
+
+        Data AD0_CH5_Reserve_4_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 246;
+        };
+
+        Data AD0_CH6_Reserve_4_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 248;
+        };
+
+        Data AD0_CH0_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 250;
+        };
+
+        Data AD0_CH1_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 252;
+        };
+
+        Data AD0_CH2_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 254;
+        };
+
+        Data AD0_CH3_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 256;
+        };
+
+        Data AD0_CH4_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 258;
+        };
+
+        Data AD0_CH5_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 260;
+        };
+
+        Data AD0_CH6_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 262;
+        };
+
+        Data AD0_CH7_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 264;
+        };
+
+        Data AD0_CH8_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 266;
+        };
+
+        Data AD0_CH9_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 268;
+        };
+
+        Data AD0_CH10_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 270;
+        };
+
+        Data AD0_CH11_Reserve_5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 272;
+        };
+
+        Data AD_CH12_REVERSE5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 274;
+        };
+
+        Data AD_CH13_REVERSE5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 276;
+        };
+
+        Data AD_CH14_REVERSE5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 278;
+        };
+
+        Data AD_CH15_REVERSE5
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 280;
+        };
+
+        Data AD0_CH4_Reserve_5_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 282;
+        };
+
+        Data AD0_CH5_Reserve_5_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 284;
+        };
+
+        Data AD0_CH6_Reserve_5_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 286;
+        };
+
+        Data AD0_CH4_Reserve_5_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 288;
+        };
+
+        Data AD0_CH5_Reserve_5_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 290;
+        };
+
+        Data AD0_CH6_Reserve_5_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 292;
+        };
+
+        Data AD0_CH4_Reserve_5_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 294;
+        };
+
+        Data AD0_CH5_Reserve_5_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 296;
+        };
+
+        Data AD0_CH6_Reserve_5_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 298;
+        };
+
+        Data AD0_CH0_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 300;
+        };
+
+        Data AD0_CH1_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 302;
+        };
+
+        Data AD0_CH2_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 304;
+        };
+
+        Data AD0_CH3_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 306;
+        };
+
+        Data AD0_CH4_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 308;
+        };
+
+        Data AD0_CH5_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 310;
+        };
+
+        Data AD0_CH6_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 312;
+        };
+
+        Data AD0_CH7_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 314;
+        };
+
+        Data AD0_CH8_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 316;
+        };
+
+        Data AD0_CH9_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 318;
+        };
+
+        Data AD0_CH10_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 320;
+        };
+
+        Data AD0_CH11_Reserve_6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 322;
+        };
+
+        Data AD_CH12_REVERSE6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 324;
+        };
+
+        Data AD_CH13_REVERSE6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 326;
+        };
+
+        Data AD_CH14_REVERSE6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 328;
+        };
+
+        Data AD_CH15_REVERSE6
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 330;
+        };
+
+        Data AD0_CH4_Reserve_6_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 332;
+        };
+
+        Data AD0_CH5_Reserve_6_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 334;
+        };
+
+        Data AD0_CH6_Reserve_6_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 336;
+        };
+
+        Data AD0_CH4_Reserve_6_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 338;
+        };
+
+        Data AD0_CH5_Reserve_6_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 340;
+        };
+
+        Data AD0_CH6_Reserve_6_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 342;
+        };
+
+        Data AD0_CH4_Reserve_6_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 344;
+        };
+
+        Data AD0_CH5_Reserve_6_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 346;
+        };
+
+        Data AD0_CH6_Reserve_6_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 348;
+        };
+
+        Data AD0_CH0_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 350;
+        };
+
+        Data AD0_CH1_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 352;
+        };
+
+        Data AD0_CH2_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 354;
+        };
+
+        Data AD0_CH3_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 356;
+        };
+
+        Data AD0_CH4_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 358;
+        };
+
+        Data AD0_CH5_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 360;
+        };
+
+        Data AD0_CH6_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 362;
+        };
+
+        Data AD0_CH7_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 364;
+        };
+
+        Data AD0_CH8_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 366;
+        };
+
+        Data AD0_CH9_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 368;
+        };
+
+        Data AD0_CH10_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 370;
+        };
+
+        Data AD0_CH11_Reserve_7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 372;
+        };
+
+        Data AD_CH12_REVERSE7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 374;
+        };
+
+        Data AD_CH13_REVERSE7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 376;
+        };
+
+        Data AD_CH14_REVERSE7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 378;
+        };
+
+        Data AD_CH15_REVERSE7
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 380;
+        };
+
+        Data AD0_CH4_Reserve_7_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 382;
+        };
+
+        Data AD0_CH5_Reserve_7_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 384;
+        };
+
+        Data AD0_CH6_Reserve_7_2
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 386;
+        };
+
+        Data AD0_CH4_Reserve_7_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 388;
+        };
+
+        Data AD0_CH5_Reserve_7_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 390;
+        };
+
+        Data AD0_CH6_Reserve_7_3
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 392;
+        };
+
+        Data AD0_CH4_Reserve_7_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 394;
+        };
+
+        Data AD0_CH5_Reserve_7_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 396;
+        };
+
+        Data AD0_CH6_Reserve_7_4
+        {
+            Type = U16;
+            Specialization = AnalogInput { TimeConstantMs = 20;};
+            BytePosition = 398;
+        };
+
+
+
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//
+//    };
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    Graph GraphGroupName                    // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+
+
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    };
+//
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    };
+//------------------------------------------------------------------------------
+    /*ProdControl {Name="Adc_ReadGroup0";}; 
+    OnControl = CallBack
+    {
+         Ctrl = "Adc_ReadGroup0";
+         Fct =  "Adc_ReadGroup0";
+     };*/
+
+
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//..
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+
+
+
+};
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif /* I_DAT_ANA_CFG_JIL */ 
+

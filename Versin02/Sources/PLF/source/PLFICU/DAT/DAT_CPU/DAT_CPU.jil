@@ -1,0 +1,158 @@
+/****************************************************************************
+  Project ......................... STANDARD
+  Component ....................... DAT_CPU
+  File revision.................... 
+  Last modification date .......... $Modtime$
+  -------------------------------------------------------------------------
+  Copyright ... This software is JYD property. Duplication or
+                disclosure is prohibited without JYD written permission
+  ------------------------------------------------------------------------- 
+    
+  - This file defines the interaction of components with TOS services and
+    other component
+
+	See NT 02 0994 for language utilisation
+
+  -------------------------------------------------------------------------
+  DAT_CPU.jil file review :
+  
+  $Log$
+
+*****************************************************************************/
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_CPU_JIL 
+#define I_DAT_CPU_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component DAT_CPU 
+{
+    
+/*--------------------------------------------------------------------------
+  Declaration of Task 
+
+  Task TaskName
+  {
+    Id          = "IdName";              --> this field is optional
+    Fct         = "FonctionName";        --> this field is optional
+    GraphGroup  =  GraphGroupReference;  --> this field is optional
+    Resource    =  ResourceReference;   --> this field is optional
+    Npg         =  NpgReference;         --> this field is optional
+    Priority    =  Priority;             --> this field is optional
+
+  };
+  --------------------------------------------------------------------------*/
+    Task DATCpuIdleTask 
+    {
+    	Priority = 0;
+    };
+    
+    
+    Task GraphEngineTask 
+    {
+        GraphGroup = Default;
+        Priority = 30;
+    };
+    
+    
+    Task DATCpuRefreshWatchDogTask 
+    {
+    	 Priority = 250;
+    };
+
+// The Default Graph group is periodic
+
+  /*--------------------------------------------------------------------------
+  Declaration of GraphGroup
+
+  Graph GraphGroupName
+  {
+    Macro       = "MacroName";            --> this field is optional
+    Default     =  TRUE;                  --> this field is optional
+    Graph       = Graph1;                 --> this field is optional
+    Graph       = Graph2;                 --> this field is optional
+    Graph       = ...;                    --> this field is optional
+  };
+  --------------------------------------------------------------------------*/
+    GraphGroup Default 
+    {
+        Default = TRUE;
+    };// The Idle Graph group is called by IDLE TASK
+
+    GraphGroup IdleGraphGroup 
+    {
+        // This graph is an imporatnt CPU consumer. 
+        // It is better to call it in Idle task
+        //Graph = DATCilSurveillanceReceptionCan; 
+
+    };
+
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+    OnControl = CallBack
+    {
+        Ctrl = "DATInitialize";
+        Fct = "DATCpuInit";
+    };
+    
+    // jy add 20190225 Ìí¼Ó mcuresetº¯Êý
+    
+      OnControl = CallBack
+    {
+        Ctrl = "MCUWillReset";
+        Fct = "DATMCUWillReset";
+    };  
+
+	ProdControl {Name="MCUWillEnterSleepState";};
+	ProdControl {Name="MCUWillLeaveSleepState";};
+	//MCU will reset  and  notify other models
+   // ProdControl {Name="MCUWillReset";};
+    
+};
+
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_DAT_CPU_JIL */ /*cLIBStkScc2_Used*/

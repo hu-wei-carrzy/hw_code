@@ -1,0 +1,5 @@
+
+1:copy this ProjectRename.exe to IAR folder
+2:open command line and change into IAR folder
+3:input this:ProjectName.exe OldProjectName NewProjectName
+4:change the IAR parent folder name as NewProjectName

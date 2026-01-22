@@ -1,0 +1,36 @@
+#ifndef I_LAP_RUNIN_INCLUDE_H
+#define I_LAP_RUNIN_INCLUDE_H
+
+
+
+#include "ARCH_CFG.h"
+
+#define cTOS_INCLUDE
+
+#define cDAT_DOU_DATAINCLUDE
+#define cDAT_EEP_DATAINCLUDE
+#define cDAT_CVT_DATAINCLUDE
+#define cDAT_CAN_FUNCINCLUDE
+#define cDAT_PWM_FUNCINCLUDE
+#define cDAT_PWM_DATAINCLUDE
+#define cDAT_BUZ_FUNCINCLUDE
+#define cDAT_BUZ_DATAINCLUDE
+#define cDAT_MOT_DATAINCLUDE
+#define cDAT_CPU_FUNCINCLUDE
+#define cDAT_DOU_FUNCINCLUDE
+#define cLAP_DIAG_DATAINCLUDE
+#define cDAT_MOTCTRL_DATAINCLUDE
+#define cDAT_GCB_DATAINCLUDE
+
+#ifdef cHeadIncludeType_Directly
+#include "LAP_DEPENDCY.h"
+#else
+#include ".\..\LAP_DEPENDCY.h"
+#endif
+
+
+
+
+
+
+#endif

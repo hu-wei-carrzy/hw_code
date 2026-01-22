@@ -1,0 +1,173 @@
+
+*****************************************************
+DAT_ANA.JIL
+Task DATAna_Task 
+    {
+        Id = "cTOSTaskID_TacheANA";
+        Fct = "DATANA_Task";
+        Priority = 120;
+    };
+
+*****************************************************
+DAT_BAT.jil
+Task DATBatTask
+    {
+        Id  = "cTOSTaskID_DATBatTask";
+        Fct = "DATBatTask";
+        Priority = 50;
+    };
+
+*****************************************************
+DAT_BLDC.JIL
+Task DATBLDC_Task 
+    {
+        Id = "cTOSTaskID_DATBLDCTask";
+        Fct = "DATBLDCTask";
+        Priority = 90;
+    };
+
+*****************************************************
+DAT_BSDC.JIL
+Task DATBSDC_Task 
+    {
+        Id = "cTOSTaskID_DATBSDCTask";
+        Fct = "DATBSDCTask";
+        Priority = 100;
+    };
+
+*****************************************************
+DAT_CANNM.JIL
+Task DATCANNM_Task 
+    {
+        Id = "cTOSTaskID_DATCANNMTask";
+        Fct = "DATCANNMTask";
+        Priority = 91;
+    };
+
+*****************************************************
+DAT_CDL.jil
+Task DATCdlCANTransmissionTask 
+    {
+        Fct = "DATCdlCANTransmissionTask";
+        Id = "cTOSTaskID_EmissionCan";
+        Priority = 75;
+    };
+
+*****************************************************
+DAT_CDL.jil
+Task DATCdlCANReceptionTask 
+    {
+        Fct = "DATCdlCANReceptionTask";
+        Id = "cTOSTaskID_ReceptionCan";
+        Priority = 70;
+    };
+
+*****************************************************
+DAT_CNM.jil
+Task DATCnmTick 
+    {
+        Fct = "DATCnmTick";
+        Id = "cTOSTaskID_CanTraitements";
+        Priority = 80;
+    };
+
+*****************************************************
+DAT_CPU.jil
+Task DATCpuIdleTask 
+    {
+    	Priority = 0;
+    };
+
+*****************************************************
+DAT_CPU.jil
+Task GraphEngineTask 
+    {
+        GraphGroup = Default;
+        Priority = 30;
+    };
+
+*****************************************************
+DAT_CPU.jil
+Task DATCpuRefreshWatchDogTask 
+    {
+    	 Priority = 250;
+    };
+
+*****************************************************
+DAT_DIN.jil
+Task DATDinTask 
+    {
+        Id = "cTOSTaskID_ReadLogical";
+        Fct = "DATDinReadTask";
+        Priority = 48;
+    };
+
+*****************************************************
+DAT_DOU.jil
+Task DATDouTask 
+    {
+        Id = "cTOSTaskID_WriteLogical";
+        Fct = "DATDouRefreshOutputTask";
+        Priority = 47;
+    };
+
+*****************************************************
+DAT_DTC.jil
+Task DATDtcTask
+   {
+       Id = "cTOSTaskID_DATDtcTask";
+       Fct = "DATDiiTask";
+       Priority = 50;
+   };
+
+*****************************************************
+DAT_EEP.jil
+Task DATEepTask 
+    {
+        Priority = 50;
+    };
+
+*****************************************************
+DAT_MOD.JIL
+Task DATModTask
+    {
+        Id  = "cTOSTaskID_DATModTask";
+        Fct = "DATModTask";
+        Priority = 199;
+    };
+
+*****************************************************
+DAT_PAN.JIL
+Task DATPanTask
+    {
+        Id = "cTOSTaskID_DATPanTask";
+        Fct= "DATPanTask";
+        Priority = 70;
+    };
+
+*****************************************************
+LAP_LOCK.JIL
+Task LAPLOCK_Task 
+    {
+        Id = "cTOSTaskID_LAPLOCKTask";
+        Fct = "LAPLOCKTask";
+        Priority = 110;
+    };
+
+*****************************************************
+LAP_RUNIN.jil
+Task LAPRunInTask
+    {
+        Id  = "cTOSTaskID_LAPRunInTask";
+        Fct = "LAPRunInTask";
+        Priority = 100;
+    };
+
+*****************************************************
+TOS_TPO.JIL
+Task TOSClock
+    {
+        Fct = "TOSClockTask";
+        Id = "cTOSTaskIdTOSClock";
+        Priority = 500;
+    };

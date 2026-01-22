@@ -1,0 +1,119 @@
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_Din_JIL
+#define I_DAT_Din_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+
+
+#include "DAT_DIN_CFG.JIL"
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component DAT_DIN 
+{
+    
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+    Task DATDinTask 
+    {
+        Id = "cTOSTaskID_ReadLogical";
+        Fct = "DATDinReadTask";
+        Priority = 48;
+    };
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";}   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+    ProdControl {Name="ActiveSleepRequest";};
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+    OnControl = CallBack
+    {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATDinEnterActiveState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "DATLeaveActiveState";
+        Fct = "DATDinLeaveActiveState";
+    };
+// You can not start DATDin component with EnterStartingStepState control
+// because DAT_PIN component can call LAP callback when first EEProm reading 
+// is in progress.
+
+    OnControl = CallBack
+    {
+        Ctrl = "LeaveStartingStepState";
+        Fct = "DATDinLeaveStartingStepState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "IsAnybodyMaintainActiveSleepState";
+        Fct = "DATDinMaintainActiveSleepState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "EnterSleep";
+        Fct = "DATDinEnterSleep";
+    };
+   
+    OnControl = CallBack
+    {
+    	Ctrl = "MCUWillEnterSleepState";
+    	Fct = "DATDinWillEnterSleep";
+    };
+    
+    OnControl = CallBack
+    {
+    	Ctrl = "MCUWillLeaveSleepState";
+    	Fct = "DATDinWillLeaveSleep";
+    };
+};
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif /* I_DAT_Din_JIL */

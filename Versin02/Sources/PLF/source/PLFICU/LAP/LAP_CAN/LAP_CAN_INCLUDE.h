@@ -1,0 +1,49 @@
+#ifndef I_LAP_CAN_INCLUDE_H
+#define I_LAP_CAN_INCLUDE_H
+
+#include "ARCH_CFG.h"
+
+
+#define cTOS_INCLUDE
+#define cDAT_BAT_DATAINCLUDE
+#define cDAT_AD_DATAINCLUDE
+#define cDAT_CAN_FUNCINCLUDE
+#define cDAT_DTC_DATAINCLUDE
+#define cDAT_DTC_TYPEINCLUDE
+#define cDAT_MOD_TYPEINCLUDE
+#define cDAT_MOD_DATAINCLUDE
+#define cDAT_CAN_DATAINCLUDE
+#define cDAT_RTC_DATAINCLUDE
+#define cLAP_HCU_DATAINCLUDE
+
+#ifndef cCfg_SpdTacho_From_Hardware
+#define cDAT_MOTCTRL_FUNCINCLUDE
+#define cDAT_MOTCTRL_DATAINCLUDE
+#else
+#define cDAT_CVT_FUNCINCLUDE
+#define cDAT_CVT_DATAINCLUDE
+#endif
+
+
+
+#define cLAP_WARN_DATAINCLUDE
+#define cLAP_OILPRS_DATAINCLUDE
+#define cLAP_AIRPRS_DATAINCLUDE
+#define cLAP_ABSASR_DATAINCLUDE
+#define cLAP_POUT_DATAINCLUDE
+#define cLAP_FUEL_DATAINCLUDE
+#define cDAT_GCB_DATAINCLUDE
+#define cDAT_EEP_DATAINCLUDE
+#define cLAP_AIRPRS_DATAINCLUDE
+
+#ifdef cHeadIncludeType_Directly
+#include "LAP_DEPENDCY.h"
+#else
+#include ".\..\LAP_DEPENDCY.h"
+#endif
+
+
+
+
+
+#endif

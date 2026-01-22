@@ -1,0 +1,7 @@
+#ifndef I_DAT_BSDC_EXPORTTYPE_H
+#define I_DAT_BSDC_EXPORTTYPE_H
+
+
+
+
+#endif

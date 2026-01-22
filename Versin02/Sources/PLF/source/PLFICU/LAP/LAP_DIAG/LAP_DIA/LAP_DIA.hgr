@@ -1,0 +1,125 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      <PROJECT>
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    <Comments about the component (role, algorithm, structure, 
+//               limitations, defined tasks and events...)>
+// -----------------------------------------------------------------------------
+// $Date    :   $
+// $Archive :   $
+// $Revision:   1.1  $
+// -----------------------------------------------------------------------------
+// $Log     :   $
+//******************************************************************************
+
+//------------------------------------------------------------------------------
+//                      Function prototypes
+//------------------------------------------------------------------------------
+
+#ifndef lap_dia
+   extern const tTOSSeqGraphType LAPDiaTreatRequest;
+   extern const tTOSSeqGraphType LAPDiaCommunicationTimeOut;
+   extern const tTOSSeqGraphType LAPDiaTreatService;
+   extern const tTOSSeqGraphType LAPDiaP2TimeOut;
+   extern const tTOSSeqGraphType LAPDiaSeaDTMgr; 
+#endif
+
+#ifdef lap_dia
+   extern void     LAPDiaAnalyzeRequest(void);
+   extern BOOL LAPDiaCommunicationTimeOutIsElapsed(void);
+   extern void     LAPDiaExecuteService(void);
+   extern BOOL LAPDiaNewRequestIsReceived(void);
+   extern BOOL LAPDiaP2TimeOutIsElapsed(void);
+   extern void     LAPDiaSendBusyResponse(void);
+   extern void     LAPDiaTreatCommunicationTimeOut(void);
+   extern BOOL LAPDia_IsSeaDTElapsed(void);
+   extern void     LAPDia_StartDT(void);
+   extern void     LAPSeaDTElapsed(void);
+   extern BOOL TOSSeqEvalVrai(void); 
+#endif
+
+//------------------------------------------------------------------------------
+//                      Component rules
+//------------------------------------------------------------------------------
+
+#ifdef lap_dia
+  const tTOSSeqGraphType LAPDiaSeaDTMgr =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPDiaSeaDTMgr",
+    {
+#endif
+  /*   0*/  {TOSSeqEvalVrai,LAPDia_StartDT,cTOSSeqInvalidRule,mTOSSeqRuleNumber(1)},
+  /*   1*/  {LAPDia_IsSeaDTElapsed,LAPSeaDTElapsed,cTOSSeqInvalidRule,cTOSSeqInvalidRule}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+
+#ifdef lap_dia
+  const tTOSSeqGraphType LAPDiaCommunicationTimeOut =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPDiaCommunicationTimeOut",
+    {
+#endif
+  /*   0*/  {LAPDiaCommunicationTimeOutIsElapsed,LAPDiaTreatCommunicationTimeOut,cTOSSeqInvalidRule,cTOSSeqInvalidRule}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+
+#ifdef lap_dia
+  const tTOSSeqGraphType LAPDiaTreatService =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPDiaTreatService",
+    {
+#endif
+  /*   0*/  {TOSSeqEvalVrai,LAPDiaExecuteService,cTOSSeqInvalidRule,mTOSSeqRuleNumber(0)}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+
+#ifdef lap_dia
+  const tTOSSeqGraphType LAPDiaP2TimeOut =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPDiaP2TimeOut",
+    {
+#endif
+  /*   0*/  {LAPDiaP2TimeOutIsElapsed,LAPDiaSendBusyResponse,cTOSSeqInvalidRule,mTOSSeqRuleNumber(0)}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+
+#ifdef lap_dia
+  const tTOSSeqGraphType LAPDiaTreatRequest =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPDiaTreatRequest",
+    {
+#endif
+  /*   0*/  {LAPDiaNewRequestIsReceived,LAPDiaAnalyzeRequest,cTOSSeqInvalidRule,mTOSSeqRuleNumber(0)}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+ 
+
+//------------------------------------------------------------------------------
+//                      End of generation
+//------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+#ifndef IS_INCLUDED_DAT_MOD_CFG_H
+#define IS_INCLUDED_DAT_MOD_CFG_H
+
+#include "DAT_MOD_TYPEEXPORT.h"
+
+
+#endif

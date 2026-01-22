@@ -1,0 +1,1 @@
+移植到新平台请先运行GeneratePlatformBat.exe，生成适应该平台的PlatformEntry.bat文件

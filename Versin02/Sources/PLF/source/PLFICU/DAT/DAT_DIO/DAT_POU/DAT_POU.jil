@@ -1,0 +1,70 @@
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_POU_JIL 
+#define I_DAT_POU_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component DAT_POU 
+{
+    
+
+
+
+
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+    OnControl = CallBack
+    {
+        Ctrl = "DATInitialize";
+        Fct = "DATPouInit";
+    };
+
+
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_DAT_POU_JIL */ /*cLIBStkScc2_Used*/

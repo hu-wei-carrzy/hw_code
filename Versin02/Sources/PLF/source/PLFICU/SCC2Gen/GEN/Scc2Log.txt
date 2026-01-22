@@ -1,0 +1,19 @@
+SCC2 Log file : SCC2 V01.03
+Last execution : Tuesday, January 20, 2026 (16:27:32)
+Last updated file : .\CollectJIL\LAP_SUP.jil - Tuesday, January 20, 2026 (16:27:30)
+FilePath : .\SCC2\SCC2.EXE
+Command Line : .\SCC2\SCC2.EXE .\CollectJIL\LAP_SUP.jil -OUT:.\..\..\source\PLFICU\SCC2Gen\GEN -G:.\SCC2\ -Int -DUMP:.\..\..\..\source\PLFICU\SCC2Gen\DB.JIL 
+ Generators :
+.\SCC2\\GENANA.DLL
+.\SCC2\\GENCAN.DLL
+.\SCC2\\GENDAS.DLL
+.\SCC2\\GENDAT.DLL
+.\SCC2\\GENDEF.DLL
+.\SCC2\\GENDFA.DLL
+.\SCC2\\GENLIN.DLL
+.\SCC2\\GENDIA.DLL
+.\SCC2\\GENDIN.DLL
+.\SCC2\\GENDOU.DLL
+.\SCC2\\GENLDBPC.DLL
+.\SCC2\\GENMOT.DLL
+.\SCC2\\GENTOS.DLL

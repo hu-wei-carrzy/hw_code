@@ -1,0 +1,214 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JYD property.
+//               Duplication or disclosure without JYD written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      S15
+// Language:     ANSI-C
+// -----------------------------------------------------------------------------
+// Component:    DTC reporting and management
+// -----------------------------------------------------------------------------
+// $Date:   Jan 31 2012 16:07:44  $
+// $Archive:   //N351_cluster/archives/1013338/DEV/CMP/SOURCES/DAT/DAT_DTC/DAT_DTC.jil-arc  $
+// $Revision:   1.0  $
+// -----------------------------------------------------------------------------
+// $Log:   //N351_cluster/archives/1013338/DEV/CMP/SOURCES/DAT/DAT_DTC/DAT_DTC.jil-arc  $
+//
+//   Rev 1.0   Jan 31 2012 16:07:44   azhao26
+//Initial revision.
+// 
+// 
+//******************************************************************************
+
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_DTC_JIL
+#define I_DAT_DTC_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component DAT_DTC
+{
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//
+//    };
+//------------------------------------------------------------------------------
+   Task DATDtcTask
+   {
+       Id = "cTOSTaskID_DATDtcTask";
+       Fct = "DATDiiTask";
+       Priority = 50;
+   };
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    GraphGroup GraphGroupName                // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Resource ResourceName                   // Declaration of Resource
+//                                            // (for Pre-emptive TOS only)
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Npg NonPreemptiveGroup;                // Declaration of non preemptive
+//                                           // group (for Pre-emptive TOS only)
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    TaskPriority TaskName
+//    {
+//        Priority = Priority;                  --> this field is optional
+//
+//        Npg = NonPreemptiveGroupReference;    --> this field is optional
+//                                                  (for Pre-emptive TOS only)
+//    };
+//
+//    !!this table should be used into LAP_SUP.jil only, it permit to set all
+//    task priority and non pre-emptive group in one unique file, "TaskName" 
+//    must be the task name declared for the "Task" table
+//
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+   
+   //Controls of DAT_DII
+   OnControl = CallBack
+   {
+        Ctrl = "DATInitialize";
+        Fct = "DATDiiInit";
+   }; 
+
+   OnControl = CallBack
+   {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATDiiEnterActiveState";
+   }; 
+
+   OnControl = CallBack
+   {
+        Ctrl = "DATLeaveActiveState";
+        Fct = "DATDiiLeaveActiveState";
+   }; 
+
+   //Controls of DAT_DDB
+   OnControl = CallBack
+   {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATDdbCloseDiagnosticSession";
+   }; 
+
+   OnControl = CallBack
+   {
+        Ctrl = "LAPCloseDiagnosticSession";
+        Fct = "DATDdbCloseDiagnosticSession";
+   }; 
+
+   OnControl = CallBack
+   {
+        Ctrl = "LAPOpenDiagnosticSession";
+        Fct = "DATDdbOpenDiagnosticSession";
+   }; 
+
+   OnControl = CallBack
+   {
+        Ctrl = "LeaveStartingStepState";
+        Fct = "DATDdbInitialize";
+   };
+
+   //Controls of DAT_DDI
+   OnControl = CallBack
+   {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATDdiEnterActiveState";
+   }; 
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+
+};
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_DAT_DTC_JIL */
+
+

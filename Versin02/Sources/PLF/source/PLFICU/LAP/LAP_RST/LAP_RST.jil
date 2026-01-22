@@ -1,0 +1,75 @@
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_LAP_RST_JIL 
+#define I_LAP_RST_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component LAP_RST
+{
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+
+
+  OnControl = CallBack
+  {
+      Ctrl = "LeaveStartingStepState";
+      Fct = "LAPRstSetMCUResetTimes";
+  };
+
+
+ /*--------------------------------------------------------------------------
+  Declaration of Control produced
+
+  Prod Control { Name = "ControlName";} 
+
+  --------------------------------------------------------------------------*/
+
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_LAP_RST_JIL */
+

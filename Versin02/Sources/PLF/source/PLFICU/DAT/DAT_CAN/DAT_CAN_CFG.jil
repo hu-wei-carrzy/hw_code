@@ -1,0 +1,777 @@
+
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_CAN_CFG_JIL
+#define I_DAT_CAN_CFG_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//
+//  It's the main object to configure DAT_CAN. 
+//  Its parameters concerns all CAN network according to customer specifications.
+//
+//  CANManager
+//  {
+//      This is the period in ms of activation of the DAT_CAN alarm (CAN tick)
+//      TickMs = 5;
+//  
+//      Defines the timeout for the CAN cell sleep command. In some 
+//      electrical condition on the CAN bus the CAN cell can refuse 
+//      to go in sleep mode. The CAN layer maintains the ECU active
+//      during this timeout.
+//      StopTimeoutMs = 200;
+//
+//      BufferManagement = Fixed;
+//      or
+//      This object is present only if DAT_CDL2 is used (rolling buffer and 
+//      multi bus capability). 
+//      BufferManagement = Rolling
+//      {
+//          Determines the length of the rolling buffer of frame reception, 
+//          the type is first in / first out. In a case of overload the newest 
+//          frame are lost.
+//          NbOfRxBuffers = 5;
+//          
+//          Actives an instrumentation which permit to determinate the maximum 
+//          consummation of the queue of frame reception. The local variable 
+//          " QueueRxNbMax " contains this information.
+//          bMaximumQueueConsummation = TRUE;
+//      };
+//  
+//      This object represents the segmentation process management.
+//      SegmentationManagement = Used
+//      {
+//          Actives the Flow Control "Overflow" management. This pattern 
+//          "overflow" 0x02 is defined by the standard 15675-2 Ed 4 (21/06/2002)
+//          If it is not activated the reception of a Flow Control "Overflow" 
+//          will provoke an segmentation error and the transmission of the 
+//          ASDT/USDT message will be canceled.
+//          bFlowControlOverflowManagement = FALSE;
+//  
+//          Actives the emission of a Flow Control "Overflow" in case of 
+//          reception of too long USDT message. This is not available for ASDT 
+//          message. For example if the Frame set specify a maximum length of 
+//          200 bytes for a message after a reception of a First frame 
+//          indication an higher length the DAT_CAN will send a FC Overflow and
+//          the reception will be canceled.
+//          bFlowControlOverflowAndOverflowEmission = FALSE;
+//  
+//          Timeout of reception of Consecutive Frame (after a Flow Control 
+//          sending and between two Consecutive Frame).
+//          N_Cr = 35;
+//
+//          Timeout of reception of Flow Control Frame (after a First Frame or 
+//          a Consecutive Frame sending).
+//          N_Bs = 35;
+//
+//          This parameters defines the time between two Consecutive Frame
+//          sending, it is not taking into account between a Flow Control frame 
+//          reception and the emission of the first Consecutive Frame 
+//          if bDelayFirstCF is not set. If the Block Size parameters 
+//          is parameterized to 1 Stmin has no effect.
+//          Stmin = 0;
+//
+//          This parameters defines the maximum time for STmin.
+//          If received STmin exceeded STminMax then STMinMax is assumed as STMin
+//          Value of 170 is for backward compatibility
+//          StminMax = 170;
+//
+//          This paramenter enables delay between FC and CF
+//          Delay is Stmin.
+//          bDelayFirstCF = FALSE
+//          
+//          This parameter defines the number a Consecutive Frame send after 
+//          the reception of a Flow Control Frame.
+//          BlockSize = 0;
+//          
+//          It determines the use of padding data in order to complete the 
+//          segmented frame to 8 bytes in all case (even single frame).
+//          Padding = Unused;
+//          or
+//          Padding = Used { PaddingPattern = 0xA3; };
+//          
+//          if used the compilation option "REPRISE_ERREUR" is defined.
+//          USDTReEmission = Unused;
+//          or          
+//          USDTReEmission = Used
+//          {
+//              This parameter defines the time between the canceling
+//              of the emission of a segmented frame and the re attempt.
+//              WaitingBeforeReEmissionTimeMs = 50;
+//
+//              This parameter defines the number of re attempt in case of
+//              segmented transmission errors before indicating to the 
+//              application the unsuccessful transmission and stopping 
+//              the re emission.
+//              NumberMaxOfReEmission = 3;
+//          };
+//          
+//          if used the compilation option "MSDT_FRAME_RETRANSMISSION" is defined.
+//          MSDTReEmission = Unused;
+//          or          
+//          MSDTReEmission = Used
+//          {
+//              This parameter defines the time between the canceling
+//              of the emission of a segmented frame and the re attempt.
+//              WaitingBeforeReEmissionTimeMs = 30;
+//
+//              This parameter defines the number of re attempt in case of
+//              segmented transmission errors before indicating to the 
+//              application the unsuccessful transmission and stopping 
+//              the re emission.
+//              NumberMaxOfReEmission = 2;
+//          };
+//
+//          This object represents the sending and receiving of Flow Control
+//          with the status wait process management.
+//          USDTWait = Used     // WAIT
+//          { 
+//              This parameter defines the timeout value between to Flow 
+//              Control frame with "Wait" status
+//              N_BsWait = 30;  // TimeOutInterWait
+//
+//              This parameter defines the period of Flow Control "Wait" sending.
+//              The ECU will send it as well as the segmentation layer is set
+//              in wait mode.
+//              N_Br = 37;      // TimeOutWait 
+//
+//              This parameter defines the number of Flow Control "Wait" the 
+//              receiver can send to the message transmitter. It can occurs for
+//              example during the gateway management to an other lower speed
+//              CAN bus.
+//              N_WFTmax = 0;   // MaxNbWait
+//          };
+//
+//          TransportManagement = Unused;
+//          or
+//          TransportManagement = Used
+//          {
+//              Timeout value of the acknowledge frame reception. At the end of 
+//              the transmission of a message the sender is waiting for an 
+//              acknowledge frame.
+//              TL_A_TimeoutMs = 500;
+//              
+//              ASDT re transmission temporization. It is loaded when an 
+//              segmentation error occurs or an acknowledge timeout. At the end
+//              of this temporization the ASDT message is re transmitted.
+//              TL_B_TimeoutMs = 100;
+//
+//              Defines the number maximum of re transmission of an ASDT message 
+//              before an indication of a ASDT transmission error to the 
+//              Interaction layer.
+//              NumberOfTrial = 0x14;
+//
+//              Actives the emission of Disconnection Setup frame in case of 
+//              disconnection of the transmission communication channel. If not
+//              active the disconnection is internal (no DS frame sending).
+//              bEnableDisconnection = FALSE;
+//
+//              This object represent the differentiation between the 
+//              segmentation parameters for a ASDT message. It is active if the 
+//              compilation option " PARAM_DIFF_ASDT " is defined.
+//              ASDTSegmentationParameters = Used
+//              {
+//                  Timeout of reception of Consecutive Frame (after a Flow
+//                  Control sending and between two Consecutive Frame) for an
+//                  ASDT message. 
+//                  N_Cr = 500;
+//
+//                  Timeout of reception of Flow Control Frame (after a First 
+//                  Frame or a Consecutive Frame sending) for an ASDT message.
+//                  N_Bs = 500;
+//
+//                  This parameters defines the time between two Consecutive 
+//                  Frame sending for an ASDT message, it is not taking into 
+//                  account between a Flow Control frame reception and the
+//                  emission of the first Consecutive Frame. If the Block Size 
+//                  parameters is parameterized to 1 Stmin has no effect.
+//                  Stmin = 0;
+//
+//                  This parameter defines the number a Consecutive Frame send
+//                  after the reception of a Flow Control Frame for an
+//                  ASDT message.
+//                  BlockSize = 1;
+//
+//                  This parameter defines the timeout value between to Flow
+//                  Control frame with "Wait" status for an ASDT message.
+//                  N_BsWait = 400;
+//
+//                  This parameter defines the period of Flow Control "Wait"
+//                  sending for an ASDT message. The ECU will send it as well as
+//                  the segmentation layer is set in wait mode (see ref [10]).
+//                  N_Br = 450;
+//
+//                  This parameter defines the number of Flow Control "Wait" the 
+//                  receiver can send to the message transmitter for an ASDT
+//                  message.It can occurs for example during the gateway 
+//                  management to an other lower speed CAN bus.
+//                  N_WFTmax = 0;
+//              };
+//
+//              This object represent segmentation parameters for a MSDT message.
+//              MSDTSegmentationParameters = Used
+//              {
+//                  This parameter defines maximum timeout after sendig of MSDT message when 
+//                  Repetition requests are treated
+//                  RepetitionTimeout = 100;
+//
+//                  This parameter defines maximum number of reemitions of MSDT message 
+//                  after which repetition requests are not treated
+//                  MaxRepetitionRequests = 2;
+//
+//                  This parameters defines the time between two Consecutive 
+//                  Frame sending for an MSDT message, it is not taking into 
+//                  account between a Flow Control frame reception and the
+//                  emission of the first Consecutive Frame. If the Block Size 
+//                  parameters is parameterized to 1 Stmin has no effect.
+//                  Stmin = 10;
+//              };
+//
+//              This object represent usage ou USDT message retransmission 
+//              For PSA Body USDT messages. this retransmision is realized on Transport layer
+//              Take care for difference with REPRISE_ERREUR which is realized on network layer
+//              USDTReEmission = Used
+//              {
+//                  This parameter defines the number of re attempt in case of
+//                  segmented transmission errors before indicating to the 
+//                  application the unsuccessful transmission and stopping 
+//                  the re emission.
+//                  NumberMaxOfReEmission = 2;
+//            };
+//
+//          };
+//
+//          This object represents the interaction layer management (reception 
+//          timeoutand periodical transmission processing,
+//          ASDT ECU connection/disconnection management).
+//          InteractionManagement
+//          {
+//              This object represents the transmission management.If the 
+//              compilation option " TEMPS_EXCLUSION " is defined an exclusion
+//              time between two transmission of frame is activated.
+//              bEnableSupervisionControlled = TRUE;
+//
+//              Exclusion = Unused;
+//              or
+//              Exclusion = Used
+//              {
+//                  This parameter is the exclusion time value between two same 
+//                  Frame or message.
+//                  ExclusionTimeMs = 30;
+//
+//                  This compilation option active the shift of a periodic frame 
+//                  in case where an exclusion time has been processing due to an
+//                  factual transmission just before the periodic transmission.
+//                  bShiftPeriodicFrame = FALSE; 
+//              };
+//          };
+//      };
+//
+//      Its parameters concerns one CAN network,linked to one transmitter Node.
+//      NodeManager
+//      {
+//          Node Object Linked to the node mannager, the application is in this 
+//          node. this node is the transmitter node. 
+//          Node = SSPP;
+//
+//          API LDB Channel Identifier for the bus
+//          LDBChannelIdentifier = "cLDBChannelCan";
+//
+//          Defines the timeout value of the transmission of a CAN frame, at the
+//          end of this timeout the transmission is cancelled and an other frame
+//          can be sent. This timeout is generally defined for USDT message but
+//          in fact this feature is available for all type of frame.
+//          N_As = 4;
+//
+//          Defines the type of the reset of the CAN cell in "bus off" 
+//          indication case.
+//          TypeOfReset = Single;
+//          or
+//          TypeOfReset = Periodic
+//          {
+//              Defines the period of the consecutive reset of the CAN cell
+//              in case of bus off event.
+//              PeriodMs = 1000;
+//          };
+//
+//          This compilation option actives the wake up of the ECU by CAN 
+//          frame reception management.
+//          bWakeUpByCAN = TRUE;
+//          
+//          List of Node linked object supervided by the node manager. 
+//          SupervisedNode = CMM;
+//          
+//          This object represents the CAN network parameterization for the 
+//          anti saturation protection available for all type of CAN bus.
+//          Antisaturation = Unused;
+//          or
+//          Antisaturation = Used
+//          {
+//              Defines the time windows during the received frame are counted
+//              CriticalDurationMs = 30;
+//
+//              Defines the maximum number of received frame the ECU can 
+//              received during the "critical duration" without starting
+//              the anti saturation protection.
+//              MaxNumberOfFrame = 3;
+//
+//              Defines the time during the anti saturation is active (CAN frame
+//              reception interrupt disable) before returning into nominal mode.
+//              RetryDelayMs = 10;
+//          };
+//
+//          This object is an abstract of the CAN supervision management, 
+//          depending of the customer specification. You must defined one of the
+//          3 possible Network Management: PSA Body, Renault, PSA Motor.
+//
+//          This object represents the CAN network management for the 
+//          PSA "Inter-System" CAN network.
+//          NetworkManagement = PSAMotorManagement 
+//          {
+//              This linked data object is the non volatile memory variable 
+//              allocated to the CAN bus defect memorization (supervision 
+//              defects, NERR defect).
+//              NVMData = EEPFaultCounterNetworkMgt;
+//
+//              This value is the increment value for the Bus Off defect 
+//              supervision. Each indication of a Bus Off defect present 
+//              provokes a increment of a counter linked to the Bus Off defect.
+//              IncrementValueForBusOffDefect= 39;
+//
+//              This value is the decrement value for the Bus Off defect 
+//              supervision. Each reception of a supervised received frame or a 
+//              successful transmission of the supervised transmitted frame 
+//              provokes a decrement of a counter linked to the Bus Off defect.
+//              DecrementValueForBusOffDefect = 1;
+//
+//              Defines the maximum value of the EEPROM counter linked to a 
+//              supervised defect.
+//              ValMaxMemorized = 40;
+//
+//              Defines the decrement value of the EEPROM counter linked to a 
+//              supervised defect at each supervision starting of this defect.
+//              DecrementMemorized = 1;
+//
+//              Defines the threshold value of the EEPROM counter linked to a 
+//              supervised defect, this counter can not be decreased under 
+//              this value.
+//              DecrementThreshold = 0;
+//          };
+//          or
+//          This object represents the CAN network management for the RNO CAN 
+//          network, and more generally for NISSAN and SAMSUNG.
+//          NetworkManagement = RNOManagement 
+//          {
+//              This compilation option actives the self diagnostic of the CAN 
+//              cell management.
+//              bSelfDiagnostic = FALSE;
+//
+//              This linked data object is the non volatile memory variable 
+//              allocated to the CAN bus defect memorization (supervision 
+//              defects, NERR defect).
+//              NVMData = EEPFaultCounterNetworkMgt;
+//
+//              Defines the time before confirmation and memorization of a bus 
+//              off defect.
+//              BusOffJudgementTimeMs = 2000;
+//
+//              Defines the maximum value of the EEPROM counter linked to a 
+//              supervised defect.
+//              ValMaxMemorized = 40;
+//
+//              Defines the decrement value of the EEPROM counter linked to a 
+//              supervised defect at each supervision starting of this defect.
+//              DecrementMemorized = 1;
+//
+//              Defines the threshold value of the EEPROM counter linked to a 
+//              supervised defect, this counter can not be decreased under 
+//              this value.
+//              DecrementThreshold = 0;
+//          };
+//          or
+//          This object represents the CAN network management for  
+//          the PSA "Body" CAN network.
+//          NetworkManagement = PSABodyManagement 
+//          {
+//              This linked data object is the non volatile memory variable 
+//              allocated to the CAN bus defect memorization (supervision 
+//              defects, NERR defect).
+//              NVMData = EEPFaultCounterNetworkMgt;
+//
+//              This value is the increment value for the NERR defect 
+//              supervision. Each indication of a NERR defect present provokes   
+//              a increment of a counter linked to the NERR defect.
+//              IncrementValueForNERRDefect = 39;
+//
+//              This value is the decrement value for the NERR defect 
+//              supervision. Each indication of a NERR defect not present  
+//              provokes a decrement of a counter linked to the NERR defect.
+//              DecrementValueForNERRDefect = 1;
+//
+//              This value is the maximum value for all the volatile counter 
+//              linked to a supervision of a node or the NERR defect before 
+//              confirmation and memorization of the defect.
+//              C_MAX = 40;
+//
+//              This value is the timeout after emission is authorized
+//              after which BUS OFF sequesce is reset in case no BUS OFFs appear
+//              during the timeout.
+//              BusOffRestoreTimeoutMs = 1000;
+//          };
+//      };
+//  };
+//
+//------------------------------------------------------------------------------
+//
+//  Component CAN_Project_Messaging
+//  {
+//      This object is a network, it usually contains multiple Control Units
+//      that are connected to one another by their Network Nodes and exchange 
+//      information over the same CAN bus.
+//      CANBus Can
+//      {
+//          BaudRate = 125000;
+//          Format = Motorola;
+//      };
+//
+//      This object is a Node, it's an interface of the Control Unit to a Network, 
+//      over which the control unit outputs information and receives information
+//      via the CAN bus.
+//      CANNode CLUSTER
+//      {
+//          This CANBus Object is the connection of the node on the network.
+//          Bus = Can; 
+//          
+//          Supervision = PSABody
+//          {
+//              This value is the decrement value for the node supervision 
+//              defect. Each timeout of reception of the supervised received 
+//              frame of the node or a unsuccessful transmission of the 
+//              supervised transmitted frame provokes a decrement of a counter 
+//              linked to the defect.
+//              IncrementValue = 39;
+//
+//              This value is the increment value for the node supervision 
+//              defect. Each reception of the supervised received frame of the
+//              node or a successful transmission of the supervised transmitted
+//              frame provokes a increment of a counter linked to the defect.
+//              DecrementValue = 13;
+//
+//              The CAN UUDT object message 
+//              SupervisedMessage = UUDT_TrameTx1;
+//          };
+//      };
+//
+//      This object is a unacknowledged unsegmented message, it can be 
+//      transmitted over the CAN bus.
+//      CANUUDTMessage UUDT_TrameTx1
+//      {
+//          Message = TrameRx1; 
+//          PeriodMs = 100;
+//          PhaseMs = 5;
+//          Identifier = 0x010;
+//          MinLength = 8;
+//          TimeoutMs = 300; 
+//          TxNode = ECU1;
+//          RxNode = CLUSTER;
+//          bToolAutoTransmission = TRUE;
+//      };
+//
+//      This object is a unacknowledged segmented message, it can be transmitted
+//      over the CAN bus.
+//      CANUSDTMessage DiagP2P_0x18DA10F1
+//      {
+//          MasterIdentifier = 0x700;
+//          SlaveIdentifier = 0x600;
+//          MaxLength = 32;
+//          MasterNode = DiagTool;
+//          SlaveNode = CLUSTER;
+//      };
+//
+//      This object is a PSA multimedia segmented message, it can be transmitted
+//      over the CAN bus.
+//      CANMSDTMessage TrameMSDT
+//      {
+//          TxIdentifier = 0x123;
+//          RxIdentifier = 0x456;
+//          RepIdentifier = 0x789;
+//          MaxLength = 180;
+//          TxNode = ECU1;
+//          RxNode = CLUSET;
+//      };
+//
+//      This object is a generic application message
+//      Message TrameRx1
+//      {
+//          Length  = 8;
+//          Data = Rx1UUDTByte0;
+//          Data = Rx1UUDTByte1;
+//          Data = Rx1UUDTByte2;
+//          Data = Rx1UUDTByte3;
+//          Data = Rx1UUDTByte6;
+//          Data = DEM_EFFAC_DEF;
+//          Data = DIAG_MUX_ON;
+//          Data = INTER_MEMO_DEF;
+//          Data = PHASE_VIE;
+//      };
+//
+//      This object is an application data in this case, it is a CAN signal.
+//      Data Rx1UUDTByte0
+//      {
+//         Type         = U8;
+//         DefaultRead  = Delayed;
+//         DefaultWrite = Delayed;
+//         ResetValue   = 0;
+//         DefaultValue = 0xFF;
+//         BytePosition = 0;
+//         BitPosition  = 7;
+//         BitSize      = 8;
+//      };
+//  };
+//  
+//
+//------------------------------------------------------------------------------
+
+Component DAT_CAN_RSA_Mono_Bus_Slave
+{
+
+    Data EEPFlagsDefautSourcesCan0
+    {
+        Type         = U8Array {Size =10;};
+        ResetValue   = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 16;
+        DefaultValue = 0;
+        Generate = FALSE;
+    };
+    
+        Data EEPFlagsDefautSourcesCan1
+    {
+        Type         = U8Array {Size =10;};
+        ResetValue   = 0;
+        BytePosition = 0;
+        BitPosition  = 7;
+        BitSize      = 16;
+        DefaultValue = 0;
+        Generate = FALSE;
+    };
+};
+
+
+
+
+CANManager
+{
+    TickMs = 10;
+    StopTimeoutMs = 200;
+
+    BufferManagement = Rolling
+    {
+        //current message number is 75, so here the value should  larger than 75.
+        NbOfRxBuffers = 100;
+    };
+
+    SegmentationManagement = Used
+    {
+      bFlowControlOverflowManagement = TRUE;
+      bFlowControlOverflowAndOverflowEmission = TRUE;
+      N_Cr = 150;// TempoAttenteCF:1000-->150 
+      N_Bs = 75; // TempoAttenteFC1000-->75 
+      Stmin = 20; // SeparationTime
+      StminMax = 127; // Maximum separation time
+      bDelayFirstCF = FALSE; // Delay first CF after FC with Stmin
+      BlockSize = 8; //BS
+
+      Padding = Used { PaddingPattern = 0x00; };
+      
+      USDTReEmission = Unused; // REPRISE_ERREUR
+    
+      MSDTReEmission = Unused;
+//	for Cm079507
+      USDTWait = Unused;
+//      USDTWait = Used // WAIT
+//      { 
+//         N_BsWait = 850; // TimeOutInterWait
+//         N_Br = 800;     // TimeOutWait 
+//         N_WFTmax = 0;   // MaxNbWait
+//      };
+    };
+
+    TransportManagement = Unused;
+
+    InteractionManagement
+    {
+       bEnableSupervisionControlled = FALSE;
+       Exclusion = Unused;
+    };
+
+    NodeManager 
+    {
+      Node = ECUSelfCan0;
+      N_As = 25;
+      LDBChannelIdentifier = "cLDBChannelCan0";
+      TypeOfReset = Periodic
+      {
+          PeriodMs = 0;  // see JMC_N330_Network_Platform_125K_CAN_Communication_Specification Figure 20
+      };
+      bWakeUpByCAN = TRUE;
+
+
+      //SupervisedNode = GW;
+      //SupervisedNode = PEPS;
+      //SupervisedNode = BCM;
+      //SupervisedNode = RVC;
+
+	  
+      Antisaturation = Unused;
+
+      NetworkManagement = RNOManagement 
+      {
+          bSelfDiagnostic = FALSE;
+          NVMData = EEPFlagsDefautSourcesCan0;
+          BusOffJudgementTimeMs = 5000;
+          ValMaxMemorized = 40;
+          DecrementMemorized = 1;
+          DecrementThreshold = 1;
+      };
+    };
+	
+	
+	
+	
+	NodeManager 
+    {
+      Node = ECUSelfCan1;
+      LDBChannelIdentifier = "cLDBChannelCan1";
+      N_As = 25;
+      TypeOfReset = Periodic
+      {
+          PeriodMs = 0;  
+      };
+      bWakeUpByCAN = FALSE;
+
+
+	  
+      Antisaturation = Unused;
+      NetworkManagement = Unused;
+
+    };
+    
+    
+    NodeManager 
+    {
+      Node = ECUSelfCan2;
+      LDBChannelIdentifier = "cLDBChannelCan2";
+      N_As = 25;
+      TypeOfReset = Periodic
+      {
+          PeriodMs = 0;  
+      };
+      bWakeUpByCAN = FALSE;
+
+      Antisaturation = Unused;
+      NetworkManagement = Unused;
+
+    };
+	
+    
+};
+
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Graph GraphGroupName                    // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//..
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_DAT_CAN_CFG_JIL */

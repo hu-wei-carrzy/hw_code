@@ -1,0 +1,62 @@
+//******************************************************************************
+// Copyright:    This software is JYD property.
+//               Duplication or disclosure without JYD written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      <PROJECT>
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    <Comments about the component (role, algorithm, structure, 
+//               limitations, defined tasks and events...)>
+// -----------------------------------------------------------------------------
+
+//******************************************************************************
+
+//------------------------------------------------------------------------------
+//                      Function prototypes
+//------------------------------------------------------------------------------
+
+#ifndef lap_eep
+   extern const tTOSSeqGraphType LAPEepManager; 
+#endif
+
+#ifdef lap_eep
+   extern void     LAPEepGraphInit(void);
+   extern BOOL LAPEepInitDelay60s(void);
+   extern void     LAPEepInitEEPIng(void);
+   extern void     LAPEepInitEEPOver(void);
+   extern BOOL LAPEepIsExitNow(void);
+   extern BOOL LAPEepIsInitEEPOver(void);
+   extern BOOL LAPEepIsNeedInitEEP(void);
+   extern void     LAPEepWaitForExit(void);
+   extern BOOL TOSSeqEvalVrai(void);
+   extern void     TOSSeqNop(void); 
+#endif
+
+//------------------------------------------------------------------------------
+//                      Component rules
+//------------------------------------------------------------------------------
+
+#ifdef lap_eep
+  const tTOSSeqGraphType LAPEepManager =
+  {
+#ifdef COMPILATION_NATIVE
+    "LAPEepManager",
+    {
+#endif
+  /*   0*/  {TOSSeqEvalVrai,LAPEepGraphInit,cTOSSeqInvalidRule,mTOSSeqRuleNumber(1)},
+  /*   1*/  {LAPEepIsNeedInitEEP,LAPEepInitEEPIng,mTOSSeqRuleNumber(5),mTOSSeqRuleNumber(2)},
+  /*   2*/  {LAPEepIsInitEEPOver,LAPEepInitEEPOver,mTOSSeqRuleNumber(1),mTOSSeqRuleNumber(3)},
+  /*   3*/  {LAPEepIsExitNow,TOSSeqNop,mTOSSeqRuleNumber(4),cTOSSeqInvalidRule},
+  /*   4*/  {TOSSeqEvalVrai,LAPEepWaitForExit,cTOSSeqInvalidRule,mTOSSeqRuleNumber(3)},
+  /*   5*/  {LAPEepInitDelay60s,TOSSeqNop,cTOSSeqInvalidRule,cTOSSeqInvalidRule}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+ 
+
+//------------------------------------------------------------------------------
+//                      End of generation
+//------------------------------------------------------------------------------

@@ -1,0 +1,1145 @@
+Address
+Bk0	Bk1	Bk2	Bk3	Bank	Data	Description	Value
+0				ErrorGroup	Cks_ErrorGroup_L	Checksum for bank "ErrorGroup"	0xFF
+1				ErrorGroup	Cks_ErrorGroup_H	Checksum for bank "ErrorGroup"	0xFF
+2				ErrorGroup	EEPErrorTable[0]	Table d'erreur EEP	0x00
+3				ErrorGroup	EEPErrorTable[1]	Table d'erreur EEP	0x00
+4				ErrorGroup	EEPErrorTable[2]	Table d'erreur EEP	0x00
+5				ErrorGroup	EEPErrorTable[3]	Table d'erreur EEP	0x00
+6				ErrorGroup	EEPErrorTable[4]	Table d'erreur EEP	0x00
+7				ErrorGroup	EEPErrorTable[5]	Table d'erreur EEP	0x00
+8				ErrorGroup	EEPErrorTable[6]	Table d'erreur EEP	0x00
+9				ErrorGroup	EEPErrorTable[7]	Table d'erreur EEP	0x00
+10				ErrorGroup	EEPErrorTable[8]	Table d'erreur EEP	0x00
+11				ErrorGroup	EEPErrorTable[9]	Table d'erreur EEP	0x00
+12				ErrorGroup	EEPErrorTable[10]	Table d'erreur EEP	0x00
+13				ErrorGroup	EEPErrorTable[11]	Table d'erreur EEP	0x00
+14				ErrorGroup	EEPErrorTable[12]	Table d'erreur EEP	0x00
+15				ErrorGroup	EEPErrorTable[13]	Table d'erreur EEP	0x00
+16				ErrorGroup	EEPErrorTable[14]	Table d'erreur EEP	0x00
+17				ErrorGroup	EEPErrorTable[15]	Table d'erreur EEP	0x00
+18				ErrorGroup	EEPErrorTable[16]	Table d'erreur EEP	0x00
+19				ErrorGroup	EEPErrorTable[17]	Table d'erreur EEP	0x00
+20				ErrorGroup	EEPErrorTable[18]	Table d'erreur EEP	0x00
+21				ErrorGroup	EEPErrorTable[19]	Table d'erreur EEP	0x00
+22				ErrorGroup	EEPErrorTable[20]	Table d'erreur EEP	0x00
+23				ErrorGroup	EEPErrorTable[21]	Table d'erreur EEP	0x00
+24				GroupTraceability	Cks_GroupTraceability_L	Checksum for bank "GroupTraceability"	0x37
+25				GroupTraceability	Cks_GroupTraceability_H	Checksum for bank "GroupTraceability"	0xAB
+26				GroupTraceability	EEP_ECUPartNumber[0]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x03
+27				GroupTraceability	EEP_ECUPartNumber[1]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x82
+28				GroupTraceability	EEP_ECUPartNumber[2]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+29				GroupTraceability	EEP_ECUPartNumber[3]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x22
+30				GroupTraceability	EEP_ECUPartNumber[4]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x95
+31				GroupTraceability	EEP_ECUPartNumber[5]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+32				GroupTraceability	EEP_ECUPartNumber[6]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+33				GroupTraceability	EEP_ECUPartNumber[7]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+34				GroupTraceability	EEP_ECUPartNumber[8]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+35				GroupTraceability	EEP_ECUPartNumber[9]	Product ID of ECU defined by JCI,EEP_CustomerReference. (en Text)	0x00
+36				GroupTraceability	EEP_SystemSupplierID[0]	The ID of JCI defined by customer.EEP_AssemblyPlantNumber (en Text)	0x00
+37				GroupTraceability	EEP_SystemSupplierID[1]	The ID of JCI defined by customer.EEP_AssemblyPlantNumber (en Text)	0x00
+38				GroupTraceability	EEP_SystemSupplierID[2]	The ID of JCI defined by customer.EEP_AssemblyPlantNumber (en Text)	0x00
+39				GroupTraceability	EEP_SystemSupplierID[3]	The ID of JCI defined by customer.EEP_AssemblyPlantNumber (en Text)	0x71
+40				GroupTraceability	EEP_SystemSupplierID[4]	The ID of JCI defined by customer.EEP_AssemblyPlantNumber (en Text)	0x20
+41				GroupTraceability	EEP_ECUManufacturingDate[0]	The date of the ECU manufactured by plant (en Text)	0x20
+42				GroupTraceability	EEP_ECUManufacturingDate[1]	The date of the ECU manufactured by plant (en Text)	0x00
+43				GroupTraceability	EEP_ECUManufacturingDate[2]	The date of the ECU manufactured by plant (en Text)	0x01
+44				GroupTraceability	EEP_ECUManufacturingDate[3]	The date of the ECU manufactured by plant (en Text)	0x01
+45				GroupTraceability	EEP_ECUManufacturingDate[4]	The date of the ECU manufactured by plant (en Text)	0x00
+46				GroupTraceability	EEP_ECUManufacturingDate[5]	The date of the ECU manufactured by plant (en Text)	0x00
+47				GroupTraceability	EEP_ECUSerialNumber[0]	The ID of each ECU. (en Text)	0x31
+48				GroupTraceability	EEP_ECUSerialNumber[1]	The ID of each ECU. (en Text)	0x32
+49				GroupTraceability	EEP_ECUSerialNumber[2]	The ID of each ECU. (en Text)	0x33
+50				GroupTraceability	EEP_ECUSerialNumber[3]	The ID of each ECU. (en Text)	0x34
+51				GroupTraceability	EEP_ECUSerialNumber[4]	The ID of each ECU. (en Text)	0x35
+52				GroupTraceability	EEP_ECUSerialNumber[5]	The ID of each ECU. (en Text)	0x36
+53				GroupTraceability	EEP_ECUSerialNumber[6]	The ID of each ECU. (en Text)	0x37
+54				GroupTraceability	EEP_ECUSerialNumber[7]	The ID of each ECU. (en Text)	0x38
+55				GroupTraceability	EEP_ECUSerialNumber[8]	The ID of each ECU. (en Text)	0x00
+56				GroupTraceability	EEP_ECUSerialNumber[9]	The ID of each ECU. (en Text)	0x00
+57				GroupTraceability	EEP_ECUSerialNumber[10]	The ID of each ECU. (en Text)	0x00
+58				GroupTraceability	EEP_ECUSerialNumber[11]	The ID of each ECU. (en Text)	0x00
+59				GroupTraceability	EEP_ECUSerialNumber[12]	The ID of each ECU. (en Text)	0x00
+60				GroupTraceability	EEP_ECUSerialNumber[13]	The ID of each ECU. (en Text)	0x00
+61				GroupTraceability	EEP_ECUSerialNumber[14]	The ID of each ECU. (en Text)	0x00
+62				GroupTraceability	EEP_ECUSerialNumber[15]	The ID of each ECU. (en Text)	0x00
+63				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[0]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+64				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[1]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+65				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[2]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+66				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[3]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+67				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[4]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+68				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[5]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+69				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[6]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+70				GroupTraceability	EEP_SystemSupplierECUHardwareNumber[7]	systemSupplierECUHardwareNumberDataIdentifier (en Text)	0x20
+71				GroupTraceability	EEP_HWVersion[0]	Hardware Version，V01A (en Text,V01A)	0x56
+72				GroupTraceability	EEP_HWVersion[1]	Hardware Version，V01A (en Text,V01A)	0x30
+73				GroupTraceability	EEP_HWVersion[2]	Hardware Version，V01A (en Text,V01A)	0x31
+74				GroupTraceability	EEP_HWVersion[3]	Hardware Version，V01A (en Text,V01A)	0x42
+75				GroupTraceability	EEP_HWVersion[4]	Hardware Version，V01A (en Text,V01A)	0x00
+76				GroupTraceability	EEP_HWVersion[5]	Hardware Version，V01A (en Text,V01A)	0x00
+77				GroupTraceability	EEP_HWVersion[6]	Hardware Version，V01A (en Text,V01A)	0x00
+78				GroupTraceability	EEP_HWVersion[7]	Hardware Version，V01A (en Text,V01A)	0x00
+79				GroupTraceability	EEP_HWRevision	Hardware Revision (en Text)	0x00
+80				GroupTraceability	EEP_SWFingerPrintDataID[0]	 (en Text)	0x20
+81				GroupTraceability	EEP_SWFingerPrintDataID[1]	 (en Text)	0x00
+82				GroupTraceability	EEP_SWFingerPrintDataID[2]	 (en Text)	0x01
+83				GroupTraceability	EEP_SWFingerPrintDataID[3]	 (en Text)	0x01
+84				GroupTraceability	EEP_SWFingerPrintDataID[4]	 (en Text)	0x00
+85				GroupTraceability	EEP_SWFingerPrintDataID[5]	 (en Text)	0x00
+86				GroupTraceability	EEP_SWFingerPrintDataID[6]	 (en Text)	0xFF
+87				GroupTraceability	EEP_SWFingerPrintDataID[7]	 (en Text)	0xFF
+88				GroupTraceability	EEP_SWFingerPrintDataID[8]	 (en Text)	0xFF
+89				GroupTraceability	EEP_SWFingerPrintDataID[9]	 (en Text)	0xFF
+90				GroupTraceability	EEP_SWFingerPrintDataID[10]	 (en Text)	0xFF
+91				GroupTraceability	EEP_SWFingerPrintDataID[11]	 (en Text)	0xFF
+92				GroupTraceability	EEP_SWFingerPrintDataID[12]	 (en Text)	0xFF
+93				GroupTraceability	EEP_DataFingerPrintDataID[0]	 (en Text)	0x20
+94				GroupTraceability	EEP_DataFingerPrintDataID[1]	 (en Text)	0x00
+95				GroupTraceability	EEP_DataFingerPrintDataID[2]	 (en Text)	0x01
+96				GroupTraceability	EEP_DataFingerPrintDataID[3]	 (en Text)	0x01
+97				GroupTraceability	EEP_DataFingerPrintDataID[4]	 (en Text)	0x00
+98				GroupTraceability	EEP_DataFingerPrintDataID[5]	 (en Text)	0x00
+99				GroupTraceability	EEP_DataFingerPrintDataID[6]	 (en Text)	0xFF
+100				GroupTraceability	EEP_DataFingerPrintDataID[7]	 (en Text)	0xFF
+101				GroupTraceability	EEP_DataFingerPrintDataID[8]	 (en Text)	0xFF
+102				GroupTraceability	EEP_DataFingerPrintDataID[9]	 (en Text)	0xFF
+103				GroupTraceability	EEP_DataFingerPrintDataID[10]	 (en Text)	0xFF
+104				GroupTraceability	EEP_DataFingerPrintDataID[11]	 (en Text)	0xFF
+105				GroupTraceability	EEP_DataFingerPrintDataID[12]	 (en Text)	0xFF
+106				GroupTraceability	EEP_EEPROMVersion	EEP Version (en Text)	0x01
+107				GroupTraceability	EEP_EEPROMRevision	EEP Version (en Text)	0x00
+108				GroupTraceability	EEP_ManfactureSerialNumL	ManufactureSerialNum (en Text)	0x00
+109				GroupTraceability	EEP_ManfactureSerialNumH	ManufactureSerialNum (en Text)	0x00
+110				GroupTraceability	EEP_ProductModelType[0]	ProductModelInfo (en Text)	0x20
+111				GroupTraceability	EEP_ProductModelType[1]	ProductModelInfo (en Text)	0x20
+112				GroupTraceability	EEP_ProductModelType[2]	ProductModelInfo (en Text)	0x20
+113				GroupTraceability	EEP_ProductModelType[3]	ProductModelInfo (en Text)	0x20
+114				GroupTraceability	EEP_ProductModelType[4]	ProductModelInfo (en Text)	0x20
+115				GroupTraceability	EEP_ProductModelType[5]	ProductModelInfo (en Text)	0x20
+116				GroupTraceability	EEP_ProductModelType[6]	ProductModelInfo (en Text)	0x20
+117				GroupTraceability	EEP_ProductModelType[7]	ProductModelInfo (en Text)	0x20
+118				GroupTraceability	EEP_ProductModelType[8]	ProductModelInfo (en Text)	0x20
+119				GroupTraceability	EEP_ProductModelType[9]	ProductModelInfo (en Text)	0x20
+120				GroupTraceability	EEP_ProductModelType[10]	ProductModelInfo (en Text)	0x20
+121				GroupTraceability	EEP_ProductModelType[11]	ProductModelInfo (en Text)	0x20
+122				GroupTraceability	EEP_ProductModelType[12]	ProductModelInfo (en Text)	0x20
+123				GroupTraceability	EEP_ProductModelType[13]	ProductModelInfo (en Text)	0x20
+124				GroupTraceability	EEP_ProductModelType[14]	ProductModelInfo (en Text)	0x20
+125				GroupTraceability	EEP_ProductModelType[15]	ProductModelInfo (en Text)	0x20
+126				GroupTraceability	EEP_GroupTraceabilityReservedData2	ProductModelInfo (en Text)	0x00
+127				GroupTraceability	EEP_ProductModelOutLookFuncCode	ProductModelInfo (en Text)	0x00
+128				GroupTraceability	EEP_ProductModelOutLookFuncNum	ProductModelInfo (en Text)	0x01
+129				GroupTraceability	EEP_VINCode[0]	VinCode (en Text)	0x20
+130				GroupTraceability	EEP_VINCode[1]	VinCode (en Text)	0x20
+131				GroupTraceability	EEP_VINCode[2]	VinCode (en Text)	0x20
+132				GroupTraceability	EEP_VINCode[3]	VinCode (en Text)	0x20
+133				GroupTraceability	EEP_VINCode[4]	VinCode (en Text)	0x20
+134				GroupTraceability	EEP_VINCode[5]	VinCode (en Text)	0x20
+135				GroupTraceability	EEP_VINCode[6]	VinCode (en Text)	0x20
+136				GroupTraceability	EEP_VINCode[7]	VinCode (en Text)	0x20
+137				GroupTraceability	EEP_VINCode[8]	VinCode (en Text)	0x20
+138				GroupTraceability	EEP_VINCode[9]	VinCode (en Text)	0x20
+139				GroupTraceability	EEP_VINCode[10]	VinCode (en Text)	0x20
+140				GroupTraceability	EEP_VINCode[11]	VinCode (en Text)	0x20
+141				GroupTraceability	EEP_VINCode[12]	VinCode (en Text)	0x20
+142				GroupTraceability	EEP_VINCode[13]	VinCode (en Text)	0x20
+143				GroupTraceability	EEP_VINCode[14]	VinCode (en Text)	0x20
+144				GroupTraceability	EEP_VINCode[15]	VinCode (en Text)	0x20
+145				GroupTraceability	EEP_VINCode[16]	VinCode (en Text)	0x20
+146				GroupTraceability	EEP_MsgTmOutSleepDelay_L	Message TimeOut Sleep Delay	0x2C
+147				GroupTraceability	EEP_MsgTmOutSleepDelay_H	Message TimeOut Sleep Delay	0x01
+148				GroupTraceability	EEP_ODOClearCountMain	Reserved (en Text)	0x00
+149				GroupTraceability	EEP_GroupTraceabilityReservedData0	Reserved (en Text)	0x00
+150				GroupTraceability	EEP_GroupTraceabilityReservedData1	Reserved (en Text)	0x00
+151				GroupTraceability	Libre_GroupTraceability	Unused	0x00
+152				GroupPlantTraceability	Cks_GroupPlantTraceability_L	Checksum for bank "GroupPlantTraceability"	0x09
+153				GroupPlantTraceability	Cks_GroupPlantTraceability_H	Checksum for bank "GroupPlantTraceability"	0x00
+154				GroupPlantTraceability	EEP_StationTraceability[0]	Plant diag spec defination (en Text)	0x00
+155				GroupPlantTraceability	EEP_StationTraceability[1]	Plant diag spec defination (en Text)	0x00
+156				GroupPlantTraceability	EEP_StationTraceability[2]	Plant diag spec defination (en Text)	0x00
+157				GroupPlantTraceability	EEP_StationTraceability[3]	Plant diag spec defination (en Text)	0x00
+158				GroupPlantTraceability	EEP_StationTraceability[4]	Plant diag spec defination (en Text)	0x00
+159				GroupPlantTraceability	EEP_StationTraceability[5]	Plant diag spec defination (en Text)	0x00
+160				GroupPlantTraceability	EEP_StationTraceability[6]	Plant diag spec defination (en Text)	0x00
+161				GroupPlantTraceability	EEP_StationTraceability[7]	Plant diag spec defination (en Text)	0x00
+162				GroupPlantTraceability	EEP_RunInTestModeConfiguration[0]	Plant diag spec defination	0x00
+163				GroupPlantTraceability	EEP_RunInTestModeConfiguration[1]	Plant diag spec defination	0x00
+164				GroupPlantTraceability	EEP_RunInTestModeResult[0]	Plant diag spec defination	0x00
+165				GroupPlantTraceability	EEP_RunInTestModeResult[1]	Plant diag spec defination	0x00
+166				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[0]	Plant diag spec defination (en Text)	0xFF
+167				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[1]	Plant diag spec defination (en Text)	0xFF
+168				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[2]	Plant diag spec defination (en Text)	0xFF
+169				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[3]	Plant diag spec defination (en Text)	0xFF
+170				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[4]	Plant diag spec defination (en Text)	0xFF
+171				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[5]	Plant diag spec defination (en Text)	0xFF
+172				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[6]	Plant diag spec defination (en Text)	0xFF
+173				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[7]	Plant diag spec defination (en Text)	0xFF
+174				GroupPlantTraceability	EEP_PCBAReferenceAndRevisionWithSwE2P[8]	Plant diag spec defination (en Text)	0xFF
+175				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[0]	Plant diag spec defination (en Text)	0xFF
+176				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[1]	Plant diag spec defination (en Text)	0xFF
+177				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[2]	Plant diag spec defination (en Text)	0xFF
+178				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[3]	Plant diag spec defination (en Text)	0xFF
+179				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[4]	Plant diag spec defination (en Text)	0xFF
+180				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[5]	Plant diag spec defination (en Text)	0xFF
+181				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[6]	Plant diag spec defination (en Text)	0xFF
+182				GroupPlantTraceability	EEP_JCIProductReferenceAndRevision[7]	Plant diag spec defination (en Text)	0xFF
+183				GroupPlantTraceability	EEP_PCBASerialNumber[0]	Plant diag spec defination (en Text)	0x00
+184				GroupPlantTraceability	EEP_PCBASerialNumber[1]	Plant diag spec defination (en Text)	0x00
+185				GroupPlantTraceability	EEP_PCBASerialNumber[2]	Plant diag spec defination (en Text)	0x00
+186				GroupPlantTraceability	EEP_PCBASerialNumber[3]	Plant diag spec defination (en Text)	0x00
+187				GroupPlantTraceability	EEP_SMDManufacturingDate[0]	Plant diag spec defination (en Text)	0x00
+188				GroupPlantTraceability	EEP_SMDManufacturingDate[1]	Plant diag spec defination (en Text)	0x00
+189				GroupPlantTraceability	EEP_SMDManufacturingDate[2]	Plant diag spec defination (en Text)	0x00
+190				GroupPlantTraceability	EEP_SMDManufacturingDate[3]	Plant diag spec defination (en Text)	0x00
+191				GroupPlantTraceability	EEP_SMDPlantNumber[0]	Plant diag spec defination (en Text)	0xFF
+192				GroupPlantTraceability	EEP_SMDPlantNumber[1]	Plant diag spec defination (en Text)	0xFF
+193				GroupPlantTraceability	EEP_SMDPlantNumber[2]	Plant diag spec defination (en Text)	0xFF
+194				GroupPlantTraceability	EEP_TestOKCount	Test Ok counter	0x00
+195				GroupPlantTraceability	EEP_GroupPlantTraceabilityReservedData0	Reserved	0x00
+196				GroupPlantTraceability	EEP_GroupPlantTraceabilityReservedData1	Reserved	0x00
+197				GroupPlantTraceability	EEP_GroupPlantTraceabilityReservedData2	Reserved	0x00
+198				GroupPlantTraceability	EEP_GroupPlantTraceabilityReservedData3	Reserved	0x00
+199				GroupPlantTraceability	Libre_GroupPlantTraceability	Unused	0x00
+200				GroupDiagReserved	Cks_GroupDiagReserved_L	Checksum for bank "GroupDiagReserved"	0xFF
+201				GroupDiagReserved	Cks_GroupDiagReserved_H	Checksum for bank "GroupDiagReserved"	0xFF
+202				GroupDiagReserved	EEP_DiagReservedData[0]	Reserved data for further use (en Text)	0x00
+203				GroupDiagReserved	EEP_DiagReservedData[1]	Reserved data for further use (en Text)	0x00
+204				GroupDiagReserved	EEP_DiagReservedData[2]	Reserved data for further use (en Text)	0x00
+205				GroupDiagReserved	EEP_DiagReservedData[3]	Reserved data for further use (en Text)	0x00
+206				GroupDiagReserved	EEP_DiagReservedData[4]	Reserved data for further use (en Text)	0x00
+207				GroupDiagReserved	EEP_DiagReservedData[5]	Reserved data for further use (en Text)	0x00
+208				GroupDiagReserved	EEP_DiagReservedData[6]	Reserved data for further use (en Text)	0x00
+209				GroupDiagReserved	EEP_DiagReservedData[7]	Reserved data for further use (en Text)	0x00
+210	220	230	240	GroupOdo	Cks_GroupOdo_L	Checksum for bank "GroupOdo"	0xFF
+211	221	231	241	GroupOdo	Cks_GroupOdo_H	Checksum for bank "GroupOdo"	0xFF
+212	222	232	242	GroupOdo	EEP_OdoTotal_LL	 (en 100m,1 means 100m)	0x00
+213	223	233	243	GroupOdo	EEP_OdoTotal_LH	 (en 100m,1 means 100m)	0x00
+214	224	234	244	GroupOdo	EEP_OdoTotal_HL	 (en 100m,1 means 100m)	0x00
+215	225	235	245	GroupOdo	EEP_OdoTotal_HH	 (en 100m,1 means 100m)	0x00
+216	226	236	246	GroupOdo	EEP_OdoTripBase_LL	 (en 100m,1 means 100m)	0x00
+217	227	237	247	GroupOdo	EEP_OdoTripBase_LH	 (en 100m,1 means 100m)	0x00
+218	228	238	248	GroupOdo	EEP_OdoTripBase_HL	 (en 100m,1 means 100m)	0x00
+219	229	239	249	GroupOdo	EEP_OdoTripBase_HH	 (en 100m,1 means 100m)	0x00
+250				GroupPlantCalibiration	Cks_GroupPlantCalibiration_L	Checksum for bank "GroupPlantCalibiration"	0xFF
+251				GroupPlantCalibiration	Cks_GroupPlantCalibiration_H	Checksum for bank "GroupPlantCalibiration"	0xFF
+252				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData1	 (en Reserved)	0x00
+253				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData2	 (en Reserved)	0x00
+254				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData3	 (en Reserved)	0x00
+255				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData4	 (en Reserved)	0x00
+256				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData5	 (en Reserved)	0x00
+257				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData6	 (en Reserved)	0x00
+258				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData7	 (en Reserved)	0x00
+259				GroupPlantCalibiration	EEP_GroupPlantCalibirationReservedData8	 (en Reserved)	0x00
+260	286			GroupSTKDTC	Cks_GroupSTKDTC_L	Checksum for bank "GroupSTKDTC"	0xFF
+261	287			GroupSTKDTC	Cks_GroupSTKDTC_H	Checksum for bank "GroupSTKDTC"	0xFE
+262	288			GroupSTKDTC	EEPFaultCounterNetworkMgt[0]	EEPFaultCounterNetworkMgt	0x00
+263	289			GroupSTKDTC	EEPFaultCounterNetworkMgt[1]	EEPFaultCounterNetworkMgt	0x00
+264	290			GroupSTKDTC	EEPFaultCounterNetworkMgt[2]	EEPFaultCounterNetworkMgt	0x00
+265	291			GroupSTKDTC	EEPFaultCounterNetworkMgt[3]	EEPFaultCounterNetworkMgt	0x00
+266	292			GroupSTKDTC	EEPFaultCounterNetworkMgt[4]	EEPFaultCounterNetworkMgt	0x00
+267	293			GroupSTKDTC	EEPFaultCounterNetworkMgt[5]	EEPFaultCounterNetworkMgt	0x00
+268	294			GroupSTKDTC	EEPFaultCounterNetworkMgt[6]	EEPFaultCounterNetworkMgt	0x00
+269	295			GroupSTKDTC	EEPFaultCounterNetworkMgt[7]	EEPFaultCounterNetworkMgt	0x00
+270	296			GroupSTKDTC	EEPFaultCounterNetworkMgt[8]	EEPFaultCounterNetworkMgt	0x00
+271	297			GroupSTKDTC	EEPFaultCounterNetworkMgt[9]	EEPFaultCounterNetworkMgt	0x00
+272	298			GroupSTKDTC	EEPFlagsDefautSourcesCan0[0]	EEPFlagsDefautSourcesCan0	0x00
+273	299			GroupSTKDTC	EEPFlagsDefautSourcesCan0[1]	EEPFlagsDefautSourcesCan0	0x00
+274	300			GroupSTKDTC	EEPFlagsDefautSourcesCan0[2]	EEPFlagsDefautSourcesCan0	0x00
+275	301			GroupSTKDTC	EEPFlagsDefautSourcesCan0[3]	EEPFlagsDefautSourcesCan0	0x00
+276	302			GroupSTKDTC	EEPFlagsDefautSourcesCan0[4]	EEPFlagsDefautSourcesCan0	0x00
+277	303			GroupSTKDTC	EEPFlagsDefautSourcesCan0[5]	EEPFlagsDefautSourcesCan0	0x00
+278	304			GroupSTKDTC	EEPFlagsDefautSourcesCan0[6]	EEPFlagsDefautSourcesCan0	0x00
+279	305			GroupSTKDTC	EEPFlagsDefautSourcesCan0[7]	EEPFlagsDefautSourcesCan0	0x00
+280	306			GroupSTKDTC	EEPFlagsDefautSourcesCan0[8]	EEPFlagsDefautSourcesCan0	0x00
+281	307			GroupSTKDTC	EEPFlagsDefautSourcesCan0[9]	EEPFlagsDefautSourcesCan0	0x00
+282	308			GroupSTKDTC	EEPFlagsDefautSourcesCan1[0]	EEPFlagsDefautSourcesCan1	0x00
+283	309			GroupSTKDTC	EEPFlagsDefautSourcesCan	EEPFlagsDefautSourcesCan	0x00
+284	310			GroupSTKDTC	EEPFlagsDefectLin	EEPFlagsDefectLin	0x00
+285	311			GroupSTKDTC	EEPDtcSelfDiag	EEPDtcSelfDiag	0x01
+312	394			GroupDTC	Cks_GroupDTC_L	Checksum for bank "GroupDTC"	0xFF
+313	395			GroupDTC	Cks_GroupDTC_H	Checksum for bank "GroupDTC"	0xFF
+314	396			GroupDTC	EEP_DTCDatabase[0]	DTC	0x00
+315	397			GroupDTC	EEP_DTCDatabase[1]	DTC	0x00
+316	398			GroupDTC	EEP_DTCDatabase[2]	DTC	0x00
+317	399			GroupDTC	EEP_DTCDatabase[3]	DTC	0x00
+318	400			GroupDTC	EEP_DTCDatabase[4]	DTC	0x00
+319	401			GroupDTC	EEP_DTCDatabase[5]	DTC	0x00
+320	402			GroupDTC	EEP_DTCDatabase[6]	DTC	0x00
+321	403			GroupDTC	EEP_DTCDatabase[7]	DTC	0x00
+322	404			GroupDTC	EEP_DTCDatabase[8]	DTC	0x00
+323	405			GroupDTC	EEP_DTCDatabase[9]	DTC	0x00
+324	406			GroupDTC	EEP_DTCDatabase[10]	DTC	0x00
+325	407			GroupDTC	EEP_DTCDatabase[11]	DTC	0x00
+326	408			GroupDTC	EEP_DTCDatabase[12]	DTC	0x00
+327	409			GroupDTC	EEP_DTCDatabase[13]	DTC	0x00
+328	410			GroupDTC	EEP_DTCDatabase[14]	DTC	0x00
+329	411			GroupDTC	EEP_DTCDatabase[15]	DTC	0x00
+330	412			GroupDTC	EEP_DTCDatabase[16]	DTC	0x00
+331	413			GroupDTC	EEP_DTCDatabase[17]	DTC	0x00
+332	414			GroupDTC	EEP_DTCDatabase[18]	DTC	0x00
+333	415			GroupDTC	EEP_DTCDatabase[19]	DTC	0x00
+334	416			GroupDTC	EEP_DTCDatabase[20]	DTC	0x00
+335	417			GroupDTC	EEP_DTCDatabase[21]	DTC	0x00
+336	418			GroupDTC	EEP_DTCDatabase[22]	DTC	0x00
+337	419			GroupDTC	EEP_DTCDatabase[23]	DTC	0x00
+338	420			GroupDTC	EEP_DTCDatabase[24]	DTC	0x00
+339	421			GroupDTC	EEP_DTCDatabase[25]	DTC	0x00
+340	422			GroupDTC	EEP_DTCDatabase[26]	DTC	0x00
+341	423			GroupDTC	EEP_DTCDatabase[27]	DTC	0x00
+342	424			GroupDTC	EEP_DTCDatabase[28]	DTC	0x00
+343	425			GroupDTC	EEP_DTCDatabase[29]	DTC	0x00
+344	426			GroupDTC	EEP_DTCDatabase[30]	DTC	0x00
+345	427			GroupDTC	EEP_DTCDatabase[31]	DTC	0x00
+346	428			GroupDTC	EEP_DTCDatabase[32]	DTC	0x00
+347	429			GroupDTC	EEP_DTCDatabase[33]	DTC	0x00
+348	430			GroupDTC	EEP_DTCDatabase[34]	DTC	0x00
+349	431			GroupDTC	EEP_DTCDatabase[35]	DTC	0x00
+350	432			GroupDTC	EEP_DTCDatabase[36]	DTC	0x00
+351	433			GroupDTC	EEP_DTCDatabase[37]	DTC	0x00
+352	434			GroupDTC	EEP_DTCDatabase[38]	DTC	0x00
+353	435			GroupDTC	EEP_DTCDatabase[39]	DTC	0x00
+354	436			GroupDTC	EEP_DTCDatabase[40]	DTC	0x00
+355	437			GroupDTC	EEP_DTCDatabase[41]	DTC	0x00
+356	438			GroupDTC	EEP_DTCDatabase[42]	DTC	0x00
+357	439			GroupDTC	EEP_DTCDatabase[43]	DTC	0x00
+358	440			GroupDTC	EEP_DTCDatabase[44]	DTC	0x00
+359	441			GroupDTC	EEP_DTCDatabase[45]	DTC	0x00
+360	442			GroupDTC	EEP_DTCDatabase[46]	DTC	0x00
+361	443			GroupDTC	EEP_DTCDatabase[47]	DTC	0x00
+362	444			GroupDTC	EEP_DTCDatabase[48]	DTC	0x00
+363	445			GroupDTC	EEP_DTCDatabase[49]	DTC	0x00
+364	446			GroupDTC	EEP_DTCDatabase[50]	DTC	0x00
+365	447			GroupDTC	EEP_DTCDatabase[51]	DTC	0x00
+366	448			GroupDTC	EEP_DTCDatabase[52]	DTC	0x00
+367	449			GroupDTC	EEP_DTCDatabase[53]	DTC	0x00
+368	450			GroupDTC	EEP_DTCDatabase[54]	DTC	0x00
+369	451			GroupDTC	EEP_DTCDatabase[55]	DTC	0x00
+370	452			GroupDTC	EEP_DTCDatabase[56]	DTC	0x00
+371	453			GroupDTC	EEP_DTCDatabase[57]	DTC	0x00
+372	454			GroupDTC	EEP_DTCDatabase[58]	DTC	0x00
+373	455			GroupDTC	EEP_DTCDatabase[59]	DTC	0x00
+374	456			GroupDTC	EEP_DTCDatabase[60]	DTC	0x00
+375	457			GroupDTC	EEP_DTCDatabase[61]	DTC	0x00
+376	458			GroupDTC	EEP_DTCDatabase[62]	DTC	0x00
+377	459			GroupDTC	EEP_DTCDatabase[63]	DTC	0x00
+378	460			GroupDTC	EEP_DTCDatabase[64]	DTC	0x00
+379	461			GroupDTC	EEP_DTCDatabase[65]	DTC	0x00
+380	462			GroupDTC	EEP_DTCDatabase[66]	DTC	0x00
+381	463			GroupDTC	EEP_DTCDatabase[67]	DTC	0x00
+382	464			GroupDTC	EEP_DTCDatabase[68]	DTC	0x00
+383	465			GroupDTC	EEP_DTCDatabase[69]	DTC	0x00
+384	466			GroupDTC	EEP_DTCDatabase[70]	DTC	0x00
+385	467			GroupDTC	EEP_DTCDatabase[71]	DTC	0x00
+386	468			GroupDTC	EEP_DTCDatabase[72]	DTC	0x00
+387	469			GroupDTC	EEP_DTCDatabase[73]	DTC	0x00
+388	470			GroupDTC	EEP_DTCDatabase[74]	DTC	0x00
+389	471			GroupDTC	EEP_DTCDatabase[75]	DTC	0x00
+390	472			GroupDTC	EEP_DTCDatabase[76]	DTC	0x00
+391	473			GroupDTC	EEP_DTCDatabase[77]	DTC	0x00
+392	474			GroupDTC	EEP_DTCDatabase[78]	DTC	0x00
+393	475			GroupDTC	EEP_DTCDatabase[79]	DTC	0x00
+476	598			GroupDIUpperLimit	Cks_GroupDIUpperLimit_L	Checksum for bank "GroupDIUpperLimit"	0xE9
+477	599			GroupDIUpperLimit	Cks_GroupDIUpperLimit_H	Checksum for bank "GroupDIUpperLimit"	0xCE
+478	600			GroupDIUpperLimit	EEP_DIUpperLimit[0]_L	DIUpperLimit	0xB8
+479	601			GroupDIUpperLimit	EEP_DIUpperLimit[0]_H	DIUpperLimit	0x0B
+480	602			GroupDIUpperLimit	EEP_DIUpperLimit[1]_L	DIUpperLimit	0xB8
+481	603			GroupDIUpperLimit	EEP_DIUpperLimit[1]_H	DIUpperLimit	0x0B
+482	604			GroupDIUpperLimit	EEP_DIUpperLimit[2]_L	DIUpperLimit	0xB8
+483	605			GroupDIUpperLimit	EEP_DIUpperLimit[2]_H	DIUpperLimit	0x0B
+484	606			GroupDIUpperLimit	EEP_DIUpperLimit[3]_L	DIUpperLimit	0xB8
+485	607			GroupDIUpperLimit	EEP_DIUpperLimit[3]_H	DIUpperLimit	0x0B
+486	608			GroupDIUpperLimit	EEP_DIUpperLimit[4]_L	DIUpperLimit	0xB8
+487	609			GroupDIUpperLimit	EEP_DIUpperLimit[4]_H	DIUpperLimit	0x0B
+488	610			GroupDIUpperLimit	EEP_DIUpperLimit[5]_L	DIUpperLimit	0xB8
+489	611			GroupDIUpperLimit	EEP_DIUpperLimit[5]_H	DIUpperLimit	0x0B
+490	612			GroupDIUpperLimit	EEP_DIUpperLimit[6]_L	DIUpperLimit	0xB8
+491	613			GroupDIUpperLimit	EEP_DIUpperLimit[6]_H	DIUpperLimit	0x0B
+492	614			GroupDIUpperLimit	EEP_DIUpperLimit[7]_L	DIUpperLimit	0xB8
+493	615			GroupDIUpperLimit	EEP_DIUpperLimit[7]_H	DIUpperLimit	0x0B
+494	616			GroupDIUpperLimit	EEP_DIUpperLimit[8]_L	DIUpperLimit	0xB8
+495	617			GroupDIUpperLimit	EEP_DIUpperLimit[8]_H	DIUpperLimit	0x0B
+496	618			GroupDIUpperLimit	EEP_DIUpperLimit[9]_L	DIUpperLimit	0xB8
+497	619			GroupDIUpperLimit	EEP_DIUpperLimit[9]_H	DIUpperLimit	0x0B
+498	620			GroupDIUpperLimit	EEP_DIUpperLimit[10]_L	DIUpperLimit	0xB8
+499	621			GroupDIUpperLimit	EEP_DIUpperLimit[10]_H	DIUpperLimit	0x0B
+500	622			GroupDIUpperLimit	EEP_DIUpperLimit[11]_L	DIUpperLimit	0xB8
+501	623			GroupDIUpperLimit	EEP_DIUpperLimit[11]_H	DIUpperLimit	0x0B
+502	624			GroupDIUpperLimit	EEP_DIUpperLimit[12]_L	DIUpperLimit	0xB8
+503	625			GroupDIUpperLimit	EEP_DIUpperLimit[12]_H	DIUpperLimit	0x0B
+504	626			GroupDIUpperLimit	EEP_DIUpperLimit[13]_L	DIUpperLimit	0xB8
+505	627			GroupDIUpperLimit	EEP_DIUpperLimit[13]_H	DIUpperLimit	0x0B
+506	628			GroupDIUpperLimit	EEP_DIUpperLimit[14]_L	DIUpperLimit	0x84
+507	629			GroupDIUpperLimit	EEP_DIUpperLimit[14]_H	DIUpperLimit	0x03
+508	630			GroupDIUpperLimit	EEP_DIUpperLimit[15]_L	DIUpperLimit	0x80
+509	631			GroupDIUpperLimit	EEP_DIUpperLimit[15]_H	DIUpperLimit	0x3E
+510	632			GroupDIUpperLimit	EEP_DIUpperLimit[16]_L	DIUpperLimit	0x84
+511	633			GroupDIUpperLimit	EEP_DIUpperLimit[16]_H	DIUpperLimit	0x03
+512	634			GroupDIUpperLimit	EEP_DIUpperLimit[17]_L	DIUpperLimit	0x2D
+513	635			GroupDIUpperLimit	EEP_DIUpperLimit[17]_H	DIUpperLimit	0x00
+514	636			GroupDIUpperLimit	EEP_DIUpperLimit[18]_L	DIUpperLimit	0xE0
+515	637			GroupDIUpperLimit	EEP_DIUpperLimit[18]_H	DIUpperLimit	0x2E
+516	638			GroupDIUpperLimit	EEP_DIUpperLimit[19]_L	DIUpperLimit	0x84
+517	639			GroupDIUpperLimit	EEP_DIUpperLimit[19]_H	DIUpperLimit	0x03
+518	640			GroupDIUpperLimit	EEP_DIUpperLimit[20]_L	DIUpperLimit	0x84
+519	641			GroupDIUpperLimit	EEP_DIUpperLimit[20]_H	DIUpperLimit	0x03
+520	642			GroupDIUpperLimit	EEP_DIUpperLimit[21]_L	DIUpperLimit	0x84
+521	643			GroupDIUpperLimit	EEP_DIUpperLimit[21]_H	DIUpperLimit	0x03
+522	644			GroupDIUpperLimit	EEP_DIUpperLimit[22]_L	DIUpperLimit	0x84
+523	645			GroupDIUpperLimit	EEP_DIUpperLimit[22]_H	DIUpperLimit	0x03
+524	646			GroupDIUpperLimit	EEP_DIUpperLimit[23]_L	DIUpperLimit	0x80
+525	647			GroupDIUpperLimit	EEP_DIUpperLimit[23]_H	DIUpperLimit	0x3E
+526	648			GroupDIUpperLimit	EEP_DIUpperLimit[24]_L	DIUpperLimit	0x84
+527	649			GroupDIUpperLimit	EEP_DIUpperLimit[24]_H	DIUpperLimit	0x03
+528	650			GroupDIUpperLimit	EEP_DIUpperLimit[25]_L	DIUpperLimit	0xA0
+529	651			GroupDIUpperLimit	EEP_DIUpperLimit[25]_H	DIUpperLimit	0x00
+530	652			GroupDIUpperLimit	EEP_DIUpperLimit[26]_L	DIUpperLimit	0xE0
+531	653			GroupDIUpperLimit	EEP_DIUpperLimit[26]_H	DIUpperLimit	0x2E
+532	654			GroupDIUpperLimit	EEP_DIUpperLimit[27]_L	DIUpperLimit	0x84
+533	655			GroupDIUpperLimit	EEP_DIUpperLimit[27]_H	DIUpperLimit	0x03
+534	656			GroupDIUpperLimit	EEP_DIUpperLimit[28]_L	DIUpperLimit	0x84
+535	657			GroupDIUpperLimit	EEP_DIUpperLimit[28]_H	DIUpperLimit	0x03
+536	658			GroupDIUpperLimit	EEP_DIUpperLimit[29]_L	DIUpperLimit	0x84
+537	659			GroupDIUpperLimit	EEP_DIUpperLimit[29]_H	DIUpperLimit	0x03
+538	660			GroupDIUpperLimit	EEP_DIUpperLimit[30]_L	DIUpperLimit	0x84
+539	661			GroupDIUpperLimit	EEP_DIUpperLimit[30]_H	DIUpperLimit	0x03
+540	662			GroupDIUpperLimit	EEP_DIUpperLimit[31]_L	DIUpperLimit	0x80
+541	663			GroupDIUpperLimit	EEP_DIUpperLimit[31]_H	DIUpperLimit	0x3E
+542	664			GroupDIUpperLimit	EEP_DIUpperLimit[32]_L	DIUpperLimit	0x2D
+543	665			GroupDIUpperLimit	EEP_DIUpperLimit[32]_H	DIUpperLimit	0x00
+544	666			GroupDIUpperLimit	EEP_DIUpperLimit[33]_L	DIUpperLimit	0xA0
+545	667			GroupDIUpperLimit	EEP_DIUpperLimit[33]_H	DIUpperLimit	0x00
+546	668			GroupDIUpperLimit	EEP_DIUpperLimit[34]_L	DIUpperLimit	0x84
+547	669			GroupDIUpperLimit	EEP_DIUpperLimit[34]_H	DIUpperLimit	0x03
+548	670			GroupDIUpperLimit	EEP_DIUpperLimit[35]_L	DIUpperLimit	0x84
+549	671			GroupDIUpperLimit	EEP_DIUpperLimit[35]_H	DIUpperLimit	0x03
+550	672			GroupDIUpperLimit	EEP_DIUpperLimit[36]_L	DIUpperLimit	0x84
+551	673			GroupDIUpperLimit	EEP_DIUpperLimit[36]_H	DIUpperLimit	0x03
+552	674			GroupDIUpperLimit	EEP_DIUpperLimit[37]_L	DIUpperLimit	0x80
+553	675			GroupDIUpperLimit	EEP_DIUpperLimit[37]_H	DIUpperLimit	0x3E
+554	676			GroupDIUpperLimit	EEP_DIUpperLimit[38]_L	DIUpperLimit	0xE0
+555	677			GroupDIUpperLimit	EEP_DIUpperLimit[38]_H	DIUpperLimit	0x2E
+556	678			GroupDIUpperLimit	EEP_DIUpperLimit[39]_L	DIUpperLimit	0x84
+557	679			GroupDIUpperLimit	EEP_DIUpperLimit[39]_H	DIUpperLimit	0x03
+558	680			GroupDIUpperLimit	EEP_DIUpperLimit[40]_L	DIUpperLimit	0x84
+559	681			GroupDIUpperLimit	EEP_DIUpperLimit[40]_H	DIUpperLimit	0x03
+560	682			GroupDIUpperLimit	EEP_DIUpperLimit[41]_L	DIUpperLimit	0x84
+561	683			GroupDIUpperLimit	EEP_DIUpperLimit[41]_H	DIUpperLimit	0x03
+562	684			GroupDIUpperLimit	EEP_DIUpperLimit[42]_L	DIUpperLimit	0x84
+563	685			GroupDIUpperLimit	EEP_DIUpperLimit[42]_H	DIUpperLimit	0x03
+564	686			GroupDIUpperLimit	EEP_DIUpperLimit[43]_L	DIUpperLimit	0x84
+565	687			GroupDIUpperLimit	EEP_DIUpperLimit[43]_H	DIUpperLimit	0x03
+566	688			GroupDIUpperLimit	EEP_DIUpperLimit[44]_L	DIUpperLimit	0x80
+567	689			GroupDIUpperLimit	EEP_DIUpperLimit[44]_H	DIUpperLimit	0x3E
+568	690			GroupDIUpperLimit	EEP_DIUpperLimit[45]_L	DIUpperLimit	0x84
+569	691			GroupDIUpperLimit	EEP_DIUpperLimit[45]_H	DIUpperLimit	0x03
+570	692			GroupDIUpperLimit	EEP_DIUpperLimit[46]_L	DIUpperLimit	0x84
+571	693			GroupDIUpperLimit	EEP_DIUpperLimit[46]_H	DIUpperLimit	0x03
+572	694			GroupDIUpperLimit	EEP_DIUpperLimit[47]_L	DIUpperLimit	0x84
+573	695			GroupDIUpperLimit	EEP_DIUpperLimit[47]_H	DIUpperLimit	0x03
+574	696			GroupDIUpperLimit	EEP_DIUpperLimit[48]_L	DIUpperLimit	0x80
+575	697			GroupDIUpperLimit	EEP_DIUpperLimit[48]_H	DIUpperLimit	0x3E
+576	698			GroupDIUpperLimit	EEP_DIUpperLimit[49]_L	DIUpperLimit	0xE0
+577	699			GroupDIUpperLimit	EEP_DIUpperLimit[49]_H	DIUpperLimit	0x2E
+578	700			GroupDIUpperLimit	EEP_DIUpperLimit[50]_L	DIUpperLimit	0x84
+579	701			GroupDIUpperLimit	EEP_DIUpperLimit[50]_H	DIUpperLimit	0x03
+580	702			GroupDIUpperLimit	EEP_DIUpperLimit[51]_L	DIUpperLimit	0x84
+581	703			GroupDIUpperLimit	EEP_DIUpperLimit[51]_H	DIUpperLimit	0x03
+582	704			GroupDIUpperLimit	EEP_DIUpperLimit[52]_L	DIUpperLimit	0x84
+583	705			GroupDIUpperLimit	EEP_DIUpperLimit[52]_H	DIUpperLimit	0x03
+584	706			GroupDIUpperLimit	EEP_DIUpperLimit[53]_L	DIUpperLimit	0x84
+585	707			GroupDIUpperLimit	EEP_DIUpperLimit[53]_H	DIUpperLimit	0x03
+586	708			GroupDIUpperLimit	EEP_DIUpperLimit[54]_L	DIUpperLimit	0x84
+587	709			GroupDIUpperLimit	EEP_DIUpperLimit[54]_H	DIUpperLimit	0x03
+588	710			GroupDIUpperLimit	EEP_DIUpperLimit[55]_L	DIUpperLimit	0x80
+589	711			GroupDIUpperLimit	EEP_DIUpperLimit[55]_H	DIUpperLimit	0x3E
+590	712			GroupDIUpperLimit	EEP_DIUpperLimit[56]_L	DIUpperLimit	0xE0
+591	713			GroupDIUpperLimit	EEP_DIUpperLimit[56]_H	DIUpperLimit	0x2E
+592	714			GroupDIUpperLimit	EEP_DIUpperLimit[57]_L	DIUpperLimit	0xE0
+593	715			GroupDIUpperLimit	EEP_DIUpperLimit[57]_H	DIUpperLimit	0x2E
+594	716			GroupDIUpperLimit	EEP_DIUpperLimit[58]_L	DIUpperLimit	0xE0
+595	717			GroupDIUpperLimit	EEP_DIUpperLimit[58]_H	DIUpperLimit	0x2E
+596	718			GroupDIUpperLimit	EEP_DIUpperLimit[59]_L	DIUpperLimit	0xE0
+597	719			GroupDIUpperLimit	EEP_DIUpperLimit[59]_H	DIUpperLimit	0x2E
+720	842			GroupDILowerLimit	Cks_GroupDILowerLimit_L	Checksum for bank "GroupDILowerLimit"	0xCD
+721	843			GroupDILowerLimit	Cks_GroupDILowerLimit_H	Checksum for bank "GroupDILowerLimit"	0x10
+722	844			GroupDILowerLimit	EEP_DILowerLimit[0]_L	DILowerLimit	0x58
+723	845			GroupDILowerLimit	EEP_DILowerLimit[0]_H	DILowerLimit	0x02
+724	846			GroupDILowerLimit	EEP_DILowerLimit[1]_L	DILowerLimit	0x58
+725	847			GroupDILowerLimit	EEP_DILowerLimit[1]_H	DILowerLimit	0x02
+726	848			GroupDILowerLimit	EEP_DILowerLimit[2]_L	DILowerLimit	0x58
+727	849			GroupDILowerLimit	EEP_DILowerLimit[2]_H	DILowerLimit	0x02
+728	850			GroupDILowerLimit	EEP_DILowerLimit[3]_L	DILowerLimit	0x58
+729	851			GroupDILowerLimit	EEP_DILowerLimit[3]_H	DILowerLimit	0x02
+730	852			GroupDILowerLimit	EEP_DILowerLimit[4]_L	DILowerLimit	0x58
+731	853			GroupDILowerLimit	EEP_DILowerLimit[4]_H	DILowerLimit	0x02
+732	854			GroupDILowerLimit	EEP_DILowerLimit[5]_L	DILowerLimit	0x58
+733	855			GroupDILowerLimit	EEP_DILowerLimit[5]_H	DILowerLimit	0x02
+734	856			GroupDILowerLimit	EEP_DILowerLimit[6]_L	DILowerLimit	0x58
+735	857			GroupDILowerLimit	EEP_DILowerLimit[6]_H	DILowerLimit	0x02
+736	858			GroupDILowerLimit	EEP_DILowerLimit[7]_L	DILowerLimit	0x58
+737	859			GroupDILowerLimit	EEP_DILowerLimit[7]_H	DILowerLimit	0x02
+738	860			GroupDILowerLimit	EEP_DILowerLimit[8]_L	DILowerLimit	0x58
+739	861			GroupDILowerLimit	EEP_DILowerLimit[8]_H	DILowerLimit	0x02
+740	862			GroupDILowerLimit	EEP_DILowerLimit[9]_L	DILowerLimit	0x58
+741	863			GroupDILowerLimit	EEP_DILowerLimit[9]_H	DILowerLimit	0x02
+742	864			GroupDILowerLimit	EEP_DILowerLimit[10]_L	DILowerLimit	0x58
+743	865			GroupDILowerLimit	EEP_DILowerLimit[10]_H	DILowerLimit	0x02
+744	866			GroupDILowerLimit	EEP_DILowerLimit[11]_L	DILowerLimit	0x58
+745	867			GroupDILowerLimit	EEP_DILowerLimit[11]_H	DILowerLimit	0x02
+746	868			GroupDILowerLimit	EEP_DILowerLimit[12]_L	DILowerLimit	0x58
+747	869			GroupDILowerLimit	EEP_DILowerLimit[12]_H	DILowerLimit	0x02
+748	870			GroupDILowerLimit	EEP_DILowerLimit[13]_L	DILowerLimit	0x58
+749	871			GroupDILowerLimit	EEP_DILowerLimit[13]_H	DILowerLimit	0x02
+750	872			GroupDILowerLimit	EEP_DILowerLimit[14]_L	DILowerLimit	0xF4
+751	873			GroupDILowerLimit	EEP_DILowerLimit[14]_H	DILowerLimit	0x01
+752	874			GroupDILowerLimit	EEP_DILowerLimit[15]_L	DILowerLimit	0xE0
+753	875			GroupDILowerLimit	EEP_DILowerLimit[15]_H	DILowerLimit	0x2E
+754	876			GroupDILowerLimit	EEP_DILowerLimit[16]_L	DILowerLimit	0xF4
+755	877			GroupDILowerLimit	EEP_DILowerLimit[16]_H	DILowerLimit	0x01
+756	878			GroupDILowerLimit	EEP_DILowerLimit[17]_L	DILowerLimit	0x2C
+757	879			GroupDILowerLimit	EEP_DILowerLimit[17]_H	DILowerLimit	0x00
+758	880			GroupDILowerLimit	EEP_DILowerLimit[18]_L	DILowerLimit	0xF8
+759	881			GroupDILowerLimit	EEP_DILowerLimit[18]_H	DILowerLimit	0x2A
+760	882			GroupDILowerLimit	EEP_DILowerLimit[19]_L	DILowerLimit	0xF4
+761	883			GroupDILowerLimit	EEP_DILowerLimit[19]_H	DILowerLimit	0x01
+762	884			GroupDILowerLimit	EEP_DILowerLimit[20]_L	DILowerLimit	0xF4
+763	885			GroupDILowerLimit	EEP_DILowerLimit[20]_H	DILowerLimit	0x01
+764	886			GroupDILowerLimit	EEP_DILowerLimit[21]_L	DILowerLimit	0xF4
+765	887			GroupDILowerLimit	EEP_DILowerLimit[21]_H	DILowerLimit	0x01
+766	888			GroupDILowerLimit	EEP_DILowerLimit[22]_L	DILowerLimit	0xF4
+767	889			GroupDILowerLimit	EEP_DILowerLimit[22]_H	DILowerLimit	0x01
+768	890			GroupDILowerLimit	EEP_DILowerLimit[23]_L	DILowerLimit	0xE0
+769	891			GroupDILowerLimit	EEP_DILowerLimit[23]_H	DILowerLimit	0x2E
+770	892			GroupDILowerLimit	EEP_DILowerLimit[24]_L	DILowerLimit	0xF4
+771	893			GroupDILowerLimit	EEP_DILowerLimit[24]_H	DILowerLimit	0x01
+772	894			GroupDILowerLimit	EEP_DILowerLimit[25]_L	DILowerLimit	0x9F
+773	895			GroupDILowerLimit	EEP_DILowerLimit[25]_H	DILowerLimit	0x00
+774	896			GroupDILowerLimit	EEP_DILowerLimit[26]_L	DILowerLimit	0xF8
+775	897			GroupDILowerLimit	EEP_DILowerLimit[26]_H	DILowerLimit	0x2A
+776	898			GroupDILowerLimit	EEP_DILowerLimit[27]_L	DILowerLimit	0xF4
+777	899			GroupDILowerLimit	EEP_DILowerLimit[27]_H	DILowerLimit	0x01
+778	900			GroupDILowerLimit	EEP_DILowerLimit[28]_L	DILowerLimit	0xF4
+779	901			GroupDILowerLimit	EEP_DILowerLimit[28]_H	DILowerLimit	0x01
+780	902			GroupDILowerLimit	EEP_DILowerLimit[29]_L	DILowerLimit	0xF4
+781	903			GroupDILowerLimit	EEP_DILowerLimit[29]_H	DILowerLimit	0x01
+782	904			GroupDILowerLimit	EEP_DILowerLimit[30]_L	DILowerLimit	0xF4
+783	905			GroupDILowerLimit	EEP_DILowerLimit[30]_H	DILowerLimit	0x01
+784	906			GroupDILowerLimit	EEP_DILowerLimit[31]_L	DILowerLimit	0xE0
+785	907			GroupDILowerLimit	EEP_DILowerLimit[31]_H	DILowerLimit	0x2E
+786	908			GroupDILowerLimit	EEP_DILowerLimit[32]_L	DILowerLimit	0x2C
+787	909			GroupDILowerLimit	EEP_DILowerLimit[32]_H	DILowerLimit	0x00
+788	910			GroupDILowerLimit	EEP_DILowerLimit[33]_L	DILowerLimit	0x9F
+789	911			GroupDILowerLimit	EEP_DILowerLimit[33]_H	DILowerLimit	0x00
+790	912			GroupDILowerLimit	EEP_DILowerLimit[34]_L	DILowerLimit	0xF4
+791	913			GroupDILowerLimit	EEP_DILowerLimit[34]_H	DILowerLimit	0x01
+792	914			GroupDILowerLimit	EEP_DILowerLimit[35]_L	DILowerLimit	0xF4
+793	915			GroupDILowerLimit	EEP_DILowerLimit[35]_H	DILowerLimit	0x01
+794	916			GroupDILowerLimit	EEP_DILowerLimit[36]_L	DILowerLimit	0xF4
+795	917			GroupDILowerLimit	EEP_DILowerLimit[36]_H	DILowerLimit	0x01
+796	918			GroupDILowerLimit	EEP_DILowerLimit[37]_L	DILowerLimit	0xE0
+797	919			GroupDILowerLimit	EEP_DILowerLimit[37]_H	DILowerLimit	0x2E
+798	920			GroupDILowerLimit	EEP_DILowerLimit[38]_L	DILowerLimit	0xF8
+799	921			GroupDILowerLimit	EEP_DILowerLimit[38]_H	DILowerLimit	0x2A
+800	922			GroupDILowerLimit	EEP_DILowerLimit[39]_L	DILowerLimit	0xF4
+801	923			GroupDILowerLimit	EEP_DILowerLimit[39]_H	DILowerLimit	0x01
+802	924			GroupDILowerLimit	EEP_DILowerLimit[40]_L	DILowerLimit	0xF4
+803	925			GroupDILowerLimit	EEP_DILowerLimit[40]_H	DILowerLimit	0x01
+804	926			GroupDILowerLimit	EEP_DILowerLimit[41]_L	DILowerLimit	0xF4
+805	927			GroupDILowerLimit	EEP_DILowerLimit[41]_H	DILowerLimit	0x01
+806	928			GroupDILowerLimit	EEP_DILowerLimit[42]_L	DILowerLimit	0xF4
+807	929			GroupDILowerLimit	EEP_DILowerLimit[42]_H	DILowerLimit	0x01
+808	930			GroupDILowerLimit	EEP_DILowerLimit[43]_L	DILowerLimit	0xF4
+809	931			GroupDILowerLimit	EEP_DILowerLimit[43]_H	DILowerLimit	0x01
+810	932			GroupDILowerLimit	EEP_DILowerLimit[44]_L	DILowerLimit	0xF8
+811	933			GroupDILowerLimit	EEP_DILowerLimit[44]_H	DILowerLimit	0x2A
+812	934			GroupDILowerLimit	EEP_DILowerLimit[45]_L	DILowerLimit	0xF4
+813	935			GroupDILowerLimit	EEP_DILowerLimit[45]_H	DILowerLimit	0x01
+814	936			GroupDILowerLimit	EEP_DILowerLimit[46]_L	DILowerLimit	0xF4
+815	937			GroupDILowerLimit	EEP_DILowerLimit[46]_H	DILowerLimit	0x01
+816	938			GroupDILowerLimit	EEP_DILowerLimit[47]_L	DILowerLimit	0xF4
+817	939			GroupDILowerLimit	EEP_DILowerLimit[47]_H	DILowerLimit	0x01
+818	940			GroupDILowerLimit	EEP_DILowerLimit[48]_L	DILowerLimit	0xF8
+819	941			GroupDILowerLimit	EEP_DILowerLimit[48]_H	DILowerLimit	0x2A
+820	942			GroupDILowerLimit	EEP_DILowerLimit[49]_L	DILowerLimit	0xF8
+821	943			GroupDILowerLimit	EEP_DILowerLimit[49]_H	DILowerLimit	0x2A
+822	944			GroupDILowerLimit	EEP_DILowerLimit[50]_L	DILowerLimit	0xF4
+823	945			GroupDILowerLimit	EEP_DILowerLimit[50]_H	DILowerLimit	0x01
+824	946			GroupDILowerLimit	EEP_DILowerLimit[51]_L	DILowerLimit	0xF4
+825	947			GroupDILowerLimit	EEP_DILowerLimit[51]_H	DILowerLimit	0x01
+826	948			GroupDILowerLimit	EEP_DILowerLimit[52]_L	DILowerLimit	0xF4
+827	949			GroupDILowerLimit	EEP_DILowerLimit[52]_H	DILowerLimit	0x01
+828	950			GroupDILowerLimit	EEP_DILowerLimit[53]_L	DILowerLimit	0xF4
+829	951			GroupDILowerLimit	EEP_DILowerLimit[53]_H	DILowerLimit	0x01
+830	952			GroupDILowerLimit	EEP_DILowerLimit[54]_L	DILowerLimit	0xF4
+831	953			GroupDILowerLimit	EEP_DILowerLimit[54]_H	DILowerLimit	0x01
+832	954			GroupDILowerLimit	EEP_DILowerLimit[55]_L	DILowerLimit	0xE0
+833	955			GroupDILowerLimit	EEP_DILowerLimit[55]_H	DILowerLimit	0x2E
+834	956			GroupDILowerLimit	EEP_DILowerLimit[56]_L	DILowerLimit	0xF8
+835	957			GroupDILowerLimit	EEP_DILowerLimit[56]_H	DILowerLimit	0x2A
+836	958			GroupDILowerLimit	EEP_DILowerLimit[57]_L	DILowerLimit	0xF8
+837	959			GroupDILowerLimit	EEP_DILowerLimit[57]_H	DILowerLimit	0x2A
+838	960			GroupDILowerLimit	EEP_DILowerLimit[58]_L	DILowerLimit	0xF8
+839	961			GroupDILowerLimit	EEP_DILowerLimit[58]_H	DILowerLimit	0x2A
+840	962			GroupDILowerLimit	EEP_DILowerLimit[59]_L	DILowerLimit	0xF8
+841	963			GroupDILowerLimit	EEP_DILowerLimit[59]_H	DILowerLimit	0x2A
+964	982			GroupDIType	Cks_GroupDIType_L	Checksum for bank "GroupDIType"	0x82
+965	983			GroupDIType	Cks_GroupDIType_H	Checksum for bank "GroupDIType"	0x5F
+966	984			GroupDIType	EEP_DIType[0]	Ditype	0x00
+967	985			GroupDIType	EEP_DIType[1]	Ditype	0x05
+968	986			GroupDIType	EEP_DIType[2]	Ditype	0x00
+969	987			GroupDIType	EEP_DIType[3]	Ditype	0x2D
+970	988			GroupDIType	EEP_DIType[4]	Ditype	0x01
+971	989			GroupDIType	EEP_DIType[5]	Ditype	0x00
+972	990			GroupDIType	EEP_DIType[6]	Ditype	0x36
+973	991			GroupDIType	EEP_DIType[7]	Ditype	0x37
+974	992			GroupDIType	EEP_DIType[8]	Ditype	0x01
+975	993			GroupDIType	EEP_DIType[9]	Ditype	0x00
+976	994			GroupDIType	EEP_DIType[10]	Ditype	0x36
+977	995			GroupDIType	EEP_DIType[11]	Ditype	0x37
+978	996			GroupDIType	EEP_DIType[12]	Ditype	0x0F
+979	997			GroupDIType	EEP_DIType[13]	Ditype	0x00
+980	998			GroupDIType	EEP_DIType[14]	Ditype	0x00
+981	999			GroupDIType	Libre_GroupDIType	Unused	0x00
+1000	1138			GroupSensorCal	Cks_GroupSensorCal_L	Checksum for bank "GroupSensorCal"	0x64
+1001	1139			GroupSensorCal	Cks_GroupSensorCal_H	Checksum for bank "GroupSensorCal"	0xE7
+1002	1140			GroupSensorCal	EEP_OpenTime_L	开门时间	0xAC
+1003	1141			GroupSensorCal	EEP_OpenTime_H	开门时间	0x0D
+1004	1142			GroupSensorCal	EEP_CloseTime_L	关门时间	0xAC
+1005	1143			GroupSensorCal	EEP_CloseTime_H	关门时间	0x0D
+1006	1144			GroupSensorCal	EEP_FrontPumpRunDistance_L	气缸总行程	0x87
+1007	1145			GroupSensorCal	EEP_FrontPumpRunDistance_H	气缸总行程	0x00
+1008	1146			GroupSensorCal	EEP_BackPumpRunDistance_L	实际运行行程	0x64
+1009	1147			GroupSensorCal	EEP_BackPumpRunDistance_H	实际运行行程	0x00
+1010	1148			GroupSensorCal	EEP_FrontOpenSensorVol_L	开门位置对应的门绝对位置传感器电压	0xA0
+1011	1149			GroupSensorCal	EEP_FrontOpenSensorVol_H	开门位置对应的门绝对位置传感器电压	0x0F
+1012	1150			GroupSensorCal	EEP_BackOpenSensorVol_L	开门位置对应的门绝对位置传感器电压	0xA0
+1013	1151			GroupSensorCal	EEP_BackOpenSensorVol_H	开门位置对应的门绝对位置传感器电压	0x0F
+1014	1152			GroupSensorCal	EEP_FrontCloseSensorVol_L	关门位置对应的门绝对位置传感器电压	0xE8
+1015	1153			GroupSensorCal	EEP_FrontCloseSensorVol_H	关门位置对应的门绝对位置传感器电压	0x03
+1016	1154			GroupSensorCal	EEP_BackCloseSensorVol_L	关门位置对应的门绝对位置传感器电压	0xE8
+1017	1155			GroupSensorCal	EEP_BackCloseSensorVol_H	关门位置对应的门绝对位置传感器电压	0x03
+1018	1156			GroupSensorCal	EEP_FrontOpenGradePercent[0]	开门行程各个阶段占比	0x0A
+1019	1157			GroupSensorCal	EEP_FrontOpenGradePercent[1]	开门行程各个阶段占比	0x0A
+1020	1158			GroupSensorCal	EEP_FrontOpenGradePercent[2]	开门行程各个阶段占比	0x0A
+1021	1159			GroupSensorCal	EEP_FrontOpenGradePercent[3]	开门行程各个阶段占比	0x0A
+1022	1160			GroupSensorCal	EEP_FrontOpenGradePercent[4]	开门行程各个阶段占比	0x0A
+1023	1161			GroupSensorCal	EEP_FrontOpenGradePercent[5]	开门行程各个阶段占比	0x0A
+1024	1162			GroupSensorCal	EEP_FrontOpenGradePercent[6]	开门行程各个阶段占比	0x0A
+1025	1163			GroupSensorCal	EEP_FrontOpenGradePercent[7]	开门行程各个阶段占比	0x0A
+1026	1164			GroupSensorCal	EEP_FrontOpenGradePercent[8]	开门行程各个阶段占比	0x0A
+1027	1165			GroupSensorCal	EEP_FrontOpenGradePercent[9]	开门行程各个阶段占比	0x0A
+1028	1166			GroupSensorCal	EEP_BackOpenGradePercent[0]	开门行程各个阶段占比	0x0A
+1029	1167			GroupSensorCal	EEP_BackOpenGradePercent[1]	开门行程各个阶段占比	0x0A
+1030	1168			GroupSensorCal	EEP_BackOpenGradePercent[2]	开门行程各个阶段占比	0x0A
+1031	1169			GroupSensorCal	EEP_BackOpenGradePercent[3]	开门行程各个阶段占比	0x0A
+1032	1170			GroupSensorCal	EEP_BackOpenGradePercent[4]	开门行程各个阶段占比	0x0A
+1033	1171			GroupSensorCal	EEP_BackOpenGradePercent[5]	开门行程各个阶段占比	0x0A
+1034	1172			GroupSensorCal	EEP_BackOpenGradePercent[6]	开门行程各个阶段占比	0x0A
+1035	1173			GroupSensorCal	EEP_BackOpenGradePercent[7]	开门行程各个阶段占比	0x0A
+1036	1174			GroupSensorCal	EEP_BackOpenGradePercent[8]	开门行程各个阶段占比	0x0A
+1037	1175			GroupSensorCal	EEP_BackOpenGradePercent[9]	开门行程各个阶段占比	0x0A
+1038	1176			GroupSensorCal	EEP_FrontOpenGradeLimitTime[0]_L	开门行程各个阶段限值延时阈值	0x50
+1039	1177			GroupSensorCal	EEP_FrontOpenGradeLimitTime[0]_H	开门行程各个阶段限值延时阈值	0x00
+1040	1178			GroupSensorCal	EEP_FrontOpenGradeLimitTime[1]_L	开门行程各个阶段限值延时阈值	0x50
+1041	1179			GroupSensorCal	EEP_FrontOpenGradeLimitTime[1]_H	开门行程各个阶段限值延时阈值	0x00
+1042	1180			GroupSensorCal	EEP_FrontOpenGradeLimitTime[2]_L	开门行程各个阶段限值延时阈值	0x50
+1043	1181			GroupSensorCal	EEP_FrontOpenGradeLimitTime[2]_H	开门行程各个阶段限值延时阈值	0x00
+1044	1182			GroupSensorCal	EEP_FrontOpenGradeLimitTime[3]_L	开门行程各个阶段限值延时阈值	0x50
+1045	1183			GroupSensorCal	EEP_FrontOpenGradeLimitTime[3]_H	开门行程各个阶段限值延时阈值	0x00
+1046	1184			GroupSensorCal	EEP_FrontOpenGradeLimitTime[4]_L	开门行程各个阶段限值延时阈值	0x50
+1047	1185			GroupSensorCal	EEP_FrontOpenGradeLimitTime[4]_H	开门行程各个阶段限值延时阈值	0x00
+1048	1186			GroupSensorCal	EEP_FrontOpenGradeLimitTime[5]_L	开门行程各个阶段限值延时阈值	0x50
+1049	1187			GroupSensorCal	EEP_FrontOpenGradeLimitTime[5]_H	开门行程各个阶段限值延时阈值	0x00
+1050	1188			GroupSensorCal	EEP_FrontOpenGradeLimitTime[6]_L	开门行程各个阶段限值延时阈值	0x50
+1051	1189			GroupSensorCal	EEP_FrontOpenGradeLimitTime[6]_H	开门行程各个阶段限值延时阈值	0x00
+1052	1190			GroupSensorCal	EEP_FrontOpenGradeLimitTime[7]_L	开门行程各个阶段限值延时阈值	0x50
+1053	1191			GroupSensorCal	EEP_FrontOpenGradeLimitTime[7]_H	开门行程各个阶段限值延时阈值	0x00
+1054	1192			GroupSensorCal	EEP_FrontOpenGradeLimitTime[8]_L	开门行程各个阶段限值延时阈值	0x50
+1055	1193			GroupSensorCal	EEP_FrontOpenGradeLimitTime[8]_H	开门行程各个阶段限值延时阈值	0x00
+1056	1194			GroupSensorCal	EEP_FrontOpenGradeLimitTime[9]_L	开门行程各个阶段限值延时阈值	0x50
+1057	1195			GroupSensorCal	EEP_FrontOpenGradeLimitTime[9]_H	开门行程各个阶段限值延时阈值	0x00
+1058	1196			GroupSensorCal	EEP_BackOpenGradeLimitTime[0]_L	开门行程各个阶段限值延时阈值	0x50
+1059	1197			GroupSensorCal	EEP_BackOpenGradeLimitTime[0]_H	开门行程各个阶段限值延时阈值	0x00
+1060	1198			GroupSensorCal	EEP_BackOpenGradeLimitTime[1]_L	开门行程各个阶段限值延时阈值	0x50
+1061	1199			GroupSensorCal	EEP_BackOpenGradeLimitTime[1]_H	开门行程各个阶段限值延时阈值	0x00
+1062	1200			GroupSensorCal	EEP_BackOpenGradeLimitTime[2]_L	开门行程各个阶段限值延时阈值	0x50
+1063	1201			GroupSensorCal	EEP_BackOpenGradeLimitTime[2]_H	开门行程各个阶段限值延时阈值	0x00
+1064	1202			GroupSensorCal	EEP_BackOpenGradeLimitTime[3]_L	开门行程各个阶段限值延时阈值	0x50
+1065	1203			GroupSensorCal	EEP_BackOpenGradeLimitTime[3]_H	开门行程各个阶段限值延时阈值	0x00
+1066	1204			GroupSensorCal	EEP_BackOpenGradeLimitTime[4]_L	开门行程各个阶段限值延时阈值	0x50
+1067	1205			GroupSensorCal	EEP_BackOpenGradeLimitTime[4]_H	开门行程各个阶段限值延时阈值	0x00
+1068	1206			GroupSensorCal	EEP_BackOpenGradeLimitTime[5]_L	开门行程各个阶段限值延时阈值	0x50
+1069	1207			GroupSensorCal	EEP_BackOpenGradeLimitTime[5]_H	开门行程各个阶段限值延时阈值	0x00
+1070	1208			GroupSensorCal	EEP_BackOpenGradeLimitTime[6]_L	开门行程各个阶段限值延时阈值	0x50
+1071	1209			GroupSensorCal	EEP_BackOpenGradeLimitTime[6]_H	开门行程各个阶段限值延时阈值	0x00
+1072	1210			GroupSensorCal	EEP_BackOpenGradeLimitTime[7]_L	开门行程各个阶段限值延时阈值	0x50
+1073	1211			GroupSensorCal	EEP_BackOpenGradeLimitTime[7]_H	开门行程各个阶段限值延时阈值	0x00
+1074	1212			GroupSensorCal	EEP_BackOpenGradeLimitTime[8]_L	开门行程各个阶段限值延时阈值	0x50
+1075	1213			GroupSensorCal	EEP_BackOpenGradeLimitTime[8]_H	开门行程各个阶段限值延时阈值	0x00
+1076	1214			GroupSensorCal	EEP_BackOpenGradeLimitTime[9]_L	开门行程各个阶段限值延时阈值	0x50
+1077	1215			GroupSensorCal	EEP_BackOpenGradeLimitTime[9]_H	开门行程各个阶段限值延时阈值	0x00
+1078	1216			GroupSensorCal	EEP_FrontCloseGradePercent[0]	关门行程各个阶段占比	0x0A
+1079	1217			GroupSensorCal	EEP_FrontCloseGradePercent[1]	关门行程各个阶段占比	0x0A
+1080	1218			GroupSensorCal	EEP_FrontCloseGradePercent[2]	关门行程各个阶段占比	0x0A
+1081	1219			GroupSensorCal	EEP_FrontCloseGradePercent[3]	关门行程各个阶段占比	0x0A
+1082	1220			GroupSensorCal	EEP_FrontCloseGradePercent[4]	关门行程各个阶段占比	0x0A
+1083	1221			GroupSensorCal	EEP_FrontCloseGradePercent[5]	关门行程各个阶段占比	0x0A
+1084	1222			GroupSensorCal	EEP_FrontCloseGradePercent[6]	关门行程各个阶段占比	0x0A
+1085	1223			GroupSensorCal	EEP_FrontCloseGradePercent[7]	关门行程各个阶段占比	0x0A
+1086	1224			GroupSensorCal	EEP_FrontCloseGradePercent[8]	关门行程各个阶段占比	0x0A
+1087	1225			GroupSensorCal	EEP_FrontCloseGradePercent[9]	关门行程各个阶段占比	0x0A
+1088	1226			GroupSensorCal	EEP_BackCloseGradePercent[0]	关门行程各个阶段占比	0x0A
+1089	1227			GroupSensorCal	EEP_BackCloseGradePercent[1]	关门行程各个阶段占比	0x0A
+1090	1228			GroupSensorCal	EEP_BackCloseGradePercent[2]	关门行程各个阶段占比	0x0A
+1091	1229			GroupSensorCal	EEP_BackCloseGradePercent[3]	关门行程各个阶段占比	0x0A
+1092	1230			GroupSensorCal	EEP_BackCloseGradePercent[4]	关门行程各个阶段占比	0x0A
+1093	1231			GroupSensorCal	EEP_BackCloseGradePercent[5]	关门行程各个阶段占比	0x0A
+1094	1232			GroupSensorCal	EEP_BackCloseGradePercent[6]	关门行程各个阶段占比	0x0A
+1095	1233			GroupSensorCal	EEP_BackCloseGradePercent[7]	关门行程各个阶段占比	0x0A
+1096	1234			GroupSensorCal	EEP_BackCloseGradePercent[8]	关门行程各个阶段占比	0x0A
+1097	1235			GroupSensorCal	EEP_BackCloseGradePercent[9]	关门行程各个阶段占比	0x0A
+1098	1236			GroupSensorCal	EEP_FrontCloseGradeLimitTime[0]_L	关门行程各个阶段限值延时阈值	0x50
+1099	1237			GroupSensorCal	EEP_FrontCloseGradeLimitTime[0]_H	关门行程各个阶段限值延时阈值	0x00
+1100	1238			GroupSensorCal	EEP_FrontCloseGradeLimitTime[1]_L	关门行程各个阶段限值延时阈值	0x50
+1101	1239			GroupSensorCal	EEP_FrontCloseGradeLimitTime[1]_H	关门行程各个阶段限值延时阈值	0x00
+1102	1240			GroupSensorCal	EEP_FrontCloseGradeLimitTime[2]_L	关门行程各个阶段限值延时阈值	0x50
+1103	1241			GroupSensorCal	EEP_FrontCloseGradeLimitTime[2]_H	关门行程各个阶段限值延时阈值	0x00
+1104	1242			GroupSensorCal	EEP_FrontCloseGradeLimitTime[3]_L	关门行程各个阶段限值延时阈值	0x50
+1105	1243			GroupSensorCal	EEP_FrontCloseGradeLimitTime[3]_H	关门行程各个阶段限值延时阈值	0x00
+1106	1244			GroupSensorCal	EEP_FrontCloseGradeLimitTime[4]_L	关门行程各个阶段限值延时阈值	0x50
+1107	1245			GroupSensorCal	EEP_FrontCloseGradeLimitTime[4]_H	关门行程各个阶段限值延时阈值	0x00
+1108	1246			GroupSensorCal	EEP_FrontCloseGradeLimitTime[5]_L	关门行程各个阶段限值延时阈值	0x50
+1109	1247			GroupSensorCal	EEP_FrontCloseGradeLimitTime[5]_H	关门行程各个阶段限值延时阈值	0x00
+1110	1248			GroupSensorCal	EEP_FrontCloseGradeLimitTime[6]_L	关门行程各个阶段限值延时阈值	0x50
+1111	1249			GroupSensorCal	EEP_FrontCloseGradeLimitTime[6]_H	关门行程各个阶段限值延时阈值	0x00
+1112	1250			GroupSensorCal	EEP_FrontCloseGradeLimitTime[7]_L	关门行程各个阶段限值延时阈值	0x50
+1113	1251			GroupSensorCal	EEP_FrontCloseGradeLimitTime[7]_H	关门行程各个阶段限值延时阈值	0x00
+1114	1252			GroupSensorCal	EEP_FrontCloseGradeLimitTime[8]_L	关门行程各个阶段限值延时阈值	0x50
+1115	1253			GroupSensorCal	EEP_FrontCloseGradeLimitTime[8]_H	关门行程各个阶段限值延时阈值	0x00
+1116	1254			GroupSensorCal	EEP_FrontCloseGradeLimitTime[9]_L	关门行程各个阶段限值延时阈值	0x50
+1117	1255			GroupSensorCal	EEP_FrontCloseGradeLimitTime[9]_H	关门行程各个阶段限值延时阈值	0x00
+1118	1256			GroupSensorCal	EEP_BackCloseGradeLimitTime[0]_L	关门行程各个阶段限值延时阈值	0x50
+1119	1257			GroupSensorCal	EEP_BackCloseGradeLimitTime[0]_H	关门行程各个阶段限值延时阈值	0x00
+1120	1258			GroupSensorCal	EEP_BackCloseGradeLimitTime[1]_L	关门行程各个阶段限值延时阈值	0x50
+1121	1259			GroupSensorCal	EEP_BackCloseGradeLimitTime[1]_H	关门行程各个阶段限值延时阈值	0x00
+1122	1260			GroupSensorCal	EEP_BackCloseGradeLimitTime[2]_L	关门行程各个阶段限值延时阈值	0x50
+1123	1261			GroupSensorCal	EEP_BackCloseGradeLimitTime[2]_H	关门行程各个阶段限值延时阈值	0x00
+1124	1262			GroupSensorCal	EEP_BackCloseGradeLimitTime[3]_L	关门行程各个阶段限值延时阈值	0x50
+1125	1263			GroupSensorCal	EEP_BackCloseGradeLimitTime[3]_H	关门行程各个阶段限值延时阈值	0x00
+1126	1264			GroupSensorCal	EEP_BackCloseGradeLimitTime[4]_L	关门行程各个阶段限值延时阈值	0x50
+1127	1265			GroupSensorCal	EEP_BackCloseGradeLimitTime[4]_H	关门行程各个阶段限值延时阈值	0x00
+1128	1266			GroupSensorCal	EEP_BackCloseGradeLimitTime[5]_L	关门行程各个阶段限值延时阈值	0x50
+1129	1267			GroupSensorCal	EEP_BackCloseGradeLimitTime[5]_H	关门行程各个阶段限值延时阈值	0x00
+1130	1268			GroupSensorCal	EEP_BackCloseGradeLimitTime[6]_L	关门行程各个阶段限值延时阈值	0x50
+1131	1269			GroupSensorCal	EEP_BackCloseGradeLimitTime[6]_H	关门行程各个阶段限值延时阈值	0x00
+1132	1270			GroupSensorCal	EEP_BackCloseGradeLimitTime[7]_L	关门行程各个阶段限值延时阈值	0x50
+1133	1271			GroupSensorCal	EEP_BackCloseGradeLimitTime[7]_H	关门行程各个阶段限值延时阈值	0x00
+1134	1272			GroupSensorCal	EEP_BackCloseGradeLimitTime[8]_L	关门行程各个阶段限值延时阈值	0x50
+1135	1273			GroupSensorCal	EEP_BackCloseGradeLimitTime[8]_H	关门行程各个阶段限值延时阈值	0x00
+1136	1274			GroupSensorCal	EEP_BackCloseGradeLimitTime[9]_L	关门行程各个阶段限值延时阈值	0x50
+1137	1275			GroupSensorCal	EEP_BackCloseGradeLimitTime[9]_H	关门行程各个阶段限值延时阈值	0x00
+1276	1398			GroupSensorCal1	Cks_GroupSensorCal1_L	Checksum for bank "GroupSensorCal1"	0xCB
+1277	1399			GroupSensorCal1	Cks_GroupSensorCal1_H	Checksum for bank "GroupSensorCal1"	0x35
+1278	1400			GroupSensorCal1	EEP_StartTime_L	启动时间	0x2C
+1279	1401			GroupSensorCal1	EEP_StartTime_H	启动时间	0x01
+1280	1402			GroupSensorCal1	EEP_FrontPinchDistance_L	取消前扇气囊防夹行程	0x64
+1281	1403			GroupSensorCal1	EEP_FrontPinchDistance_H	取消前扇气囊防夹行程	0x00
+1282	1404			GroupSensorCal1	EEP_BackPinchDistance_L	取消后扇气囊防夹行程	0x64
+1283	1405			GroupSensorCal1	EEP_BackPinchDistance_H	取消后扇气囊防夹行程	0x00
+1284	1406			GroupSensorCal1	EEP_AirBagMaxValidDistance_L	气囊信号有效最大区域	0xF4
+1285	1407			GroupSensorCal1	EEP_AirBagMaxValidDistance_H	气囊信号有效最大区域	0x01
+1286	1408			GroupSensorCal1	EEP_OpenValueShortPowDelayTime_L	开门电磁阀对电源短路诊断延时时间	0x2C
+1287	1409			GroupSensorCal1	EEP_OpenValueShortPowDelayTime_H	开门电磁阀对电源短路诊断延时时间	0x01
+1288	1410			GroupSensorCal1	EEP_OpenValueShortPowKeepTime_L	开门电磁阀对电源短路诊断持续时间	0xC8
+1289	1411			GroupSensorCal1	EEP_OpenValueShortPowKeepTime_H	开门电磁阀对电源短路诊断持续时间	0x00
+1290	1412			GroupSensorCal1	EEP_OpenValueShortPowVol_L	开门电磁阀对电源短路电压阀值	0x74
+1291	1413			GroupSensorCal1	EEP_OpenValueShortPowVol_H	开门电磁阀对电源短路电压阀值	0x40
+1292	1414			GroupSensorCal1	EEP_OpenValueShortGndDelayTime_L	开门电磁阀对地短路诊断延时时间	0x2C
+1293	1415			GroupSensorCal1	EEP_OpenValueShortGndDelayTime_H	开门电磁阀对地短路诊断延时时间	0x01
+1294	1416			GroupSensorCal1	EEP_OpenValueShortGndKeepTime_L	开门电磁阀对地短路诊断持续时间	0xC8
+1295	1417			GroupSensorCal1	EEP_OpenValueShortGndKeepTime_H	开门电磁阀对地短路诊断持续时间	0x00
+1296	1418			GroupSensorCal1	EEP_OpenValueShortGndCur_L	开门电磁阀过载电流阀值	0xB0
+1297	1419			GroupSensorCal1	EEP_OpenValueShortGndCur_H	开门电磁阀过载电流阀值	0x04
+1298	1420			GroupSensorCal1	EEP_OpenValueOpenPowDelayTime_L	开门电磁阀开路诊断延时时间	0x2C
+1299	1421			GroupSensorCal1	EEP_OpenValueOpenPowDelayTime_H	开门电磁阀开路诊断延时时间	0x01
+1300	1422			GroupSensorCal1	EEP_OpenValueOpenPowKeepTime_L	开门电磁阀开路诊断持续时间	0xC8
+1301	1423			GroupSensorCal1	EEP_OpenValueOpenPowKeepTime_H	开门电磁阀开路诊断持续时间	0x00
+1302	1424			GroupSensorCal1	EEP_OpenValueOpenCur_L	开门电磁阀开路电流阀值	0x64
+1303	1425			GroupSensorCal1	EEP_OpenValueOpenCur_H	开门电磁阀开路电流阀值	0x00
+1304	1426			GroupSensorCal1	EEP_CloseValueShortPowDelayTime_L	关门电磁阀对电源短路诊断延时时间	0x2C
+1305	1427			GroupSensorCal1	EEP_CloseValueShortPowDelayTime_H	关门电磁阀对电源短路诊断延时时间	0x01
+1306	1428			GroupSensorCal1	EEP_CloseValueShortPowKeepTime_L	关门电磁阀对电源短路诊断持续时间	0xC8
+1307	1429			GroupSensorCal1	EEP_CloseValueShortPowKeepTime_H	关门电磁阀对电源短路诊断持续时间	0x00
+1308	1430			GroupSensorCal1	EEP_CloseValueShortPowVol_L	关门电磁阀对电源短路电压阀值	0x74
+1309	1431			GroupSensorCal1	EEP_CloseValueShortPowVol_H	关门电磁阀对电源短路电压阀值	0x40
+1310	1432			GroupSensorCal1	EEP_CloseValueShortGndDelayTime_L	关门电磁阀对地短路诊断延时时间	0x2C
+1311	1433			GroupSensorCal1	EEP_CloseValueShortGndDelayTime_H	关门电磁阀对地短路诊断延时时间	0x01
+1312	1434			GroupSensorCal1	EEP_CloseValueShortGndKeepTime_L	关门电磁阀对地短路诊断持续时间	0xC8
+1313	1435			GroupSensorCal1	EEP_CloseValueShortGndKeepTime_H	关门电磁阀对地短路诊断持续时间	0x00
+1314	1436			GroupSensorCal1	EEP_CloseValueOpenPowDelayTime_L	关门电磁阀开路诊断延时时间	0x2C
+1315	1437			GroupSensorCal1	EEP_CloseValueOpenPowDelayTime_H	关门电磁阀开路诊断延时时间	0x01
+1316	1438			GroupSensorCal1	EEP_CloseValueOpenPowKeepTime_L	关门电磁阀开路诊断持续时间	0xC8
+1317	1439			GroupSensorCal1	EEP_CloseValueOpenPowKeepTime_H	关门电磁阀开路诊断持续时间	0x00
+1318	1440			GroupSensorCal1	EEP_CloseValueOpenCur_L	关门电磁阀开路电流阀值	0x64
+1319	1441			GroupSensorCal1	EEP_CloseValueOpenCur_H	关门电磁阀开路电流阀值	0x00
+1320	1442			GroupSensorCal1	EEP_CloseValueShortGndCur_L	关门电磁阀过载电流阀值	0xB0
+1321	1443			GroupSensorCal1	EEP_CloseValueShortGndCur_H	关门电磁阀过载电流阀值	0x04
+1322	1444			GroupSensorCal1	EEP_MiddleValueShortPowDelayTime_L	中位电磁阀对电源短路诊断延时时间	0x2C
+1323	1445			GroupSensorCal1	EEP_MiddleValueShortPowDelayTime_H	中位电磁阀对电源短路诊断延时时间	0x01
+1324	1446			GroupSensorCal1	EEP_MiddleValueShortPowKeepTime_L	中位电磁阀对电源短路诊断持续时间	0xC8
+1325	1447			GroupSensorCal1	EEP_MiddleValueShortPowKeepTime_H	中位电磁阀对电源短路诊断持续时间	0x00
+1326	1448			GroupSensorCal1	EEP_MiddleValueShortPowVol_L	中位电磁阀开路电流阀值	0x74
+1327	1449			GroupSensorCal1	EEP_MiddleValueShortPowVol_H	中位电磁阀开路电流阀值	0x40
+1328	1450			GroupSensorCal1	EEP_MiddleValueShortGndDelayTime_L	中位电磁阀对电源短路电压阀值	0x2C
+1329	1451			GroupSensorCal1	EEP_MiddleValueShortGndDelayTime_H	中位电磁阀对电源短路电压阀值	0x01
+1330	1452			GroupSensorCal1	EEP_MiddleValueShortGndKeepTime_L	中位电磁阀对地短路诊断延时时间	0xC8
+1331	1453			GroupSensorCal1	EEP_MiddleValueShortGndKeepTime_H	中位电磁阀对地短路诊断延时时间	0x00
+1332	1454			GroupSensorCal1	EEP_MiddleValueShortGndCur_L	中位电磁阀过载电流阀值	0xB0
+1333	1455			GroupSensorCal1	EEP_MiddleValueShortGndCur_H	中位电磁阀过载电流阀值	0x04
+1334	1456			GroupSensorCal1	EEP_MiddleValueOpenPowDelayTime_L	中位电磁阀对地短路诊断延时时间	0x2C
+1335	1457			GroupSensorCal1	EEP_MiddleValueOpenPowDelayTime_H	中位电磁阀对地短路诊断延时时间	0x01
+1336	1458			GroupSensorCal1	EEP_MiddleValueOpenPowKeepTime_L	中位电磁阀对地短路诊断持续时间	0xC8
+1337	1459			GroupSensorCal1	EEP_MiddleValueOpenPowKeepTime_H	中位电磁阀对地短路诊断持续时间	0x00
+1338	1460			GroupSensorCal1	EEP_MiddleValueOpenCur_L	中位电磁阀开路诊断持续时间	0x64
+1339	1461			GroupSensorCal1	EEP_MiddleValueOpenCur_H	中位电磁阀开路诊断持续时间	0x00
+1340	1462			GroupSensorCal1	EEP_RestrainValueShortPowDelayTime_L	抑制电磁阀对电源短路诊断延时时间	0x2C
+1341	1463			GroupSensorCal1	EEP_RestrainValueShortPowDelayTime_H	抑制电磁阀对电源短路诊断延时时间	0x01
+1342	1464			GroupSensorCal1	EEP_RestrainValueShortPowKeepTime_L	抑制电磁阀对电源短路诊断持续时间	0xC8
+1343	1465			GroupSensorCal1	EEP_RestrainValueShortPowKeepTime_H	抑制电磁阀对电源短路诊断持续时间	0x00
+1344	1466			GroupSensorCal1	EEP_RestrainValueShortPowVol_L	抑制电磁阀对电源短路电压阀值	0x74
+1345	1467			GroupSensorCal1	EEP_RestrainValueShortPowVol_H	抑制电磁阀对电源短路电压阀值	0x40
+1346	1468			GroupSensorCal1	EEP_RestrainValueShortGndDelayTime_L	抑制电磁阀对地短路诊断延时时间	0x2C
+1347	1469			GroupSensorCal1	EEP_RestrainValueShortGndDelayTime_H	抑制电磁阀对地短路诊断延时时间	0x01
+1348	1470			GroupSensorCal1	EEP_RestrainValueShortGndKeepTime_L	抑制电磁阀对地短路诊断持续时间	0xC8
+1349	1471			GroupSensorCal1	EEP_RestrainValueShortGndKeepTime_H	抑制电磁阀对地短路诊断持续时间	0x00
+1350	1472			GroupSensorCal1	EEP_RestrainValueShortGndCur_L	抑制电磁阀过载电流阀值	0xB0
+1351	1473			GroupSensorCal1	EEP_RestrainValueShortGndCur_H	抑制电磁阀过载电流阀值	0x04
+1352	1474			GroupSensorCal1	EEP_RestrainValueOpenPowDelayTime_L	抑制电磁阀对地短路诊断延时时间	0x2C
+1353	1475			GroupSensorCal1	EEP_RestrainValueOpenPowDelayTime_H	抑制电磁阀对地短路诊断延时时间	0x01
+1354	1476			GroupSensorCal1	EEP_RestrainValueOpenPowKeepTime_L	抑制电磁阀开路诊断持续时间	0xC8
+1355	1477			GroupSensorCal1	EEP_RestrainValueOpenPowKeepTime_H	抑制电磁阀开路诊断持续时间	0x00
+1356	1478			GroupSensorCal1	EEP_RestrainValueOpenCur_L	抑制电磁阀开路电流阀值	0x64
+1357	1479			GroupSensorCal1	EEP_RestrainValueOpenCur_H	抑制电磁阀开路电流阀值	0x00
+1358	1480			GroupSensorCal1	EEP_DoorLightShortPowDelayTime_L	门灯对电源短路诊断延时时间	0x2C
+1359	1481			GroupSensorCal1	EEP_DoorLightShortPowDelayTime_H	门灯对电源短路诊断延时时间	0x01
+1360	1482			GroupSensorCal1	EEP_DoorLightShortPowKeepTime_L	门灯对电源短路诊断持续时间	0xC8
+1361	1483			GroupSensorCal1	EEP_DoorLightShortPowKeepTime_H	门灯对电源短路诊断持续时间	0x00
+1362	1484			GroupSensorCal1	EEP_DoorLightShortPowVol_L	门灯对地短路诊断延时时间	0x74
+1363	1485			GroupSensorCal1	EEP_DoorLightShortPowVol_H	门灯对地短路诊断延时时间	0x40
+1364	1486			GroupSensorCal1	EEP_DoorLightShortGndDelayTime_L	门灯对电源短路电压阀值	0x2C
+1365	1487			GroupSensorCal1	EEP_DoorLightShortGndDelayTime_H	门灯对电源短路电压阀值	0x01
+1366	1488			GroupSensorCal1	EEP_DoorLightShortGndKeepTime_L	门灯对地短路诊断延时时间	0xC8
+1367	1489			GroupSensorCal1	EEP_DoorLightShortGndKeepTime_H	门灯对地短路诊断延时时间	0x00
+1368	1490			GroupSensorCal1	EEP_DoorLightShortGndCur_L	门灯开路诊断持续时间	0xB0
+1369	1491			GroupSensorCal1	EEP_DoorLightShortGndCur_H	门灯开路诊断持续时间	0x04
+1370	1492			GroupSensorCal1	EEP_DoorLightOpenPowDelayTime_L	门灯对地短路诊断持续时间	0x2C
+1371	1493			GroupSensorCal1	EEP_DoorLightOpenPowDelayTime_H	门灯对地短路诊断持续时间	0x01
+1372	1494			GroupSensorCal1	EEP_DoorLightOpenPowKeepTime_L	门灯过载电流阀值	0xC8
+1373	1495			GroupSensorCal1	EEP_DoorLightOpenPowKeepTime_H	门灯过载电流阀值	0x00
+1374	1496			GroupSensorCal1	EEP_DoorLightOpenCur_L	门灯开路电流阀值	0x64
+1375	1497			GroupSensorCal1	EEP_DoorLightOpenCur_H	门灯开路电流阀值	0x00
+1376	1498			GroupSensorCal1	EEP_Sleep24VShortPowDelayTime_L	24V输出对电源短路诊断延时时间	0x2C
+1377	1499			GroupSensorCal1	EEP_Sleep24VShortPowDelayTime_H	24V输出对电源短路诊断延时时间	0x01
+1378	1500			GroupSensorCal1	EEP_Sleep24VShortPowKeepTime_L	24V输出对电源短路诊断持续时间	0xC8
+1379	1501			GroupSensorCal1	EEP_Sleep24VShortPowKeepTime_H	24V输出对电源短路诊断持续时间	0x00
+1380	1502			GroupSensorCal1	EEP_Sleep24VShortPowVol_L	24V输出对地短路诊断持续时间	0x74
+1381	1503			GroupSensorCal1	EEP_Sleep24VShortPowVol_H	24V输出对地短路诊断持续时间	0x40
+1382	1504			GroupSensorCal1	EEP_Sleep24VShortGndDelayTime_L	24V输出对地短路诊断延时时间	0x2C
+1383	1505			GroupSensorCal1	EEP_Sleep24VShortGndDelayTime_H	24V输出对地短路诊断延时时间	0x01
+1384	1506			GroupSensorCal1	EEP_Sleep24VShortGndKeepTime_L	24V输出对电源短路电压阀值	0xC8
+1385	1507			GroupSensorCal1	EEP_Sleep24VShortGndKeepTime_H	24V输出对电源短路电压阀值	0x00
+1386	1508			GroupSensorCal1	EEP_Sleep24VShortGndCur_L	24V输出过载电流阀值	0xB0
+1387	1509			GroupSensorCal1	EEP_Sleep24VShortGndCur_H	24V输出过载电流阀值	0x04
+1388	1510			GroupSensorCal1	EEP_Sleep24VOpenPowDelayTime_L	24V输出对地短路诊断延时时间	0x2C
+1389	1511			GroupSensorCal1	EEP_Sleep24VOpenPowDelayTime_H	24V输出对地短路诊断延时时间	0x01
+1390	1512			GroupSensorCal1	EEP_Sleep24VOpenPowKeepTime_L	24V输出开路诊断持续时间	0xC8
+1391	1513			GroupSensorCal1	EEP_Sleep24VOpenPowKeepTime_H	24V输出开路诊断持续时间	0x00
+1392	1514			GroupSensorCal1	EEP_Sleep24VOpenCur_L	24V输出开路电流阀值	0x64
+1393	1515			GroupSensorCal1	EEP_Sleep24VOpenCur_H	24V输出开路电流阀值	0x00
+1394	1516			GroupSensorCal1	EEP_LowPressuraShortPowDelayTime_L	低压电磁阀对电源短路诊断延时时间	0x2C
+1395	1517			GroupSensorCal1	EEP_LowPressuraShortPowDelayTime_H	低压电磁阀对电源短路诊断延时时间	0x01
+1396	1518			GroupSensorCal1	EEP_LowPressuraShortPowKeepTime_L	低压电磁阀对电源短路诊断持续时间	0xC8
+1397	1519			GroupSensorCal1	EEP_LowPressuraShortPowKeepTime_H	低压电磁阀对电源短路诊断持续时间	0x00
+1520	1680			GroupSensorCal2	Cks_GroupSensorCal2_L	Checksum for bank "GroupSensorCal2"	0x19
+1521	1681			GroupSensorCal2	Cks_GroupSensorCal2_H	Checksum for bank "GroupSensorCal2"	0x14
+1522	1682			GroupSensorCal2	EEP_LowPressuraShortPowVol_L	低压电磁阀对地短路诊断延时时间	0x74
+1523	1683			GroupSensorCal2	EEP_LowPressuraShortPowVol_H	低压电磁阀对地短路诊断延时时间	0x40
+1524	1684			GroupSensorCal2	EEP_LowPressuraShortGndDelayTime_L	低压电磁阀对地短路诊断持续时间	0x2C
+1525	1685			GroupSensorCal2	EEP_LowPressuraShortGndDelayTime_H	低压电磁阀对地短路诊断持续时间	0x01
+1526	1686			GroupSensorCal2	EEP_LowPressuraShortGndKeepTime_L	低压电磁阀对地短路诊断延时时间	0xC8
+1527	1687			GroupSensorCal2	EEP_LowPressuraShortGndKeepTime_H	低压电磁阀对地短路诊断延时时间	0x00
+1528	1688			GroupSensorCal2	EEP_LowPressuraShortGndCur_L	低压电磁阀开路诊断持续时间	0xB0
+1529	1689			GroupSensorCal2	EEP_LowPressuraShortGndCur_H	低压电磁阀开路诊断持续时间	0x04
+1530	1690			GroupSensorCal2	EEP_LowPressuraOpenPowDelayTime_L	低压电磁阀对电源短路电压阀值	0x2C
+1531	1691			GroupSensorCal2	EEP_LowPressuraOpenPowDelayTime_H	低压电磁阀对电源短路电压阀值	0x01
+1532	1692			GroupSensorCal2	EEP_LowPressuraOpenPowKeepTime_L	低压电磁阀过载电流阀值	0xC8
+1533	1693			GroupSensorCal2	EEP_LowPressuraOpenPowKeepTime_H	低压电磁阀过载电流阀值	0x00
+1534	1694			GroupSensorCal2	EEP_LowPressuraOpenCur_L	低压电磁阀开路电流阀值	0x64
+1535	1695			GroupSensorCal2	EEP_LowPressuraOpenCur_H	低压电磁阀开路电流阀值	0x00
+1536	1696			GroupSensorCal2	EEP_Reserve1ShortPowDelayTime_L	预留1对电源短路诊断延时时间	0x2C
+1537	1697			GroupSensorCal2	EEP_Reserve1ShortPowDelayTime_H	预留1对电源短路诊断延时时间	0x01
+1538	1698			GroupSensorCal2	EEP_Reserve1ShortPowKeepTime_L	预留1对电源短路诊断持续时间	0xC8
+1539	1699			GroupSensorCal2	EEP_Reserve1ShortPowKeepTime_H	预留1对电源短路诊断持续时间	0x00
+1540	1700			GroupSensorCal2	EEP_Reserve1ShortPowVol_L	预留1对电源短路阈值	0x74
+1541	1701			GroupSensorCal2	EEP_Reserve1ShortPowVol_H	预留1对电源短路阈值	0x40
+1542	1702			GroupSensorCal2	EEP_Reserve1ShortGndDelayTime_L	预留1对地短路诊断延时时间	0x2C
+1543	1703			GroupSensorCal2	EEP_Reserve1ShortGndDelayTime_H	预留1对地短路诊断延时时间	0x01
+1544	1704			GroupSensorCal2	EEP_Reserve1ShortGndKeepTime_L	预留1对地短路诊断持续时间	0xC8
+1545	1705			GroupSensorCal2	EEP_Reserve1ShortGndKeepTime_H	预留1对地短路诊断持续时间	0x00
+1546	1706			GroupSensorCal2	EEP_Reserve1ShortGndCur_L	预留1对地短路电路	0xB0
+1547	1707			GroupSensorCal2	EEP_Reserve1ShortGndCur_H	预留1对地短路电路	0x04
+1548	1708			GroupSensorCal2	EEP_Reserve1OpenPowDelayTime_L	预留1开路电源延时时间	0x2C
+1549	1709			GroupSensorCal2	EEP_Reserve1OpenPowDelayTime_H	预留1开路电源延时时间	0x01
+1550	1710			GroupSensorCal2	EEP_Reserve1OpenPowKeepTime_L	预留1开路电源持续时间	0xC8
+1551	1711			GroupSensorCal2	EEP_Reserve1OpenPowKeepTime_H	预留1开路电源持续时间	0x00
+1552	1712			GroupSensorCal2	EEP_Reserve1OpenCur_L	预留1开路电流阀值	0x64
+1553	1713			GroupSensorCal2	EEP_Reserve1OpenCur_H	预留1开路电流阀值	0x00
+1554	1714			GroupSensorCal2	EEP_Reserve2ShortPowDelayTime_L	预留2对电源短路诊断延时时间	0x2C
+1555	1715			GroupSensorCal2	EEP_Reserve2ShortPowDelayTime_H	预留2对电源短路诊断延时时间	0x01
+1556	1716			GroupSensorCal2	EEP_Reserve2ShortPowKeepTime_L	预留2对电源短路诊断持续时间	0xC8
+1557	1717			GroupSensorCal2	EEP_Reserve2ShortPowKeepTime_H	预留2对电源短路诊断持续时间	0x00
+1558	1718			GroupSensorCal2	EEP_Reserve2ShortGndDelayTime_L	预留2对电源短路阈值	0x2C
+1559	1719			GroupSensorCal2	EEP_Reserve2ShortGndDelayTime_H	预留2对电源短路阈值	0x01
+1560	1720			GroupSensorCal2	EEP_Reserve2ShortGndKeepTime_L	预留2对地短路诊断延时时间	0xC8
+1561	1721			GroupSensorCal2	EEP_Reserve2ShortGndKeepTime_H	预留2对地短路诊断延时时间	0x00
+1562	1722			GroupSensorCal2	EEP_Reserve2OpenPowDelayTime_L	预留2对地短路诊断持续时间	0x2C
+1563	1723			GroupSensorCal2	EEP_Reserve2OpenPowDelayTime_H	预留2对地短路诊断持续时间	0x01
+1564	1724			GroupSensorCal2	EEP_Reserve2OpenPowKeepTime_L	预留2对地短路电路	0xC8
+1565	1725			GroupSensorCal2	EEP_Reserve2OpenPowKeepTime_H	预留2对地短路电路	0x00
+1566	1726			GroupSensorCal2	EEP_Reserve2ShortPowVol_L	预留2开路电源延时时间	0x74
+1567	1727			GroupSensorCal2	EEP_Reserve2ShortPowVol_H	预留2开路电源延时时间	0x40
+1568	1728			GroupSensorCal2	EEP_Reserve2ShortGndCur_L	预留2开路电源持续时间	0xB0
+1569	1729			GroupSensorCal2	EEP_Reserve2ShortGndCur_H	预留2开路电源持续时间	0x04
+1570	1730			GroupSensorCal2	EEP_Reserve2OpenCur_L	预留2开路电流阀值	0x64
+1571	1731			GroupSensorCal2	EEP_Reserve2OpenCur_H	预留2开路电流阀值	0x00
+1572	1732			GroupSensorCal2	EEP_Reserve3ShortPowDelayTime_L	预留3对电源短路诊断延时时间	0x2C
+1573	1733			GroupSensorCal2	EEP_Reserve3ShortPowDelayTime_H	预留3对电源短路诊断延时时间	0x01
+1574	1734			GroupSensorCal2	EEP_Reserve3ShortPowKeepTime_L	预留3对电源短路诊断持续时间	0xC8
+1575	1735			GroupSensorCal2	EEP_Reserve3ShortPowKeepTime_H	预留3对电源短路诊断持续时间	0x00
+1576	1736			GroupSensorCal2	EEP_Reserve3ShortGndDelayTime_L	预留3对电源短路阈值	0x2C
+1577	1737			GroupSensorCal2	EEP_Reserve3ShortGndDelayTime_H	预留3对电源短路阈值	0x01
+1578	1738			GroupSensorCal2	EEP_Reserve3ShortGndKeepTime_L	预留3对地短路诊断延时时间	0xC8
+1579	1739			GroupSensorCal2	EEP_Reserve3ShortGndKeepTime_H	预留3对地短路诊断延时时间	0x00
+1580	1740			GroupSensorCal2	EEP_Reserve3OpenPowDelayTime_L	预留3对地短路诊断持续时间	0x2C
+1581	1741			GroupSensorCal2	EEP_Reserve3OpenPowDelayTime_H	预留3对地短路诊断持续时间	0x01
+1582	1742			GroupSensorCal2	EEP_Reserve3OpenPowKeepTime_L	预留3对地短路电路	0xC8
+1583	1743			GroupSensorCal2	EEP_Reserve3OpenPowKeepTime_H	预留3对地短路电路	0x00
+1584	1744			GroupSensorCal2	EEP_Reserve3ShortPowVol_L	预留3开路电源延时时间	0x74
+1585	1745			GroupSensorCal2	EEP_Reserve3ShortPowVol_H	预留3开路电源延时时间	0x40
+1586	1746			GroupSensorCal2	EEP_Reserve3ShortGndCur_L	预留3开路电源持续时间	0xB0
+1587	1747			GroupSensorCal2	EEP_Reserve3ShortGndCur_H	预留3开路电源持续时间	0x04
+1588	1748			GroupSensorCal2	EEP_Reserve3OpenCur_L	预留3开路电流阀值	0x64
+1589	1749			GroupSensorCal2	EEP_Reserve3OpenCur_H	预留3开路电流阀值	0x00
+1590	1750			GroupSensorCal2	EEP_Reserve4ShortPowDelayTime_L	预留4对电源短路诊断延时时间	0x2C
+1591	1751			GroupSensorCal2	EEP_Reserve4ShortPowDelayTime_H	预留4对电源短路诊断延时时间	0x01
+1592	1752			GroupSensorCal2	EEP_Reserve4ShortPowKeepTime_L	预留4对电源短路诊断持续时间	0xC8
+1593	1753			GroupSensorCal2	EEP_Reserve4ShortPowKeepTime_H	预留4对电源短路诊断持续时间	0x00
+1594	1754			GroupSensorCal2	EEP_Reserve4ShortGndDelayTime_L	预留4对电源短路阈值	0x2C
+1595	1755			GroupSensorCal2	EEP_Reserve4ShortGndDelayTime_H	预留4对电源短路阈值	0x01
+1596	1756			GroupSensorCal2	EEP_Reserve4ShortGndKeepTime_L	预留4对地短路诊断延时时间	0xC8
+1597	1757			GroupSensorCal2	EEP_Reserve4ShortGndKeepTime_H	预留4对地短路诊断延时时间	0x00
+1598	1758			GroupSensorCal2	EEP_Reserve4OpenPowDelayTime_L	预留4对地短路诊断持续时间	0x2C
+1599	1759			GroupSensorCal2	EEP_Reserve4OpenPowDelayTime_H	预留4对地短路诊断持续时间	0x01
+1600	1760			GroupSensorCal2	EEP_Reserve4OpenPowKeepTime_L	预留4对地短路电路	0xC8
+1601	1761			GroupSensorCal2	EEP_Reserve4OpenPowKeepTime_H	预留4对地短路电路	0x00
+1602	1762			GroupSensorCal2	EEP_Reserve4ShortPowVol_L	预留4开路电源延时时间	0x74
+1603	1763			GroupSensorCal2	EEP_Reserve4ShortPowVol_H	预留4开路电源延时时间	0x40
+1604	1764			GroupSensorCal2	EEP_Reserve4ShortGndCur_L	预留4开路电源持续时间	0xB0
+1605	1765			GroupSensorCal2	EEP_Reserve4ShortGndCur_H	预留4开路电源持续时间	0x04
+1606	1766			GroupSensorCal2	EEP_Reserve4OpenCur_L	预留4开路电流阀值	0x64
+1607	1767			GroupSensorCal2	EEP_Reserve4OpenCur_H	预留4开路电流阀值	0x00
+1608	1768			GroupSensorCal2	EEP_Reserve5ShortPowDelayTime_L	预留5对电源短路诊断延时时间	0x2C
+1609	1769			GroupSensorCal2	EEP_Reserve5ShortPowDelayTime_H	预留5对电源短路诊断延时时间	0x01
+1610	1770			GroupSensorCal2	EEP_Reserve5ShortPowKeepTime_L	预留5对电源短路诊断持续时间	0xC8
+1611	1771			GroupSensorCal2	EEP_Reserve5ShortPowKeepTime_H	预留5对电源短路诊断持续时间	0x00
+1612	1772			GroupSensorCal2	EEP_Reserve5ShortGndDelayTime_L	预留5对电源短路阈值	0x2C
+1613	1773			GroupSensorCal2	EEP_Reserve5ShortGndDelayTime_H	预留5对电源短路阈值	0x01
+1614	1774			GroupSensorCal2	EEP_Reserve5ShortGndKeepTime_L	预留5对地短路诊断延时时间	0xC8
+1615	1775			GroupSensorCal2	EEP_Reserve5ShortGndKeepTime_H	预留5对地短路诊断延时时间	0x00
+1616	1776			GroupSensorCal2	EEP_Reserve5OpenPowDelayTime_L	预留5对地短路诊断持续时间	0x2C
+1617	1777			GroupSensorCal2	EEP_Reserve5OpenPowDelayTime_H	预留5对地短路诊断持续时间	0x01
+1618	1778			GroupSensorCal2	EEP_Reserve5OpenPowKeepTime_L	预留5对地短路电路	0xC8
+1619	1779			GroupSensorCal2	EEP_Reserve5OpenPowKeepTime_H	预留5对地短路电路	0x00
+1620	1780			GroupSensorCal2	EEP_Reserve5ShortPowVol_L	预留5开路电源延时时间	0x74
+1621	1781			GroupSensorCal2	EEP_Reserve5ShortPowVol_H	预留5开路电源延时时间	0x40
+1622	1782			GroupSensorCal2	EEP_Reserve5ShortGndCur_L	预留5开路电源持续时间	0xB0
+1623	1783			GroupSensorCal2	EEP_Reserve5ShortGndCur_H	预留5开路电源持续时间	0x04
+1624	1784			GroupSensorCal2	EEP_Reserve5OpenCur_L	预留5开路电流阀值	0x64
+1625	1785			GroupSensorCal2	EEP_Reserve5OpenCur_H	预留5开路电流阀值	0x00
+1626	1786			GroupSensorCal2	EEP_StudyFlag	自学习标记	0x00
+1627	1787			GroupSensorCal2	EEP_StudyError	自学习标记	0x01
+1628	1788			GroupSensorCal2	EEP_SleepTime	系统休眠空闲时间	0x78
+1629	1789			GroupSensorCal2	EEP_StartDistance	启动距离	0x1E
+1630	1790			GroupSensorCal2	EEP_HallType	霍尔型号	0x00
+1631	1791			GroupSensorCal2	EEP_OpenGradeNum	开门行程分段数量	0x0A
+1632	1792			GroupSensorCal2	EEP_CloseGradeNum	关门行程分段数量	0x0A
+1633	1793			GroupSensorCal2	EEP_5kmphValid	车速大于5km/h电平	0x00
+1634	1794			GroupSensorCal2	EEP_Study_Button_Flag	自学习按钮功能状态	0x00
+1635	1795			GroupSensorCal2	EEP_Cancel_Button_Flag	取消防夹按钮功能状态	0x00
+1636	1796			GroupSensorCal2	EEP_OpenPinchErr[0]	开门行程各个阶段占比	0x00
+1637	1797			GroupSensorCal2	EEP_OpenPinchErr[1]	开门行程各个阶段占比	0x00
+1638	1798			GroupSensorCal2	EEP_OpenPinchErr[2]	开门行程各个阶段占比	0x00
+1639	1799			GroupSensorCal2	EEP_OpenPinchErr[3]	开门行程各个阶段占比	0x00
+1640	1800			GroupSensorCal2	EEP_OpenPinchErr[4]	开门行程各个阶段占比	0x00
+1641	1801			GroupSensorCal2	EEP_OpenPinchErr[5]	开门行程各个阶段占比	0x00
+1642	1802			GroupSensorCal2	EEP_OpenPinchErr[6]	开门行程各个阶段占比	0x00
+1643	1803			GroupSensorCal2	EEP_OpenPinchErr[7]	开门行程各个阶段占比	0x00
+1644	1804			GroupSensorCal2	EEP_OpenPinchErr[8]	开门行程各个阶段占比	0x00
+1645	1805			GroupSensorCal2	EEP_OpenPinchErr[9]	开门行程各个阶段占比	0x00
+1646	1806			GroupSensorCal2	EEP_OpenPinchErr[10]	开门行程各个阶段占比	0x00
+1647	1807			GroupSensorCal2	EEP_OpenPinchErr[11]	开门行程各个阶段占比	0x00
+1648	1808			GroupSensorCal2	EEP_OpenPinchErr[12]	开门行程各个阶段占比	0x00
+1649	1809			GroupSensorCal2	EEP_OpenPinchErr[13]	开门行程各个阶段占比	0x00
+1650	1810			GroupSensorCal2	EEP_OpenPinchErr[14]	开门行程各个阶段占比	0x00
+1651	1811			GroupSensorCal2	EEP_OpenPinchErr[15]	开门行程各个阶段占比	0x00
+1652	1812			GroupSensorCal2	EEP_OpenPinchErr[16]	开门行程各个阶段占比	0x00
+1653	1813			GroupSensorCal2	EEP_OpenPinchErr[17]	开门行程各个阶段占比	0x00
+1654	1814			GroupSensorCal2	EEP_OpenPinchErr[18]	开门行程各个阶段占比	0x00
+1655	1815			GroupSensorCal2	EEP_OpenPinchErr[19]	开门行程各个阶段占比	0x00
+1656	1816			GroupSensorCal2	EEP_ClosePinchErr[0]	开门行程各个阶段占比	0x00
+1657	1817			GroupSensorCal2	EEP_ClosePinchErr[1]	开门行程各个阶段占比	0x00
+1658	1818			GroupSensorCal2	EEP_ClosePinchErr[2]	开门行程各个阶段占比	0x00
+1659	1819			GroupSensorCal2	EEP_ClosePinchErr[3]	开门行程各个阶段占比	0x00
+1660	1820			GroupSensorCal2	EEP_ClosePinchErr[4]	开门行程各个阶段占比	0x00
+1661	1821			GroupSensorCal2	EEP_ClosePinchErr[5]	开门行程各个阶段占比	0x00
+1662	1822			GroupSensorCal2	EEP_ClosePinchErr[6]	开门行程各个阶段占比	0x00
+1663	1823			GroupSensorCal2	EEP_ClosePinchErr[7]	开门行程各个阶段占比	0x00
+1664	1824			GroupSensorCal2	EEP_ClosePinchErr[8]	开门行程各个阶段占比	0x00
+1665	1825			GroupSensorCal2	EEP_ClosePinchErr[9]	开门行程各个阶段占比	0x00
+1666	1826			GroupSensorCal2	EEP_ClosePinchErr[10]	开门行程各个阶段占比	0x00
+1667	1827			GroupSensorCal2	EEP_ClosePinchErr[11]	开门行程各个阶段占比	0x00
+1668	1828			GroupSensorCal2	EEP_ClosePinchErr[12]	开门行程各个阶段占比	0x00
+1669	1829			GroupSensorCal2	EEP_ClosePinchErr[13]	开门行程各个阶段占比	0x00
+1670	1830			GroupSensorCal2	EEP_ClosePinchErr[14]	开门行程各个阶段占比	0x00
+1671	1831			GroupSensorCal2	EEP_ClosePinchErr[15]	开门行程各个阶段占比	0x00
+1672	1832			GroupSensorCal2	EEP_ClosePinchErr[16]	开门行程各个阶段占比	0x00
+1673	1833			GroupSensorCal2	EEP_ClosePinchErr[17]	开门行程各个阶段占比	0x00
+1674	1834			GroupSensorCal2	EEP_ClosePinchErr[18]	开门行程各个阶段占比	0x00
+1675	1835			GroupSensorCal2	EEP_ClosePinchErr[19]	开门行程各个阶段占比	0x00
+1676	1836			GroupSensorCal2	EEP_ErrOpenNum	取消防夹按钮功能状态	0x00
+1677	1837			GroupSensorCal2	Self_LearnData	取消防夹按钮功能状态	0x00
+1678	1838			GroupSensorCal2	EEP_EEInitEndFlag	EE初始化完成状态	0x00
+1679	1839			GroupSensorCal2	Libre_GroupSensorCal2	Unused	0x00
+1840				GroupReset	Cks_GroupReset_L	Checksum for bank "GroupReset"	0xFF
+1841				GroupReset	Cks_GroupReset_H	Checksum for bank "GroupReset"	0xFF
+1842				GroupReset	EEP_ResetTimes_Total	Total reset times (en -)	0x00
+1843				GroupReset	EEP_ResetTimes_PwrExt	Reset by power supply or external reset (en -)	0x00
+1844				GroupReset	EEP_ResetTimes_WatchDog	Reset by watchdog (en -)	0x00
+1845				GroupReset	EEP_ResetTimes_SWReset	Reset by soft ware reset,such as diag (en -)	0x00
+1846				GroupReset	EEP_ResetTimes_CLK	Reset by Clock stop etc. (en -)	0x00
+1847				GroupReset	Libre_GroupReset	Unused	0x00
+1848				GroupSbkReadOnly1	Cks_GroupSbkReadOnly1_L	Checksum for bank "GroupSbkReadOnly1"	0xFF
+1849				GroupSbkReadOnly1	Cks_GroupSbkReadOnly1_H	Checksum for bank "GroupSbkReadOnly1"	0xFF
+1850				GroupSbkReadOnly1	EEP_SbkReadOnly1_0_LL	Reversed for furture work	0x00
+1851				GroupSbkReadOnly1	EEP_SbkReadOnly1_0_LH	Reversed for furture work	0x00
+1852				GroupSbkReadOnly1	EEP_SbkReadOnly1_0_HL	Reversed for furture work	0x00
+1853				GroupSbkReadOnly1	EEP_SbkReadOnly1_0_HH	Reversed for furture work	0x00
+1854				GroupSbkReadOnly1	EEP_SbkReadOnly1_1_LL		0x00
+1855				GroupSbkReadOnly1	EEP_SbkReadOnly1_1_LH		0x00
+1856				GroupSbkReadOnly1	EEP_SbkReadOnly1_1_HL		0x00
+1857				GroupSbkReadOnly1	EEP_SbkReadOnly1_1_HH		0x00
+1858				GroupSbkReadOnly1	EEP_SbkReadOnly1_2_LL		0x00
+1859				GroupSbkReadOnly1	EEP_SbkReadOnly1_2_LH		0x00
+1860				GroupSbkReadOnly1	EEP_SbkReadOnly1_2_HL		0x00
+1861				GroupSbkReadOnly1	EEP_SbkReadOnly1_2_HH		0x00
+1862				GroupSbkReadOnly1	EEP_SbkReadOnly1_3_LL		0x00
+1863				GroupSbkReadOnly1	EEP_SbkReadOnly1_3_LH		0x00
+1864				GroupSbkReadOnly1	EEP_SbkReadOnly1_3_HL		0x00
+1865				GroupSbkReadOnly1	EEP_SbkReadOnly1_3_HH		0x00
+1866				GroupSbkReadOnly1	EEP_SbkReadOnly1_4_LL		0x00
+1867				GroupSbkReadOnly1	EEP_SbkReadOnly1_4_LH		0x00
+1868				GroupSbkReadOnly1	EEP_SbkReadOnly1_4_HL		0x00
+1869				GroupSbkReadOnly1	EEP_SbkReadOnly1_4_HH		0x00
+1870				GroupSbkReadOnly1	EEP_SbkReadOnly1_5_LL		0x00
+1871				GroupSbkReadOnly1	EEP_SbkReadOnly1_5_LH		0x00
+1872				GroupSbkReadOnly1	EEP_SbkReadOnly1_5_HL		0x00
+1873				GroupSbkReadOnly1	EEP_SbkReadOnly1_5_HH		0x00
+1874				GroupSbkReadOnly1	EEP_SbkReadOnly1_6_LL		0x00
+1875				GroupSbkReadOnly1	EEP_SbkReadOnly1_6_LH		0x00
+1876				GroupSbkReadOnly1	EEP_SbkReadOnly1_6_HL		0x00
+1877				GroupSbkReadOnly1	EEP_SbkReadOnly1_6_HH		0x00
+1878				GroupSbkReadOnly1	EEP_SbkReadOnly1_7_LL		0x00
+1879				GroupSbkReadOnly1	EEP_SbkReadOnly1_7_LH		0x00
+1880				GroupSbkReadOnly1	EEP_SbkReadOnly1_7_HL		0x00
+1881				GroupSbkReadOnly1	EEP_SbkReadOnly1_7_HH		0x00
+1882				GroupSbkReadOnly1	EEP_SbkReadOnly1_8_LL		0x00
+1883				GroupSbkReadOnly1	EEP_SbkReadOnly1_8_LH		0x00
+1884				GroupSbkReadOnly1	EEP_SbkReadOnly1_8_HL		0x00
+1885				GroupSbkReadOnly1	EEP_SbkReadOnly1_8_HH		0x00
+1886				GroupSbkReadOnly1	EEP_SbkReadOnly1_9_LL		0x00
+1887				GroupSbkReadOnly1	EEP_SbkReadOnly1_9_LH		0x00
+1888				GroupSbkReadOnly1	EEP_SbkReadOnly1_9_HL		0x00
+1889				GroupSbkReadOnly1	EEP_SbkReadOnly1_9_HH		0x00
+1890				GroupSbkReadOnly1	EEP_SbkReadOnly1_10_LL		0x00
+1891				GroupSbkReadOnly1	EEP_SbkReadOnly1_10_LH		0x00
+1892				GroupSbkReadOnly1	EEP_SbkReadOnly1_10_HL		0x00
+1893				GroupSbkReadOnly1	EEP_SbkReadOnly1_10_HH		0x00
+1894				GroupSbkReadOnly1	EEP_SbkReadOnly1_11_LL		0x00
+1895				GroupSbkReadOnly1	EEP_SbkReadOnly1_11_LH		0x00
+1896				GroupSbkReadOnly1	EEP_SbkReadOnly1_11_HL		0x00
+1897				GroupSbkReadOnly1	EEP_SbkReadOnly1_11_HH		0x00
+1898				GroupSbkReadOnly1	EEP_SbkReadOnly1_12_LL		0x00
+1899				GroupSbkReadOnly1	EEP_SbkReadOnly1_12_LH		0x00
+1900				GroupSbkReadOnly1	EEP_SbkReadOnly1_12_HL		0x00
+1901				GroupSbkReadOnly1	EEP_SbkReadOnly1_12_HH		0x00
+1902				GroupSbkReadOnly1	EEP_SbkReadOnly1_13_LL		0x00
+1903				GroupSbkReadOnly1	EEP_SbkReadOnly1_13_LH		0x00
+1904				GroupSbkReadOnly1	EEP_SbkReadOnly1_13_HL		0x00
+1905				GroupSbkReadOnly1	EEP_SbkReadOnly1_13_HH		0x00
+1906				GroupSbkReadOnly1	EEP_SbkReadOnly1_14_LL		0x00
+1907				GroupSbkReadOnly1	EEP_SbkReadOnly1_14_LH		0x00
+1908				GroupSbkReadOnly1	EEP_SbkReadOnly1_14_HL		0x00
+1909				GroupSbkReadOnly1	EEP_SbkReadOnly1_14_HH		0x00
+1910				GroupSbkReadOnly1	EEP_SbkReadOnly1_15_LL		0x00
+1911				GroupSbkReadOnly1	EEP_SbkReadOnly1_15_LH		0x00
+1912				GroupSbkReadOnly1	EEP_SbkReadOnly1_15_HL		0x00
+1913				GroupSbkReadOnly1	EEP_SbkReadOnly1_15_HH		0x00
+1914				GroupSbkReadOnly1	EEP_SbkReadOnly1_16_LL		0x00
+1915				GroupSbkReadOnly1	EEP_SbkReadOnly1_16_LH		0x00
+1916				GroupSbkReadOnly1	EEP_SbkReadOnly1_16_HL		0x00
+1917				GroupSbkReadOnly1	EEP_SbkReadOnly1_16_HH		0x00
+1918				GroupSbkReadOnly1	EEP_SbkReadOnly1_17_LL		0x00
+1919				GroupSbkReadOnly1	EEP_SbkReadOnly1_17_LH		0x00
+1920				GroupSbkReadOnly1	EEP_SbkReadOnly1_17_HL		0x00
+1921				GroupSbkReadOnly1	EEP_SbkReadOnly1_17_HH		0x00
+1922				GroupSbkReadOnly1	EEP_SbkReadOnly1_18_LL		0x00
+1923				GroupSbkReadOnly1	EEP_SbkReadOnly1_18_LH		0x00
+1924				GroupSbkReadOnly1	EEP_SbkReadOnly1_18_HL		0x00
+1925				GroupSbkReadOnly1	EEP_SbkReadOnly1_18_HH		0x00
+1926				GroupSbkReadOnly1	EEP_SbkReadOnly1_19_LL		0x00
+1927				GroupSbkReadOnly1	EEP_SbkReadOnly1_19_LH		0x00
+1928				GroupSbkReadOnly1	EEP_SbkReadOnly1_19_HL		0x00
+1929				GroupSbkReadOnly1	EEP_SbkReadOnly1_19_HH		0x00
+1930				GroupSbkReadOnly2	Cks_GroupSbkReadOnly2_L	Checksum for bank "GroupSbkReadOnly2"	0xFF
+1931				GroupSbkReadOnly2	Cks_GroupSbkReadOnly2_H	Checksum for bank "GroupSbkReadOnly2"	0xFF
+1932				GroupSbkReadOnly2	EEP_SbkReadOnly2_0_LL		0x00
+1933				GroupSbkReadOnly2	EEP_SbkReadOnly2_0_LH		0x00
+1934				GroupSbkReadOnly2	EEP_SbkReadOnly2_0_HL		0x00
+1935				GroupSbkReadOnly2	EEP_SbkReadOnly2_0_HH		0x00
+1936				GroupBCMCfg0	Cks_GroupBCMCfg0_L	Checksum for bank "GroupBCMCfg0"	0xFF
+1937				GroupBCMCfg0	Cks_GroupBCMCfg0_H	Checksum for bank "GroupBCMCfg0"	0xFF
+1938				GroupBCMCfg0	EEP_BCMCfg0[0]		0x00
+1939				GroupBCMCfg0	Libre_GroupBCMCfg0	Unused	0x00
+1940				GroupBCMCfg1	Cks_GroupBCMCfg1_L	Checksum for bank "GroupBCMCfg1"	0xFF
+1941				GroupBCMCfg1	Cks_GroupBCMCfg1_H	Checksum for bank "GroupBCMCfg1"	0xFF
+1942				GroupBCMCfg1	EEP_BCMCfg1[0]		0x00
+1943				GroupBCMCfg1	Libre_GroupBCMCfg1	Unused	0x00
+1944				GroupBCMCfg2	Cks_GroupBCMCfg2_L	Checksum for bank "GroupBCMCfg2"	0xFF
+1945				GroupBCMCfg2	Cks_GroupBCMCfg2_H	Checksum for bank "GroupBCMCfg2"	0xFF
+1946				GroupBCMCfg2	EEP_BCMCfg2[0]		0x00
+1947				GroupBCMCfg2	Libre_GroupBCMCfg2	Unused	0x00
+1948				GroupBCMCfg3	Cks_GroupBCMCfg3_L	Checksum for bank "GroupBCMCfg3"	0xFF
+1949				GroupBCMCfg3	Cks_GroupBCMCfg3_H	Checksum for bank "GroupBCMCfg3"	0xFF
+1950				GroupBCMCfg3	EEP_BCMCfg3[0]		0x00
+1951				GroupBCMCfg3	Libre_GroupBCMCfg3	Unused	0x00
+1952				GroupEEPInitCtrl	Cks_GroupEEPInitCtrl_L	Checksum for bank "GroupEEPInitCtrl"	0x9B
+1953				GroupEEPInitCtrl	Cks_GroupEEPInitCtrl_H	Checksum for bank "GroupEEPInitCtrl"	0xDF
+1954				GroupEEPInitCtrl	EEP_ODOClearCountBackup	Backup value of EEP_ODOClearCountMain	0x00
+1955				GroupEEPInitCtrl	EEP_ODOClearCountBackup1	Backup value of EEP_ODOClearCountMain	0x00
+1956				GroupEEPInitCtrl	EEP_EEPInitCondition_1_L	EEPInit condition 1	0x55
+1957				GroupEEPInitCtrl	EEP_EEPInitCondition_1_H	EEPInit condition 1	0xCA
+1958				GroupEEPInitCtrl	EEP_EEPInitCondition_2_L	EEPInit condition 2	0xBA
+1959				GroupEEPInitCtrl	EEP_EEPInitCondition_2_H	EEPInit condition 2	0x55
+1960				GroupEEPInitCtrl	EEP_EEPInitCondition_3	EEPInit condition 2	0x55
+1961				GroupEEPInitCtrl	EEP_EEPInitCondition_4	EEPInit condition 3	0x00
+

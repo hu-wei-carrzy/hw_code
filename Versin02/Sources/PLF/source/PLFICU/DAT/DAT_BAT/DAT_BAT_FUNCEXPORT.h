@@ -1,0 +1,6 @@
+#ifndef I_DAT_BAT_FUNCEXPORT_H
+#define I_DAT_BAT_FUNCEXPORT_H
+
+
+
+#endif

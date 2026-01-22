@@ -1,0 +1,38 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      STK
+// Language:     ANSI-C
+// -----------------------------------------------------------------------------
+// Component:    TOS_SEQ
+//               JIL definitions
+// -----------------------------------------------------------------------------
+// $Date:   May 08 2014 16:34:56  $
+// $Archive:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_SEQ/TOS_SEQ.JIL-arc  $
+// $Revision:   1.0  $
+// -----------------------------------------------------------------------------
+/* $Log:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_SEQ/TOS_SEQ.JIL-arc  $
+//
+//   Rev 1.0   May 08 2014 16:34:56   amiaot
+//Initial revision.
+*/
+//******************************************************************************
+#ifndef I_TOS_SEQ_JIL
+#define I_TOS_SEQ_JIL
+
+
+Component Tos_seq 
+{
+    OnControl = CallBack
+    {
+         Ctrl = "TOSInitialize";
+         Fct = "TOSSeqInitialize";
+    };
+};
+
+
+#endif /* I_TOS_SEQ_JIL */

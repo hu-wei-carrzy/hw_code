@@ -1,0 +1,7 @@
+#ifndef I_LAP_LOCK_EXPORTTYPE_H
+#define I_LAP_LOCK_EXPORTTYPE_H
+
+
+
+
+#endif

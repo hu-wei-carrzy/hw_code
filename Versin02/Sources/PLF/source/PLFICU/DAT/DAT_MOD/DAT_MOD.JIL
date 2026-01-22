@@ -1,0 +1,135 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      N330
+// Language:     ANSI-C
+// -----------------------------------------------------------------------------
+// Component:    DAT_MOD
+//               
+// -----------------------------------------------------------------------------
+// $Date:   Mar 27 2013 15:45:06  $
+// $Archive:   
+// $Revision:   1.4  $
+// -----------------------------------------------------------------------------
+/* $Log:   //N351_cluster/archives/1013338/DEV/CMP/SOURCES/DAT/DAT_MOD/DAT_MOD.JIL-arc  $
+//
+*/  
+//******************************************************************************
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_MOD_JIL 
+#define I_DAT_MOD_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component DAT_MOD
+{
+    Task DATModTask
+    {
+        Id  = "cTOSTaskID_DATModTask";
+        Fct = "DATModTask";
+        Priority = 199;
+    };
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+	OnControl = CallBack
+    {
+        Ctrl = "DATInitialize";
+        Fct = "DATModStartupInit";
+    };   
+
+	OnControl = CallBack
+    {
+        Ctrl = "LeaveStartingStepState";
+        Fct = "DATModEnterActiveState";
+    };
+
+	OnControl = CallBack
+    {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATModEnterActiveState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "DATLeaveActiveState";
+        Fct = "DATModLeaveActiveState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "IsAnybodyMaintainActiveState";
+        Fct = "DATModIsMaintainActiveState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "IsAnybodyMaintainActiveSleepState";
+        Fct = "DATModIsMaintainActiveSleepState";
+    };
+
+ /*--------------------------------------------------------------------------
+  Declaration of Control produced
+
+  Prod Control { Name = "ControlName";} 
+
+  --------------------------------------------------------------------------*/
+
+      ProdControl { Name = "SysModeChange"; };
+	  ProdControl { Name = "OverSpeedInDiagnosticMode";};
+      ProdControl { Name = "IOCConditionNotOk";};
+	  ProdControl { Name = "SelfChkEnd";};
+      ProdControl { Name = "IgOff2On";};
+      ProdControl { Name = "IgOff2On_5sElapsed";};
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_DAT_MOD_JIL */
+

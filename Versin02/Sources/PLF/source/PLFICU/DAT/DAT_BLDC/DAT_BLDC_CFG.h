@@ -1,0 +1,7 @@
+#ifndef IS_INCLUDED_DAT_BLDC_CFG_H
+#define IS_INCLUDED_DAT_BLDC_CFG_H
+
+#include "DAT_BLDC_TYPEEXPORT.h"
+
+
+#endif

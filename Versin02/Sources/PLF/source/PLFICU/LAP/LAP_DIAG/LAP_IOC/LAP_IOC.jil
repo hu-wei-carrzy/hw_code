@@ -1,0 +1,156 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      N351
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    <Comments about the component (role, algorithm, structure, 
+//               limitations, defined tasks and events...)>
+// -----------------------------------------------------------------------------
+// $Date:   Jan 17 2014 18:19:06  $
+// $Archive:
+// $Revision:   1.0  $
+// -----------------------------------------------------------------------------
+/* $Log:   //DI_JMC_N330_IC/archives/1016282/DEV/BUILD/SOURCES/LAP_IOC.jil-arc  $
+ * 
+ *    Rev 1.0   Jan 17 2014 18:19:06   aluant
+ * Initial revision.
+*/ 
+
+//******************************************************************************
+
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_LAP_IOC_JIL
+#define I_LAP_IOC_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+// if you are using JIL.EXE keep the first part of this #ifndef
+// if you are using SCC2.EXE keep the second part of this #ifndef
+
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component LAP_IOC 
+{
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    
+//    };
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    GraphGroup GraphGroupName                // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+OnControl   = CallBack
+{
+    Ctrl    =   "LAPOpenDiagnosticSession";
+    Fct     =   "LAPIocOpenSession";
+};
+
+OnControl   = CallBack
+{
+    Ctrl    =   "LAPCloseDiagnosticSession";
+    Fct     =   "LAPIocCloseSession";
+};
+
+OnControl   = CallBack
+{
+    Ctrl    =   "IOCConditionNotOk";
+    Fct     =   "LAPIocUnLockCtrl";
+};
+
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//..
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+};
+
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_LAP_IOC_JIL */
+
+

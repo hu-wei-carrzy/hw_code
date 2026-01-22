@@ -1,0 +1,97 @@
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_DAT_PAN_JIL 
+#define I_DAT_PAN_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component DAT_PAN 
+{
+    
+
+
+
+
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+      Task DATPanTask
+    {
+        Id = "cTOSTaskID_DATPanTask";
+        Fct= "DATPanTask";
+        Priority = 70;
+    };
+  
+    OnControl = CallBack
+    {
+        Ctrl = "DATInitialize";
+        Fct = "DATPanInit";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "LeaveStartingStepState";
+        Fct = "DATPanStart";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "DATEnterActiveState";
+        Fct = "DATPanStart";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "DATLeaveActiveState";
+        Fct = "DATPanStop";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "MCUWillLeaveSleepState";
+        Fct = "DATPanStart";
+    };  
+
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+#endif
+/* I_DAT_PAN_JIL */ /*cLIBStkScc2_Used*/

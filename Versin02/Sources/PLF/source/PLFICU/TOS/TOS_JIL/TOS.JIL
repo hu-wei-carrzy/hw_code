@@ -1,0 +1,49 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      STK
+// Language:     ANSI-C
+// -----------------------------------------------------------------------------
+// Component:    TOS_JIL
+//               JIL definitions
+// -----------------------------------------------------------------------------
+// $Date:   May 08 2014 16:34:06  $
+// $Archive:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_JIL/TOS.JIL-arc  $
+// $Revision:   1.0  $
+// -----------------------------------------------------------------------------
+/* $Log:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_JIL/TOS.JIL-arc  $
+//
+//   Rev 1.0   May 08 2014 16:34:06   amiaot
+//Initial revision.
+*/
+//******************************************************************************
+#ifndef I_TOS_JIL
+#define I_TOS_JIL
+
+//------------------------------------------------------------------------------
+// Included files to resolve specific definitions in this file
+//------------------------------------------------------------------------------
+#include "tos_ord.jil"
+#include "tos_seq.jil"
+#ifdef USE_TOS_SIG
+  #include "tos_sig.jil"
+#endif
+#include "tos_ala.jil"
+#include "tos_tpo.jil"
+
+
+
+Component Tos 
+{
+    
+    ProdControl {Name="TOSInitialize";};
+
+
+};
+
+
+#endif /* I_TOS_JIL */

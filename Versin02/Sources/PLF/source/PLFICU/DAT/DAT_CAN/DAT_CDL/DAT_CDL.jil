@@ -1,0 +1,66 @@
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_CDL_JIL
+#define I_DAT_CDL_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component DAT_Cdl 
+{
+
+//------------------------------------------------------------------------------
+//    TASK TaskName                        // Declaration of task       
+//    {
+//        PRIORITY        = <number>;                         
+//        ID              = "cIdName";         
+//        FCT             = "FunctionName"; 
+//        GRAPH_TASK;                                        
+//        Or DEFAULT_GRAPH_TASK;                 
+//    };
+//..
+// The PRIORITY levels are defined by the Software Integrator in file lap_sup.jil.
+// The lap_sup.jil file includes all xxx.jil files for the project.
+// The PRIORITY rules for the CAN tasks of DAT_CAN:
+// Priority that must be respect:     -1-      TOSClockSystem
+//                                    -.-   
+//                                    -i-      DATCnmTick  
+//                                    -.-   
+//                                    -i+j-    DATCdlCANTransmissionTask  
+//                                    -.-   
+//                                    -i+j+k-  DATCdlTaskReceptionCAN  
+//                                    -.-   
+//                                    -X-      Tasks LAP  
+//------------------------------------------------------------------------------
+
+    Task DATCdlCANTransmissionTask 
+    {
+        Fct = "DATCdlCANTransmissionTask";
+        Id = "cTOSTaskID_EmissionCan";
+        Priority = 75;
+    };
+    Task DATCdlCANReceptionTask 
+    {
+        Fct = "DATCdlCANReceptionTask";
+        Id = "cTOSTaskID_ReceptionCan";
+        Priority = 70;
+    };
+
+};
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif /* I_DAT_CDL_JIL */

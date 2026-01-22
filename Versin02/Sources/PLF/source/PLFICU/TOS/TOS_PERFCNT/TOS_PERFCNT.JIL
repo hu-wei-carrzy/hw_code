@@ -1,0 +1,173 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      TOS_PerfCnt
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    
+//               
+// -----------------------------------------------------------------------------
+// $Date:   May 08 2014 16:34:38  $
+// $Archive:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_PERFCNT/TOS_PERFCNT.JIL-arc  $
+// $Revision:   1.0  $
+// -----------------------------------------------------------------------------
+/* $Log:   //DI_SGM_358_HUD/archives/SGM358_1017957/Dev/APP/BUILD/SOURCES/TOS/TOS_PERFCNT/TOS_PERFCNT.JIL-arc  $
+//
+//   Rev 1.0   May 08 2014 16:34:38   amiaot
+//Initial revision.
+*/
+//******************************************************************************
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_TOS_PerfCnt_JIL
+#define I_TOS_PerfCnt_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component TOS_PerfCnt 
+{
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    GraphGroup GraphGroupName                // Declaration of GraphGroup
+//    {
+//        Macro         = "MacroName";          --> this field is optional
+//        Default       = TRUE;                 --> this field is optional
+//        Graph         = Graph1;               --> this field is optional
+//        Graph         = Graph2;               --> this field is optional
+//        Graph         = ...;                  --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+
+    /*OnControl = CallBack
+    {
+        Ctrl = "LAPEnterActiveState";
+        Fct = "TOSPerfCntStart";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "LAPLeaveActiveState";
+        Fct = "TOSPerfCntStop";
+    };*/
+
+//------------------------------------------------------------------------------
+//    In                                      // Declaration of Data flow
+//    {
+//        Data = "DataName";
+//        Type = U1 or U8, U16, U32, S8, S16, S32;
+//        or
+//        Type = U1Array or U8Array, ..., S32Array
+//        {
+//                Size = ItemNumber;
+//        };
+//    };
+//..
+//    Out
+//    {
+//        ...(see In)
+//    };
+//------------------------------------------------------------------------------
+
+
+};
+
+PerfCntConfig
+{
+    CycleTimeEnabled = TRUE;
+    ExecTimeEnabled = TRUE;
+    TotalTimePassedPrescaler = 5;
+    ProcessStackSize = 5;
+    DisableInterrupts = "TOSDisableOSInterrupts()";
+    EnableInterrupts = "TOSEnableOSInterrupts()";
+    SuspendInterrupts = "TOSSuspendOSInterrupts()";
+    ResumeInterrupts = "TOSResumeOSInterrupts()";
+
+    AutoTasksInclude = TRUE;
+//------------------------------------------------------------------------------
+//    TraceObject                        // Declaration of process or interrupt
+//    {                                  // which will be traced
+//        Name = "ObjectName";
+//        ID = "170";
+//        or
+//        ID = "cLDBIntINTC0ERR_Handle";
+//        Type = Other;         // Other, Task or Interrupt
+//        Used = FALSE;
+//    };
+//------------------------------------------------------------------------------
+
+
+
+
+};
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_TOS_PerfCnt_JIL */
+
+

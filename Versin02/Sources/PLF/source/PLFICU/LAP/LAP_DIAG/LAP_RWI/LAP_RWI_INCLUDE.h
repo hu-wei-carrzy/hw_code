@@ -1,0 +1,53 @@
+#ifndef I_LAP_RWI_INCLUDE_H
+#define I_LAP_RWI_INCLUDE_H
+
+#include "ARCH_CFG.h"
+
+#ifdef cLAP_RWI_SELFINCLUDE
+#define cTOS_INCLUDE
+
+#define cDAT_EEP_DATAINCLUDE
+
+#define cDAT_BAT_DATAINCLUDE
+#define cDAT_DIN_DATAINCLUDE
+
+#define cDAT_AD_DATAINCLUDE
+
+#ifndef cCfg_SpdTacho_From_Hardware
+#define cDAT_MOTCTRL_FUNCINCLUDE
+#define cDAT_MOTCTRL_DATAINCLUDE
+#else
+#define cDAT_CVT_FUNCINCLUDE
+#define cDAT_CVT_DATAINCLUDE
+#endif
+
+#define cLAP_FC_DATAINCLUDE
+#define cLAP_FUEL_DATAINCLUDE
+#define cLAP_OILPRS_DATAINCLUDE
+#define cLAP_WARN_DATAINCLUDE
+#define cDAT_LCD_DATAINCLUDE
+#define cLAP_POUT_DATAINCLUDE
+#define cDAT_AD_TYPEINCLUDE
+#define cLAP_RUNIN_DATAINCLUDE
+#define cDAT_CAN_DATAINCLUDE
+#define cDAT_CAN_FUNCINCLUDE
+#define cDAT_RTC_DATAINCLUDE
+#define cDAT_DOU_FUNCINCLUDE
+#define cDAT_ALS_DATAINCLUDE
+#define cLAP_DIAG_DATAINCLUDE
+#define cDAT_GCB_DATAINCLUDE
+#define cLAP_AIRPRS_DATAINCLUDE
+#define cDAT_ADCVN_DATAINCLUDE
+#define cLAP_POUT_TYPEINCLUDE
+
+#ifdef cHeadIncludeType_Directly
+#include "LAP_DEPENDCY.h"
+#else
+#include ".\..\..\LAP_DEPENDCY.h"
+#endif
+
+
+
+#endif
+
+#endif

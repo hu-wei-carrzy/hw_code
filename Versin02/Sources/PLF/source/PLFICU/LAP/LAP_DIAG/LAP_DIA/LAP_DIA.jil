@@ -1,0 +1,185 @@
+//******************************************************************************
+// Company:      Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:    This software is JCI property.
+//               Duplication or disclosure without JCI written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      <STANDARD>
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:    <Comments about the component (role, algorithm, structure, 
+//               limitations, defined tasks and events...)>
+//******************************************************************************
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_LAP_DIA_JIL
+#define I_LAP_DIA_JIL (1)
+
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component LAP_DIA
+{
+    
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+    Graph LAPDiaTreatRequest 
+    {
+        Id = "cTOSSeqLAPDiaTreatRequest";
+        GraphGroup = IdleGraphGroup;
+    };
+
+    Graph LAPDiaTreatService 
+    {
+        Id = "cTOSSeqLAPDiaTreatService";
+        GraphGroup = IdleGraphGroup;
+    };
+
+    Graph LAPDiaCommunicationTimeOut 
+    {
+        Id = "cTOSSeqLAPDiaCommunicationTimeOut";
+        GraphGroup = IdleGraphGroup;
+    };
+
+    Graph LAPDiaP2TimeOut 
+    {
+        Id = "cTOSSeqLAPDiaP2TimeOut";
+        GraphGroup = IdleGraphGroup;
+    };
+
+	
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+    Signal LAPDiaEcuPowerOnReset;	// for Cm079509
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+    ProdControl {Name = "LAPOpenDiagnosticSession" ;};
+    ProdControl {Name = "LAPCloseDiagnosticSession";};
+	//Communation Control
+	ProdControl {Name = "LAPDiaAppEnableRx";};
+	ProdControl {Name = "LAPDiaAppEnableTx";};
+	ProdControl {Name = "LAPDiaAppDisableRx";};
+	ProdControl {Name = "LAPDiaAppDisableTx";};
+	ProdControl {Name = "LAPDiaNMEnableRx";};
+	ProdControl {Name = "LAPDiaNMEnableTx";};
+	ProdControl {Name = "LAPDiaNMDisableRx";};
+	ProdControl {Name = "LAPDiaNMDisableTx";};
+    ProdControl {Name = "LAPDiaSMLoadNvMImmediate";};
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+    OnControl = CallBack
+    {
+        Ctrl = "LAPInitialize";
+        Fct = "LAPDiaInitialize";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "LAPEnterActiveState";
+        Fct = "LAPDiaStart";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "LAPLeaveActiveState";
+        Fct = "LAPDiaStop";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "IsAnybodyMaintainActiveState";
+        Fct = "LAPDiaIsMaintainActiveState";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "LAPDiaRequestP2P";
+        Fct = "LAPDiaReceiveRequestP2P";
+    };
+    OnControl = CallBack
+    {
+        Ctrl = "LAPDiaRequestALL";
+        Fct = "LAPDiaReceiveRequestALL";
+    };
+
+	OnControl = CallBack
+	{
+	  Ctrl = "DATBatAbnormalVoltage";
+	  Fct = "LAPDiaDiagExit";
+	};
+
+	OnControl = CallBack
+	{
+	  Ctrl = "DATBatActivePowerDown";
+	  Fct = "LAPDiaDiagExit";
+	};	
+
+	OnControl = CallBack
+	{
+	    Ctrl = "OverSpeedInDiagnosticMode";
+		Fct =  "LAPDiaDiagExit";
+	};
+
+
+    OnControl   = CallBack
+    {
+        Ctrl    =   "LAPOpenDiagnosticSession";
+        Fct     =   "LAPDiaOpenSession";
+    };
+
+    OnControl   = CallBack
+    {
+        Ctrl    =   "LAPCloseDiagnosticSession";
+        Fct     =   "LAPDiaCloseSession";
+    };
+
+};
+
+//  End of component declaration
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif/* I_LAP_DIA_JIL */

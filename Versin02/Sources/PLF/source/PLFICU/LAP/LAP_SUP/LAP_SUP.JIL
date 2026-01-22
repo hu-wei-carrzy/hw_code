@@ -1,0 +1,219 @@
+//******************************************************************************
+// Copyright:    This software is JYD property.
+//               Duplication or disclosure without JYD written authorization
+//               is prohibited.
+// -----------------------------------------------------------------------------
+// Project:      BCM313
+// Language:     C
+// -----------------------------------------------------------------------------
+// Component:  JIL file for LAP_SUP
+// -----------------------------------------------------------------------------
+//******************************************************************************
+// This line is used to separate code and file header.This is begin.
+//*****************************BEGIN_NOMOVE*************************************
+// Time:2016-08-31 09:12:54
+// 1: add new control for enter sleep action
+// 2:
+
+//*****************************END_NOMOVE***************************************
+// This line is used to separate code and file header. This is last line.
+//******************************************************************************
+
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_LAP_SUP_JIL 
+#define I_LAP_SUP_JIL (1)
+
+// This definition enable the using of TOS_SIG component
+#define USE_TOS_SIG     (1)
+
+Application STK
+{
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+#include "JIL_Include.h"
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component LAP_SUP 
+{
+    
+//------------------------------------------------------------------------------
+//    Task TaskName                           // Declaration of Task
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        Fct           = "FonctionName";       --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        Resource      = ResourceReference;    --> this field is optional
+//        Npg           = NpgReference;         --> this field is optional
+//        Priority      = Priority;             --> this field is optional
+//    
+//    };
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Resource ResourceName                   // Declaration of Resource
+//                                            // (for Pre-emptive TOS only)
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+//    Npg NonPreemptiveGroup;                // Declaration of non preemptive
+//                                           // group (for Pre-emptive TOS only)
+//------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------
+//    TaskPriority TaskName
+//    {
+//        Priority = Priority;                  --> this field is optional
+//
+//        Npg = NonPreemptiveGroupReference;    --> this field is optional
+//                                                  (for Pre-emptive TOS only)
+//    };
+//
+//    !!this table should be used into LAP_SUP.jil only, it permit to set all
+//    task priority and non pre-emptive group in one unique file, "TaskName" 
+//    must be the task name declared for the "Task" table
+//
+//------------------------------------------------------------------------------
+ /*    TaskPriority DATCpuIdleTask 
+    {
+        Priority = 0;
+    };
+    
+
+    TaskPriority DATCpuRefreshWatchDogTask
+    {
+        Priority = 20;
+    };
+   TaskPriority GraphEngineTask
+    {
+        Priority = 30;
+    };
+
+
+//HW Signal sample series
+    TaskPriority DATBlkTask
+    {
+        Priority = 46;
+    };
+    
+    TaskPriority DATDouTask
+    {
+        Priority = 47;
+    };
+    
+    
+    TaskPriority DATDinTask
+    {
+        Priority = 48;
+    };	
+
+	
+    TaskPriority DATModTask 
+    {
+        Priority = 199;
+    };
+
+//Tos series
+    TaskPriority TOSClock 
+    {
+        Priority = 500;
+    };	*/
+
+	
+//------------------------------------------------------------------------------
+//    Graph GraphName                         // Declaration of Graph
+//    {
+//        Id            = "IdName";             --> this field is optional
+//        GraphGroup    = GraphGroupReference;  --> this field is optional
+//        NbInstances   = NbInstances;          --> this field is optional
+//    };
+//------------------------------------------------------------------------------
+    Graph Supervisor 
+    {
+        GraphGroup = IdleGraphGroup;
+    };
+
+//------------------------------------------------------------------------------
+//    Signal SignalName;                      // Declaration of Signal
+//------------------------------------------------------------------------------
+    Signal ActiveSleepRequested;
+    /*system wakeup,to wakeup part or all fun*/
+    Signal WakeUpRequested;						
+    /*MCU wakeup,to confirm system need to wakeup or not*/
+    Signal MCUWakeUpRequested;					
+	
+    Signal SomebodyMaintainStartingStepState;
+    Signal SomebodyMaintainActiveSleepState;
+    Signal SomebodyMaintainActiveState;
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+    ProdControl {Name="DATInitialize";};
+    ProdControl {Name="LAPInitialize";};
+    ProdControl {Name="EnterStartingStepState";};
+    ProdControl {Name="LeaveStartingStepState";};
+    ProdControl {Name="DATEnterActiveState";};
+    ProdControl {Name="LAPEnterActiveState";};
+    ProdControl {Name="LAPLeaveActiveState";};
+    ProdControl {Name="DATLeaveActiveState";};
+    ProdControl {Name="IsAnybodyMaintainStartingStepState";};
+    ProdControl {Name="IsAnybodyMaintainActiveSleepState";};
+    ProdControl {Name="IsAnybodyMaintainActiveState";};
+    ProdControl {Name="LAPRegistSysCheckTask";};
+    // Time: 2016-08-31 09:13:34
+    // 新加控制，用于当进入到Sleep时，发出控制，对其它模块进行控制、
+    ProdControl {Name="EnterSleep";};
+
+//------------------------------------------------------------------------------
+//    OnControl = CallBack                    // Declaration of Control consumed 
+//    {
+//         Ctrl = "ControlName";
+//         Fct = "FonctionName";
+//    }; 
+//    
+//    OnControl = ActivateTask
+//    {
+//         Ctrl = "ControlName";
+//         Task = TaskReference;
+//    };
+//    
+//    OnControl = SetSignal
+//    {
+//        Ctrl = "ControlName";
+//        Signal = SignalReference;
+//    }; 
+//------------------------------------------------------------------------------
+    OnControl = CallBack
+    {
+        Ctrl = "ActiveSleepRequest";
+        Fct = "LAPSupActiveSleepRequest";
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "WakeUpRequest";
+        Fct = "LAPSupWakeUpRequest";
+    };
+};
+
+
+};
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif/* I_LAP_SUP_JIL */
+ /*cLIBStkScc2_Used*/

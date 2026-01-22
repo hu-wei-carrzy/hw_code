@@ -1,0 +1,112 @@
+//******************************************************************************
+// Company: 	 Johnson Controls Inc.
+// -----------------------------------------------------------------------------
+// Copyright:	 This software is JCI property.
+//				 Duplication or disclosure without JCI written authorization
+//				 is prohibited.
+// -----------------------------------------------------------------------------
+// Project: 	 N351
+// Language:	 ANSI-C
+// -----------------------------------------------------------------------------
+// Component:	 LAP_RUNIN
+//
+// -----------------------------------------------------------------------------
+// $Date:   Oct 22 2012 10:55:48  $
+// $Archive:   //N351_cluster/archives/1013338/DEV/BUILD/SOURCES/LAP_RUNIN.jil-arc  $
+// $Revision:   1.5  $
+// -----------------------------------------------------------------------------
+
+//******************************************************************************
+
+/*-------------------------------------------------------------------------
+  Includes non re entry
+  -------------------------------------------------------------------------*/
+#ifndef I_LAP_RUNIN_JIL 
+#define I_LAP_RUNIN_JIL (1)
+
+/*--------------------------------------------------------------------------
+  Included jil files
+
+  #include "project_file_name.jil"
+  --------------------------------------------------------------------------*/
+
+/****************************************************************************
+  Component declaration
+  Component ComponentName
+  {
+    // All declaration needed
+  };
+
+/****************************************************************************/
+Component LAP_RUNIN
+{
+    
+
+    Task LAPRunInTask
+    {
+        Id  = "cTOSTaskID_LAPRunInTask";
+        Fct = "LAPRunInTask";
+        Priority = 100;
+    };
+
+
+
+  /*--------------------------------------------------------------------------
+  Declaration of Graph
+
+  Graph GraphName
+  {
+    Id          = "IdName";              --> this field is optional
+    GraphGroup  =  GraphGroupReference; --> this field is optional
+    NbInstances =  NbInstances;          --> this field is optional
+  };
+  --------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------
+  Declaration of Control consumed 
+
+  OnControl = Callback
+  {
+     Ctrl = "ControlName";
+     Fct = "FonctionName";
+  }; 
+
+  Or 
+  
+  OnControl = ActivateTask
+  {
+     Ctrl = "ControlName";
+     Task = TaskReference;
+  };
+
+  Or
+
+  OnControl = SetSignal
+  {
+    Ctrl = "ControlName";
+    Signal = SignalReference;
+  }; 
+  --------------------------------------------------------------------------*/
+   OnControl = CallBack
+    {
+        Ctrl = "LAPEnterActiveState";
+        Fct = "LAPRunInEnterActiveState";
+    };
+
+	OnControl = CallBack
+    {
+        Ctrl = "LAPLeaveActiveState";
+        Fct = "LAPRunInLeaveActiveState";
+    };
+
+
+};
+/****************************************************************************
+  End of component declaration
+/****************************************************************************/
+/*-------------------------------------------------------------------------
+  End of includes non re entry
+  -------------------------------------------------------------------------*/
+#endif
+/* I_LAP_RUNIN_JIL */

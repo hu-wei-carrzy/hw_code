@@ -1,0 +1,108 @@
+
+//------------------------------------------------------------------------------
+//    Includes non re entry
+//------------------------------------------------------------------------------
+#ifndef I_DAT_CPL_JIL
+#define I_DAT_CPL_JIL (1)
+
+//------------------------------------------------------------------------------
+//    Included jil files
+//..
+//    #include "project_file_name.jil"
+//------------------------------------------------------------------------------
+
+// if you are using JIL.EXE keep the first part of this #ifndef
+// if you are using SCC2.EXE keep the second part of this #ifndef
+
+#include ".\..\DAT_CAN_CFG.jil"
+
+//------------------------------------------------------------------------------
+//    Component ComponentName                 // Component declaration
+//    {
+//        // All declaration needed
+//    };
+//------------------------------------------------------------------------------
+Component DAT_Cpl 
+{
+    
+
+//------------------------------------------------------------------------------
+//    ProdControl { Name = "ControlName";};   // Declaration of Control produced
+//------------------------------------------------------------------------------
+    ProdControl {Name="LAPDiaRequestP2P";};
+    ProdControl {Name="LAPDiaRequestALL";};
+    ProdControl {Name="LAPDiaFrameTransmitted";};
+
+//===================================================
+
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaAppDisableRx";
+		Fct = "DatCplDiagDisableAppRx";
+	};
+	
+//	OnControl = CallBack
+//	{
+//		Ctrl = "LAPDiaNMDisableRx";
+//		Fct = "DatCplDiagDisableNMRx";
+//	};
+	
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaAppEnableRx";
+		Fct = "DatCplDiagEnableAppRx";
+	};
+	
+	
+//	OnControl = CallBack
+//	{
+//		Ctrl = "LAPDiaNMEnableRx";
+//		Fct = "DatCplDiagEnableNMRx";
+//	};
+	
+	
+//===================================================
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaAppEnableTx";
+		Fct = "DatCplDiagEnableAppTx";
+	};
+	
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaAppDisableTx";
+		Fct = "DatCplDiagDisableAppTx";
+	};
+	
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaNMEnableTx";
+		Fct = "DatCplDiagEnableNMTx";
+	};
+	
+	
+	OnControl = CallBack
+	{
+		Ctrl = "LAPDiaNMDisableTx";
+		Fct = "DatCplDiagDisableNMTx";
+	};	
+    
+	OnControl = CallBack
+	{
+		Ctrl = "IgOff2On";
+		Fct = "DatCplCanTimeoutStop";
+	};	
+  
+	OnControl = CallBack
+	{
+		Ctrl = "IgOff2On_5sElapsed";
+		Fct = "DatCplCanTimeoutStart";
+	};	  
+};
+
+//------------------------------------------------------------------------------
+// End of includes non re entry
+//------------------------------------------------------------------------------
+#endif    /* I_DAT_CPL_JIL */
+
+

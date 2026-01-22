@@ -1,0 +1,26 @@
+
+#ifndef I_TOS_TPO_JIL
+#define I_TOS_TPO_JIL
+
+
+Component Tos_tpo
+{
+
+    Task TOSClock
+    {
+        Fct = "TOSClockTask";
+        Id = "cTOSTaskIdTOSClock";
+        Priority = 500;
+    };
+
+    OnControl = CallBack
+    {
+        Ctrl = "TOSInitialize";
+        Fct = "TOSTpoInitialize";
+    };
+};
+
+
+#endif /* I_TOS_TPO_JIL */
+
+

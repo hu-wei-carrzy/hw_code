@@ -1,0 +1,38 @@
+
+
+/*--------------------------------------------------------------------------
+                        Function prototypes
+  --------------------------------------------------------------------------*/
+
+#ifdef dat_cil
+#else
+   extern const tTOSSeqTypeGraphe DATCilSurveillanceReceptionCan; 
+#endif
+
+#ifdef dat_cil
+   extern void     DATCilSurveillanceReception(void);
+   extern BOOL TOSSeqEvalVrai(void); 
+#endif
+
+/*--------------------------------------------------------------------------
+                        Component rules
+  --------------------------------------------------------------------------*/
+
+#ifdef dat_cil
+  const tTOSSeqTypeGraphe DATCilSurveillanceReceptionCan =
+  {
+#ifdef COMPILATION_NATIVE
+    "DATCilSurveillanceReceptionCan",
+    {
+#endif
+  /*   0*/  {TOSSeqEvalVrai,DATCilSurveillanceReception,cTOSSeqPtNul,mTOSSeqAdrRegle(0)}, 
+#ifdef COMPILATION_NATIVE
+    }
+#endif
+  };
+#endif
+ 
+
+/****************************************************************************
+                        End of generation
+*****************************************************************************/
